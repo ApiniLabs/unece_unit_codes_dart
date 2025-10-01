@@ -1,2197 +1,7158 @@
+import 'package:unece_unit_codes/src/unit_info.dart';
+
 /// UnitCodes class provides a mapping of unit codes
-///  to their respective unit names and symbols.
+///  to their respective unit names, symbols and description.
 class UnitCodes {
-  static const Map<String, String> unitMap = {
-    '05': '', //lift
-    '06': '', //small spray
-    '08': '', //heat lot
-    '10': '', //group
-    '11': '', //outfit
-    '13': '', //ration
-    '14': '', //shot
-    '15': '', //stick, military
-    '16': '', //hundred fifteen kg drum
-    '17': '', //hundred lb drum
-    '18': '', //fiftyfive gallon (US) drum
-    '19': '', //tank truck
-    '1A': '', //car mile
-    '1B': '', //car count
-    '1C': '', //locomotive count
-    '1D': '', //caboose count
-    '1E': '', //empty car
-    '1F': '', //train mile
-    '1G': '', //fuel usage gallon (US)
-    '1H': '', //caboose mile
-    '1I': '', //fixed rate
-    '1J': '', //ton mile
-    '1K': '', //locomotive mile
-    '1L': '', //total car count
-    '1M': '', //total car mile
-    '1X': '', //quarter mile
-    '20': '', //twenty foot container
-    '21': '', //forty foot container
-    '22': 'dl/g', //decilitre per gram
-    '23': 'g/cm³', //gram per cubic centimetre
-    '24': '', //theoretical pound
-    '25': 'g/cm²', //gram per square centimetre
-    '26': '', //actual ton
-    '27': '', //theoretical ton
-    '28': 'kg/m²', //kilogram per square metre
-    '29': 'lb/kft²', //pound per thousand square foot
-    '2A': 'rad/s', //radian per second
-    '2B': 'rad/s²', //radian per second squared
-    '2C': 'R', //roentgen
-    '2G': 'V', //volt AC
-    '2H': 'V', //volt DC
-    '2I': 'BtuIT/h', //British thermal unit (international table) per hour
-    '2J': 'cm³/s', //cubic centimetre per second
-    '2K': 'ft³/h', //cubic foot per hour
-    '2L': 'ft³/min', //cubic foot per minute
-    '2M': 'cm/s', //centimetre per second
-    '2N': 'dB', //decibel
-    '2P': 'kbyte', //kilobyte
-    '2Q': 'kBq', //kilobecquerel
-    '2R': 'kCi', //kilocurie
-    '2U': 'Mg', //megagram
-    '2V': 'Mg/h', //megagram per hour
-    '2W': '', //bin
-    '2X': 'm/min', //metre per minute
-    '2Y': 'mR', //milliroentgen
-    '2Z': 'mV', //millivolt
-    '30': '', //horse power day per air dry metric ton
-    '31': '', //catch weight
-    '32': '', //kilogram per air dry metric ton
-    '33': 'kPa·m²/g', //kilopascal square metre per gram
-    '34': 'kPa/mm', //kilopascal per millimetre
-    '35': 'ml/(cm²·s)', //millilitre per square centimetre second
-    '36': 'ft³/(min/ft²)', //cubic foot per minute per square foot
-    '37': 'oz/ft²', //ounce per square foot
-    '38': 'oz/(ft²/cin)', //ounce per square foot per 0,01inch
-    '3B': 'MJ', //megajoule
-    '3C': '', //manmonth
-    '3E': '', //pound per pound of product
-    '3G': '', //pound per piece of product
-    '3H': '', //kilogram per kilogram of product
-    '3I': '', //kilogram per piece of product
-    '40': 'ml/s', //millilitre per second
-    '41': 'ml/min', //millilitre per minute
-    '43': '', //super bulk bag
-    '44': '', //fivehundred kg bulk bag
-    '45': '', //threehundred kg bulk bag
-    '46': '', //fifty lb bulk bag
-    '47': '', //fifty lb bag
-    '48': '', //bulk car load
-    '4A': '', //bobbin
-    '4B': '', //cap
-    '4C': 'cSt', //centistokes
-    '4E': '', //twenty pack
-    '4G': 'µl', //microlitre
-    '4H': 'µm', //micrometre (micron)
-    '4K': 'mA', //milliampere
-    '4L': 'Mbyte', //megabyte
-    '4M': 'mg/h', //milligram per hour
-    '4N': 'MBq', //megabecquerel
-    '4O': 'µF', //microfarad
-    '4P': 'N/m', //newton per metre
-    '4Q': 'oz·in', //ounce inch
-    '4R': 'oz·ft', //ounce foot
-    '4T': 'pF', //picofarad
-    '4U': 'lb/h', //pound per hour
-    '4W': 'ton (US) /h', //ton (US) per hour
-    '4X': 'kl/h', //kilolitre per hour
-    '53': '', //theoretical kilogram
-    '54': '', //theoretical tonne
-    '56': '', //sitas
-    '57': '', //mesh
-    '58': '', //net kilogram
-    '59': 'ppm', //part per million
-    '5A': 'barrel (US)/min', //barrel (US) per minute
-    '5B': '', //batch
-    '5C': '', //gallon(US) per thousand
-    '5E': '', //MMSCF/day
-    '5F': '', //pound per thousand
-    '5G': '', //pump
-    '5H': '', //stage
-    '5I': 'std', //standard cubic foot
-    '5J': '', //hydraulic horse power
-    '5K': '', //count per minute
-    '5P': '', //seismic level
-    '5Q': '', //seismic line
-    '60': '', //percent weight
-    '61': 'ppb', //part per billion (US)
-    '62': '', //percent per 1000 hour
-    '63': '', //failure rate in time
-    '64': '', //pound per square inch, gauge
-    '66': 'Oe', //oersted
-    '69': '', //test specific scale
-    '71': '', //volt ampere per pound
-    '72': '', //watt per pound
-    '73': '', //ampere tum per centimetre
-    '74': 'mPa', //millipascal
-    '76': 'Gs', //gauss
-    '77': 'mil', //milli-inch
-    '78': 'kGs', //kilogauss
-    '80': 'lb/in²', //pound per square inch absolute
-    '81': 'H', //henry
-    '84': 'klbf/in²', //kilopound-force per square inch
-    '85': 'ft·lbf', //foot pound-force
-    '87': 'lb/ft³', //pound per cubic foot
-    '89': 'P', //poise
-    '90': '', //Saybold universal second
-    '91': 'St', //stokes
-    '92': '', //calorie per cubic centimetre
-    '93': 'cal/g', //calorie per gram
-    '94': '', //curl unit
-    '95': '', //twenty thousand gallon (US) tankcar
-    '96': '', //ten thousand gallon (US) tankcar
-    '97': '', //ten kg drum
-    '98': '', //fifteen kg drum
-    'A1': 'cal₁₅', //15 °C calorie
-    'A10': 'A·m²/(J·s)', //ampere square metre per joule second
-    'A11': 'Å', //angstrom
-    'A12': 'ua', //astronomical unit
-    'A13': 'aJ', //attojoule
-    'A14': 'b', //barn
-    'A15': 'b/eV', //barn per electronvolt
-    'A16': 'b/(sr·eV)', //barn per steradian electronvolt
-    'A17': 'b/sr', //barn per steradian
-    'A18': 'Bq/kg', //becquerel per kilogram
-    'A19': 'Bq/m³', //becquerel per cubic metre
-    'A2': 'A/cm', //ampere per centimetre
-    'A20':
-        'BtuIT/(s·ft²·°R)', //British thermal unit (international table) per second square foot degree Rankine
-    'A21':
-        'Btu/IT(lb·°R)', //British thermal unit (international table) per pound degree Rankine
-    'A22':
-        'BtuIT/(s·ft·°R)', //British thermal unit (international table) per second foot degree Rankine
-    'A23':
-        'BtuIT/(h·ft²·°R)', //British thermal unit (international table) per hour square foot degree Rankine
-    'A24': 'cd/m²', //candela per square metre
-    'A25': 'CV', //cheval vapeur
-    'A26': 'C·m', //coulomb metre
-    'A27': 'C·m²/V', //coulomb metre squared per volt
-    'A28': 'C/cm³', //coulomb per cubic centimetre
-    'A29': 'C/m³', //coulomb per cubic metre
-    'A3': 'A/mm', //ampere per millimetre
-    'A30': 'C/mm³', //coulomb per cubic millimetre
-    'A31': 'C/(kg·s)', //coulomb per kilogram second
-    'A32': 'C/mol', //coulomb per mole
-    'A33': 'C/cm²', //coulomb per square centimetre
-    'A34': 'C/m²', //coulomb per square metre
-    'A35': 'C/mm²', //coulomb per square millimetre
-    'A36': 'cm³/mol', //cubic centimetre per mole
-    'A37': 'dm³/mol', //cubic decimetre per mole
-    'A38': 'm³/C', //cubic metre per coulomb
-    'A39': 'm³/kg', //cubic metre per kilogram
-    'A4': 'A/cm²', //ampere per square centimetre
-    'A40': 'm³/mol', //cubic metre per mole
-    'A41': 'A/m²', //ampere per square metre
-    'A42': 'Ci/kg', //curie per kilogram
-    'A43': 'dwt', //deadweight tonnage
-    'A44': 'dal', //decalitre
-    'A45': 'dam', //decametre
-    'A47': 'dtex (g/10km)', //decitex
-    'A48': '°R', //degree Rankine
-    'A49': 'den (g/9 km)', //denier
-    'A5': 'A·m²', //ampere square metre
-    'A50': 'dyn·s/cm³', //dyne second per cubic centimetre
-    'A51': 'dyn·s/cm', //dyne second per centimetre
-    'A52': 'dyn·s/cm⁵', //dyne second per centimetre to the fifth power
-    'A53': 'eV', //electronvolt
-    'A54': 'eV/m', //electronvolt per metre
-    'A55': 'eV·m²', //electronvolt square metre
-    'A56': 'eV·m²/kg', //electronvolt square metre per kilogram
-    'A57': 'erg', //erg
-    'A58': 'erg/cm', //erg per centimetre
-    'A59': '', //8-part cloud cover
-    'A6': 'A/(m²·K²)', //ampere per square metre kelvin squared
-    'A60': 'erg/cm³', //erg per cubic centimetre
-    'A61': 'erg/g', //erg per gram
-    'A62': 'erg/g·s', //erg per gram second
-    'A63': 'erg/s', //erg per second
-    'A64': 'erg/(s·cm²)', //erg per second square centimetre
-    'A65': 'erg/(cm²·s)', //erg per square centimetre second
-    'A66': 'erg·cm²', //erg square centimetre
-    'A67': 'erg·cm²/g', //erg square centimetre per gram
-    'A68': 'EJ', //exajoule
-    'A69': 'F/m', //farad per metre
-    'A7': 'A/mm²', //ampere per square millimetre
-    'A70': 'fJ', //femtojoule
-    'A71': 'fm', //femtometre
-    'A73': 'ft/s²', //foot per second squared
-    'A74': 'ft·lbf/s', //foot pound-force per second
-    'A75': '', //freight ton
-    'A76': 'Gal', //gal
-    'A77':
-        '', //Gaussian CGS (Centimetre-Gram-Second system) unit of displacement
-    'A78': '', //Gaussian CGS (Centimetre-Gram-Second system)
-    // unit of electric current
-    'A79': '', //Gaussian CGS (Centimetre-Gram-Second system)
-    // unit of electric charge
-    'A8': 'A·s', //ampere second
-    'A80': '', //Gaussian CGS (Centimetre-Gram-Second system)
-    // unit of electric field strength
-    'A81': '', //Gaussian CGS (Centimetre-Gram-Second system)
-    // unit of electric polarization
-    'A82': '', //Gaussian CGS (Centimetre-Gram-Second system)
-    // unit of electric potential
-    'A83':
-        '', //Gaussian CGS (Centimetre-Gram-Second system) unit of magnetization
-    'A84': 'GC/m³', //gigacoulomb per cubic metre
-    'A85': 'GeV', //gigaelectronvolt
-    'A86': 'GHz', //gigahertz
-    'A87': 'GΩ', //gigaohm
-    'A88': 'GΩ·m', //gigaohm metre
-    'A89': 'GPa', //gigapascal
-    'A9': '', //rate
-    'A90': 'GW', //gigawatt
-    'A91': '', //grade
-    'A93': 'g/m³', //gram per cubic metre
-    'A94': 'g/mol', //gram per mole
-    'A95': 'Gy', //gray
-    'A96': 'Gy/s', //gray per second
-    'A97': 'hPa', //hectopascal
-    'A98': 'H/m', //henry per metre
-    'A99': 'bit', //bit
-    'AA': '', //ball
-    'AB': 'pk', //bulk pack
-    'ACR': 'acre', //acre
-    'ACT': '', //activity
-    'AD': 'byte', //byte
-    'AE': 'A/m', //ampere per metre
-    'AH': '', //additional minute
-    'AI': '', //average minute per call
-    'AJ': '', //cop
-    'AK': 'fth', //fathom
-    'AL': '', //access line
-    'AM': '', //ampoule
-    'AMH': 'A·h', //ampere hour
-    'AMP': 'A', //ampere
-    'ANN': 'y', //year
-    'AP': '', //aluminium pound only
-    'APZ': 'tr oz', //troy ounce or apothecary ounce
-    'AQ': '', //anti-hemophilic factor (AHF) unit
-    'AR': '', //suppository
-    'ARE': 'a', //are
-    'AS': '', //assortment
-    'ASM': '', //alcoholic strength by mass
-    'ASU': '', //alcoholic strength by volume
-    'ATM': 'atm', //standard atmosphere
-    'ATT': 'at', //technical atmosphere
-    'AV': '', //capsule
-    'AW': '', //powder filled vial
-    'AWG': 'AWG', //american wire gauge
-    'AY': '', //assembly
-    'AZ': 'BtuIT/lb', //British thermal unit (international table) per pound
-    'B0': 'BTU/ft³', //Btu per cubic foot
-    'B1': 'barrel (US)/d', //barrel (US) per day
-    'B10': 'bit/s', //bit per second
-    'B11': 'J/(kg·K)', //joule per kilogram kelvin
-    'B12': 'J/m', //joule per metre
-    'B13': 'J/m²', //joule per square metre
-    'B14': 'J/m⁴', //joule per metre to the fourth power
-    'B15': 'J/mol', //joule per mole
-    'B16': 'J/(mol·K)', //joule per mole kelvin
-    'B17': '', //credit
-    'B18': 'J·s', //joule second
-    'B19': '', //digit
-    'B2': '', //bunk
-    'B20': 'J·m²/kg', //joule square metre per kilogram
-    'B21': 'K/W', //kelvin per watt
-    'B22': 'kA', //kiloampere
-    'B23': 'kA/m²', //kiloampere per square metre
-    'B24': 'kA/m', //kiloampere per metre
-    'B25': 'kBq/kg', //kilobecquerel per kilogram
-    'B26': 'kC', //kilocoulomb
-    'B27': 'kC/m³', //kilocoulomb per cubic metre
-    'B28': 'kC/m²', //kilocoulomb per square metre
-    'B29': 'keV', //kiloelectronvolt
-    'B3': '', //batting pound
-    'B30': 'Gibit', //gibibit
-    'B31': 'kg·m/s', //kilogram metre per second
-    'B32': 'kg·m²', //kilogram metre squared
-    'B33': 'kg·m²/s', //kilogram metre squared per second
-    'B34': 'kg/dm³', //kilogram per cubic decimetre
-    'B35': 'kg/l or kg/L', //kilogram per litre
-    'B36': 'calth/g', //calorie (thermochemical) per gram
-    'B37': 'kgf', //kilogram-force
-    'B38': 'kgf·m', //kilogram-force metre
-    'B39': 'kgf·m/s', //kilogram-force metre per second
-    'B4': '', //barrel, imperial
-    'B40': 'kgf/m²', //kilogram-force per square metre
-    'B41': 'kJ/K', //kilojoule per kelvin
-    'B42': 'kJ/kg', //kilojoule per kilogram
-    'B43': 'kJ/(kg·K)', //kilojoule per kilogram kelvin
-    'B44': 'kJ/mol', //kilojoule per mole
-    'B45': 'kmol', //kilomole
-    'B46': 'kmol/m³', //kilomole per cubic metre
-    'B47': 'kN', //kilonewton
-    'B48': 'kN·m', //kilonewton metre
-    'B49': 'kΩ', //kiloohm
-    'B5': '', //billet
-    'B50': 'kΩ·m', //kiloohm metre
-    'B51': 'kp', //kilopond
-    'B52': 'ks', //kilosecond
-    'B53': 'kS', //kilosiemens
-    'B54': 'kS/m', //kilosiemens per metre
-    'B55': 'kV/m', //kilovolt per metre
-    'B56': 'kWb/m', //kiloweber per metre
-    'B57': 'ly', //light year
-    'B58': 'l/mol', //litre per mole
-    'B59': 'lm·h', //lumen hour
-    'B6': '', //bun
-    'B60': 'lm/m²', //lumen per square metre
-    'B61': 'lm/W', //lumen per watt
-    'B62': 'lm·s', //lumen second
-    'B63': 'lx·h', //lux hour
-    'B64': 'lx·s', //lux second
-    'B65': 'Mx', //maxwell
-    'B66': 'MA/m²', //megaampere per square metre
-    'B67': 'MBq/kg', //megabecquerel per kilogram
-    'B68': 'Gbit', //gigabit
-    'B69': 'MC/m³', //megacoulomb per cubic metre
-    'B7': '', //cycle
-    'B70': 'MC/m²', //megacoulomb per square metre
-    'B71': 'MeV', //megaelectronvolt
-    'B72': 'Mg/m³', //megagram per cubic metre
-    'B73': 'MN', //meganewton
-    'B74': 'MN·m', //meganewton metre
-    'B75': 'MΩ', //megaohm
-    'B76': 'MΩ·m', //megaohm metre
-    'B77': 'MS/m', //megasiemens per metre
-    'B78': 'MV', //megavolt
-    'B79': 'MV/m', //megavolt per metre
-    'B8': 'J/m³', //joule per cubic metre
-    'B80': 'Gbit/s', //gigabit per second
-    'B81': 'm⁻²/s', //reciprocal metre squared reciprocal second
-    'B82': '', //inch per linear foot
-    'B83': 'm⁴', //metre to the fourth power
-    'B84': 'µA', //microampere
-    'B85': 'µbar', //microbar
-    'B86': 'µC', //microcoulomb
-    'B87': 'µC/m³', //microcoulomb per cubic metre
-    'B88': 'µC/m²', //microcoulomb per square metre
-    'B89': 'µF/m', //microfarad per metre
-    'B9': '', //batt
-    'B90': 'µH', //microhenry
-    'B91': 'µH/m', //microhenry per metre
-    'B92': 'µN', //micronewton
-    'B93': 'µN·m', //micronewton metre
-    'B94': 'µΩ', //microohm
-    'B95': 'µΩ·m', //microohm metre
-    'B96': 'µPa', //micropascal
-    'B97': 'µrad', //microradian
-    'B98': 'µs', //microsecond
-    'B99': 'µS', //microsiemens
-    'BAR': 'bar', //bar [unit of pressure]
-    'BB': '', //base box
-    'BD': '', //board
-    'BE': '', //bundle
-    'BFT': 'fbm', //board foot
-    'BG': '', //bag
-    'BH': '', //brush
-    'BHP': 'BHP', //brake horse power
-    'BIL': '', //billion (EUR)
-    'BJ': '', //bucket
-    'BK': '', //basket
-    'BL': '', //bale
-    'BLD': 'bbl (US)', //dry barrel (US)
-    'BLL': 'barrel (US)', //barrel (US)
-    'BO': '', //bottle
-    'BP': '', //hundred board foot
-    'BPM': 'BPM', //beats per minute
-    'BQL': 'Bq', //becquerel
-    'BR': '', //bar [unit of packaging]
-    'BT': '', //bolt
-    'BTU': 'BtuIT', //British thermal unit (international table)
-    'BUA': 'bu (US)', //bushel (US)
-    'BUI': 'bushel (UK)', //bushel (UK)
-    'BW': '', //base weight
-    'BX': '', //box
-    'BZ': '', //million BTUs
-    'C0': '', //call
-    'C1': '', //composite product pound (total weight)
-    'C10': 'mF', //millifarad
-    'C11': 'mGal', //milligal
-    'C12': 'mg/m', //milligram per metre
-    'C13': 'mGy', //milligray
-    'C14': 'mH', //millihenry
-    'C15': 'mJ', //millijoule
-    'C16': 'mm/s', //millimetre per second
-    'C17': 'mm²/s', //millimetre squared per second
-    'C18': 'mmol', //millimole
-    'C19': 'mol/kg', //mole per kilogram
-    'C2': '', //carset
-    'C20': 'mN', //millinewton
-    'C21': 'Kibit', //kibibit
-    'C22': 'mN/m', //millinewton per metre
-    'C23': 'mΩ·m', //milliohm metre
-    'C24': 'mPa·s', //millipascal second
-    'C25': 'mrad', //milliradian
-    'C26': 'ms', //millisecond
-    'C27': 'mS', //millisiemens
-    'C28': 'mSv', //millisievert
-    'C29': 'mT', //millitesla
-    'C3': 'µV/m', //microvolt per metre
-    'C30': 'mV/m', //millivolt per metre
-    'C31': 'mW', //milliwatt
-    'C32': 'mW/m²', //milliwatt per square metre
-    'C33': 'mWb', //milliweber
-    'C34': 'mol', //mole
-    'C35': 'mol/dm³', //mole per cubic decimetre
-    'C36': 'mol/m³', //mole per cubic metre
-    'C37': 'kbit', //kilobit
-    'C38': 'mol/l', //mole per litre
-    'C39': 'nA', //nanoampere
-    'C4': '', //carload
-    'C40': 'nC', //nanocoulomb
-    'C41': 'nF', //nanofarad
-    'C42': 'nF/m', //nanofarad per metre
-    'C43': 'nH', //nanohenry
-    'C44': 'nH/m', //nanohenry per metre
-    'C45': 'nm', //nanometre
-    'C46': 'nΩ·m', //nanoohm metre
-    'C47': 'ns', //nanosecond
-    'C48': 'nT', //nanotesla
-    'C49': 'nW', //nanowatt
-    'C5': '', //cost
-    'C50': 'Np', //neper
-    'C51': 'Np/s', //neper per second
-    'C52': 'pm', //picometre
-    'C53': 'N·m·s', //newton metre second
-    'C54': 'N·m²/kg²', //newton metre squared per kilogram squared
-    'C55': 'N/m²', //newton per square metre
-    'C56': 'N/mm²', //newton per square millimetre
-    'C57': 'N·s', //newton second
-    'C58': 'N·s/m', //newton second per metre
-    'C59': '', //octave
-    'C6': '', //cell
-    'C60': 'Ω·cm', //ohm centimetre
-    'C61': 'Ω·m', //ohm metre
-    'C62': '1', //one
-    'C63': 'pc', //parsec
-    'C64': 'Pa/K', //pascal per kelvin
-    'C65': 'Pa·s', //pascal second
-    'C66': 'Pa·s/m³', //pascal second per cubic metre
-    'C67': 'Pa· s/m', //pascal second per metre
-    'C68': 'PJ', //petajoule
-    'C69': '', //phon
-    'C7': 'cP', //centipoise
-    'C70': 'pA', //picoampere
-    'C71': 'pC', //picocoulomb
-    'C72': 'pF/m', //picofarad per metre
-    'C73': 'pH', //picohenry
-    'C74': 'kbit/s', //kilobit per second
-    'C75': 'pW', //picowatt
-    'C76': 'pW/m²', //picowatt per square metre
-    'C77': '', //pound gage
-    'C78': 'lbf', //pound-force
-    'C79': 'kVAh', //kilovolt ampere hour
-    'C8': 'mC/kg', //millicoulomb per kilogram
-    'C80': 'rad', //rad
-    'C81': 'rad', //radian
-    'C82': 'rad·m²/mol', //radian square metre per mole
-    'C83': 'rad·m²/kg', //radian square metre per kilogram
-    'C84': 'rad/m', //radian per metre
-    'C85': 'Å⁻¹', //reciprocal angstrom
-    'C86': 'm⁻³', //reciprocal cubic metre
-    'C87': 'm⁻³/s', //reciprocal cubic metre per second
-    'C88': 'eV⁻¹/m³', //reciprocal electron volt per cubic metre
-    'C89': 'H⁻¹', //reciprocal henry
-    'C9': '', //coil group
-    'C90': 'J⁻¹/m³', //reciprocal joule per cubic metre
-    'C91': 'K⁻¹', //reciprocal kelvin or kelvin to the power minus one
-    'C92': 'm⁻¹', //reciprocal metre
-    'C93': 'm⁻²', //reciprocal square metre
-    'C94': 'min⁻¹', //reciprocal minute
-    'C95': 'mol⁻¹', //reciprocal mole
-    'C96': 'Pa⁻¹', //reciprocal pascal or pascal to the power minus one
-    'C97': 's⁻¹', //reciprocal second
-    'C98': 's⁻¹/m³', //reciprocal second per cubic metre
-    'C99': 's⁻¹/m²', //reciprocal second per metre squared
-    'CA': '', //can
-    'CCT': '', //carrying capacity in metric ton
-    'CDL': 'cd', //candela
-    'CEL': '°C', //degree Celsius
-    'CEN': '', //hundred
-    'CG': '', //card
-    'CGM': 'cg', //centigram
-    'CH': '', //container
-    'CJ': '', //cone
-    'CK': '', //connector
-    'CKG': 'C/kg', //coulomb per kilogram
-    'CL': '', //coil
-    'CLF': '', //hundred leave
-    'CLT': 'cl', //centilitre
-    'CMK': 'cm²', //square centimetre
-    'CMQ': 'cm³', //cubic centimetre
-    'CMT': 'cm', //centimetre
-    'CNP': '', //hundred pack
-    'CNT': '', //cental (UK)
-    'CO': '', //carboy
-    'COU': 'C', //coulomb
-    'CQ': '', //cartridge
-    'CR': '', //crate
-    'CS': '', //case
-    'CT': '', //carton
-    'CTG': '', //content gram
-    'CTM': '', //metric carat
-    'CTN': '', //content ton (metric)
-    'CU': '', //cup
-    'CUR': 'Ci', //curie
-    'CV': '', //cover
-    'CWA': 'cwt (US)', //hundred pound (cwt) / hundred weight (US)
-    'CWI': 'cwt (UK)', //hundred weight (UK)
-    'CY': '', //cylinder
-    'CZ': '', //combo
-    'D03': 'kW·h/h', //kilowatt hour per hour
-    'D04': '', //lot [unit of weight]
-    'D1': 's⁻¹/sr', //reciprocal second per steradian
-    'D10': 'S/m', //siemens per metre
-    'D11': 'Mibit', //mebibit
-    'D12': 'S·m²/mol', //siemens square metre per mole
-    'D13': 'Sv', //sievert
-    'D14': '', //thousand linear yard
-    'D15': '', //sone
-    'D16': 'cm²/erg', //square centimetre per erg
-    'D17': 'cm²/(sr·erg)', //square centimetre per steradian erg
-    'D18': 'm·K', //metre kelvin
-    'D19': 'm²·K/W', //square metre kelvin per watt
-    'D2': 's⁻¹/(sr·m²)', //reciprocal second per steradian metre squared
-    'D20': 'm²/J', //square metre per joule
-    'D21': 'm²/kg', //square metre per kilogram
-    'D22': 'm²/mol', //square metre per mole
-    'D23': '', //pen gram (protein)
-    'D24': 'm²/sr', //square metre per steradian
-    'D25': 'm²/(sr·J)', //square metre per steradian joule
-    'D26': 'm²/(V·s)', //square metre per volt second
-    'D27': 'sr', //steradian
-    'D28': '', //syphon
-    'D29': 'THz', //terahertz
-    'D30': 'TJ', //terajoule
-    'D31': 'TW', //terawatt
-    'D32': 'TW·h', //terawatt hour
-    'D33': 'T', //tesla
-    'D34': 'tex (g/km)', //tex
-    'D35': 'calth', //calorie (thermochemical)
-    'D36': 'Mbit', //megabit
-    'D37': 'calth/(g·K)', //calorie (thermochemical) per gram kelvin
-    'D38':
-        'calth/(s·cm·K)', //calorie (thermochemical) per second centimetre kelvin
-    'D39':
-        'calth/(s·cm²·K)', //calorie (thermochemical) per second square centimetre kelvin
-    'D40': '', //thousand litre
-    'D41': 't/m³', //tonne per cubic metre
-    'D42': 'y (tropical)', //tropical year
-    'D43': 'u', //unified atomic mass unit
-    'D44': 'var', //var
-    'D45': 'V²/K²', //volt squared per kelvin squared
-    'D46': 'V·A', //volt - ampere
-    'D47': 'V/cm', //volt per centimetre
-    'D48': 'V/K', //volt per kelvin
-    'D49': 'mV/K', //millivolt per kelvin
-    'D5': 'kg/cm²', //kilogram per square centimetre
-    'D50': 'V/m', //volt per metre
-    'D51': 'V/mm', //volt per millimetre
-    'D52': 'W/K', //watt per kelvin
-    'D53': 'W/(m·K)', //watt per metre kelvin
-    'D54': 'W/m²', //watt per square metre
-    'D55': 'W/(m²·K)', //watt per square metre kelvin
-    'D56': 'W/(m²·K⁴)', //watt per square metre kelvin to the fourth power
-    'D57': 'W/sr', //watt per steradian
-    'D58': 'W/(sr·m²)', //watt per steradian square metre
-    'D59': 'Wb/m', //weber per metre
-    'D6': 'R/s', //roentgen per second
-    'D60': 'Wb/mm', //weber per millimetre
-    'D61': "'", //minute [unit of angle]
-    'D62': '"', //second [unit of angle]
-    'D63': '', //book
-    'D64': '', //block
-    'D65': '', //round
-    'D66': '', //cassette
-    'D67': '', //dollar per hour
-    'D68': '', //number of words
-    'D69': 'in⁴', //inch to the fourth power
-    'D7': '', //sandwich
-    'D70': 'calIT', //calorie (international table)
-    'D71':
-        'calIT/(s·cm·K)', //calorie (international table) per second centimetre kelvin
-    'D72':
-        'calIT/(s·cm²·K)', //calorie (international table) per second square centimetre kelvin
-    'D73': 'J·m²', //joule square metre
-    'D74': 'kg/mol', //kilogram per mole
-    'D75': 'calIT/g', //calorie (international table) per gram
-    'D76': 'calIT/(g·K)', //calorie (international table) per gram kelvin
-    'D77': 'MC', //megacoulomb
-    'D78': 'MJ/s', //megajoule per second
-    'D79': '', //beam
-    'D8': '', //draize score
-    'D80': 'µW', //microwatt
-    'D81': 'µT', //microtesla
-    'D82': 'µV', //microvolt
-    'D83': 'mN·m', //millinewton metre
-    'D85': 'µW/m²', //microwatt per square metre
-    'D86': 'mC', //millicoulomb
-    'D87': 'mmol/kg', //millimole per kilogram
-    'D88': 'mC/m³', //millicoulomb per cubic metre
-    'D89': 'mC/m²', //millicoulomb per square metre
-    'D9': 'dyn/cm²', //dyne per square centimetre
-    'D90': '', //cubic metre (net)
-    'D91': 'rem', //rem
-    'D92': '', //band
-    'D93': 's/m³', //second per cubic metre
-    'D94': 's/(rad·m³)', //second per cubic metre radian
-    'D95': 'J/g', //joule per gram
-    'D96': '', //pound gross
-    'D97': '', //pallet/unit load
-    'D98': '', //mass pound
-    'D99': '', //sleeve
-    'DAA': 'daa', //decare
-    'DAD': '', //ten day
-    'DAY': 'd', //day
-    'DB': '', //dry pound
-    'DBM': 'dBm', //Decibel-milliwatts
-    'DBW': 'dBW', //Decibel watt
-    'DC': '', //disk (disc)
-    'DD': '°', //degree [unit of angle]
-    'DE': '', //deal
-    'DEC': '', //decade
-    'DG': 'dg', //decigram
-    'DI': '', //dispenser
-    'DJ': 'dag', //decagram
-    'DLT': 'dl', //decilitre
-    'DMA': 'dam³', //cubic decametre
-    'DMK': 'dm²', //square decimetre
-    'DMO': '', //standard kilolitre
-    'DMQ': 'dm³', //cubic decimetre
-    'DMT': 'dm', //decimetre
-    'DN': 'dN·m', //decinewton metre
-    'DPC': '', //dozen piece
-    'DPR': '', //dozen pair
-    'DPT': '', //displacement tonnage
-    'DQ': '', //data record
-    'DR': '', //drum
-    'DRA': '', //dram (US)
-    'DRI': '', //dram (UK)
-    'DRL': '', //dozen roll
-    'DRM': '', //drachm (UK)
-    'DS': '', //display
-    'DT': '', //dry ton
-    'DTN': 'dt or dtn', //decitonne
-    'DU': 'dyn', //dyne
-    'DWT': '', //pennyweight
-    'DX': 'dyn/cm', //dyne per centimetre
-    'DY': '', //directory book
-    'DZN': 'DOZ', //dozen
-    'DZP': '', //dozen pack
-    'E01': 'N/cm²', //newton per square centimetre
-    'E07': 'MW·h/h', //megawatt hour per hour
-    'E08': 'MW/Hz', //megawatt per hertz
-    'E09': 'mA·h', //milliampere hour
-    'E10': 'deg da', //degree day
-    'E11': '', //gigacalorie
-    'E12': '', //mille
-    'E14': 'kcalIT', //kilocalorie (international table)
-    'E15': 'kcalth/h', //kilocalorie (thermochemical) per hour
-    'E16': 'BtuIT/h', //million Btu(IT) per hour
-    'E17': 'ft³/s', //cubic foot per second
-    'E18': 't/h', //tonne per hour
-    'E19': '', //ping
-    'E2': '', //belt
-    'E20': 'Mbit/s', //megabit per second
-    'E21': '', //shares
-    'E22': '', //TEU
-    'E23': '', //tyre
-    'E25': '', //active unit
-    'E27': '', //dose
-    'E28': '', //air dry ton
-    'E3': '', //trailer
-    'E30': '', //strand
-    'E31': 'm²/l', //square metre per litre
-    'E32': 'l/h', //litre per hour
-    'E33': '', //foot per thousand
-    'E34': 'Gbyte', //gigabyte
-    'E35': 'Tbyte', //terabyte
-    'E36': 'Pbyte', //petabyte
-    'E37': '', //pixel
-    'E38': '', //megapixel
-    'E39': 'dpi', //dots per inch
-    'E4': '', //gross kilogram
-    'E40': 'ppht', //part per hundred thousand
-    'E41': 'kgf/mm²', //kilogram-force per square millimetre
-    'E42': 'kgf/cm²', //kilogram-force per square centimetre
-    'E43': 'J/cm²', //joule per square centimetre
-    'E44': 'kgf·m/cm²', //kilogram-force metre per square centimetre
-    'E45': 'mΩ', //milliohm
-    'E46': 'kW·h/m³', //kilowatt hour per cubic metre
-    'E47': 'kW·h/K', //kilowatt hour per kelvin
-    'E48': '', //service unit
-    'E49': '', //working day
-    'E5': '', //metric long ton
-    'E50': '', //accounting unit
-    'E51': '', //job
-    'E52': '', //run foot
-    'E53': '', //test
-    'E54': '', //trip
-    'E55': '', //use
-    'E56': '', //well
-    'E57': '', //zone
-    'E58': 'Ebit/s', //exabit per second
-    'E59': 'Eibyte', //exbibyte
-    'E60': 'Pibyte', //pebibyte
-    'E61': 'Tibyte', //tebibyte
-    'E62': 'Gibyte', //gibibyte
-    'E63': 'Mibyte', //mebibyte
-    'E64': 'Kibyte', //kibibyte
-    'E65': 'Eibit/m', //exbibit per metre
-    'E66': 'Eibit/m²', //exbibit per square metre
-    'E67': 'Eibit/m³', //exbibit per cubic metre
-    'E68': 'Gbyte/s', //gigabyte per second
-    'E69': 'Gibit/m', //gibibit per metre
-    'E70': 'Gibit/m²', //gibibit per square metre
-    'E71': 'Gibit/m³', //gibibit per cubic metre
-    'E72': 'Kibit/m', //kibibit per metre
-    'E73': 'Kibit/m²', //kibibit per square metre
-    'E74': 'Kibit/m³', //kibibit per cubic metre
-    'E75': 'Mibit/m', //mebibit per metre
-    'E76': 'Mibit/m²', //mebibit per square metre
-    'E77': 'Mibit/m³', //mebibit per cubic metre
-    'E78': 'Pbit', //petabit
-    'E79': 'Pbit/s', //petabit per second
-    'E80': 'Pibit/m', //pebibit per metre
-    'E81': 'Pibit/m²', //pebibit per square metre
-    'E82': 'Pibit/m³', //pebibit per cubic metre
-    'E83': 'Tbit', //terabit
-    'E84': 'Tbit/s', //terabit per second
-    'E85': 'Tibit/m', //tebibit per metre
-    'E86': 'Tibit/m³', //tebibit per cubic metre
-    'E87': 'Tibit/m²', //tebibit per square metre
-    'E88': 'bit/m', //bit per metre
-    'E89': 'bit/m²', //bit per square metre
-    'E90': 'cm⁻¹', //reciprocal centimetre
-    'E91': 'd⁻¹', //reciprocal day
-    'E92': 'dm³/h', //cubic decimetre per hour
-    'E93': 'kg/h', //kilogram per hour
-    'E94': 'kmol/s', //kilomole per second
-    'E95': 'mol/s', //mole per second
-    'E96': '°/s', //degree per second
-    'E97': 'mm/(°C·m)', //millimetre per degree Celcius metre
-    'E98': '°C/K', //degree Celsius per kelvin
-    'E99': 'hPa/bar', //hectopascal per bar
-    'EA': '', //each
-    'EB': '', //electronic mail box
-    'EC': '', //each per month
-    'EP': '', //eleven pack
-    'EQ': '', //equivalent gallon
-    'EV': '', //envelope
-    'F01': 'bit/m³', //bit per cubic metre
-    'F02': 'K/K', //kelvin per kelvin
-    'F03': 'kPa/bar', //kilopascal per bar
-    'F04': 'mbar/bar', //millibar per bar
-    'F05': 'MPa/bar', //megapascal per bar
-    'F06': 'P/bar', //poise per bar
-    'F07': 'Pa/bar', //pascal per bar
-    'F08': 'mA/in', //milliampere per inch
-    'F1': '', //thousand cubic foot per day
-    'F10': 'K/h', //kelvin per hour
-    'F11': 'K/min', //kelvin per minute
-    'F12': 'K/s', //kelvin per second
-    'F13': 'slug', //slug
-    'F14': 'g/K', //gram per kelvin
-    'F15': 'kg/K', //kilogram per kelvin
-    'F16': 'mg/K', //milligram per kelvin
-    'F17': 'lbf/ft', //pound-force per foot
-    'F18': 'kg·cm²', //kilogram square centimetre
-    'F19': 'kg·mm²', //kilogram square millimetre
-    'F20': 'lb·in²', //pound inch squared
-    'F21': 'lbf·in', //pound-force inch
-    'F22': 'lbf·ft/A', //pound-force foot per ampere
-    'F23': 'g/dm³', //gram per cubic decimetre
-    'F24': 'kg/kmol', //kilogram per kilomol
-    'F25': 'g/Hz', //gram per hertz
-    'F26': 'g/d', //gram per day
-    'F27': 'g/h', //gram per hour
-    'F28': 'g/min', //gram per minute
-    'F29': 'g/s', //gram per second
-    'F30': 'kg/d', //kilogram per day
-    'F31': 'kg/min', //kilogram per minute
-    'F32': 'mg/d', //milligram per day
-    'F33': 'mg/min', //milligram per minute
-    'F34': 'mg/s', //milligram per second
-    'F35': 'g/(d·K)', //gram per day kelvin
-    'F36': 'g/(h·K)', //gram per hour kelvin
-    'F37': 'g/(min·K)', //gram per minute kelvin
-    'F38': 'g/(s·K)', //gram per second kelvin
-    'F39': 'kg/(d·K)', //kilogram per day kelvin
-    'F40': 'kg/(h·K)', //kilogram per hour kelvin
-    'F41': 'kg/(min·K)', //kilogram per minute kelvin
-    'F42': 'kg/(s·K)', //kilogram per second kelvin
-    'F43': 'mg/(d·K)', //milligram per day kelvin
-    'F44': 'mg/(h·K)', //milligram per hour kelvin
-    'F45': 'mg/(min·K)', //milligram per minute kelvin
-    'F46': 'mg/(s·K)', //milligram per second kelvin
-    'F47': 'N/mm', //newton per millimetre
-    'F48': 'lbf/in', //pound-force per inch
-    'F49': 'rd (US)', //rod [unit of distance]
-    'F50': 'µm/K', //micrometre per kelvin
-    'F51': 'cm/K', //centimetre per kelvin
-    'F52': 'm/K', //metre per kelvin
-    'F53': 'mm/K', //millimetre per kelvin
-    'F54': 'mΩ/m', //milliohm per metre
-    'F55': 'Ω/mi', //ohm per mile (statute mile)
-    'F56': 'Ω/km', //ohm per kilometre
-    'F57': 'mA/(lbf/in²)', //milliampere per pound-force per square inch
-    'F58': '1/bar', //reciprocal bar
-    'F59': 'mA/bar', //milliampere per bar
-    'F60': '°C/bar', //degree Celsius per bar
-    'F61': 'K/bar', //kelvin per bar
-    'F62': 'g/(d·bar)', //gram per day bar
-    'F63': 'g/(h·bar)', //gram per hour bar
-    'F64': 'g/(min·bar)', //gram per minute bar
-    'F65': 'g/(s·bar)', //gram per second bar
-    'F66': 'kg/(d·bar)', //kilogram per day bar
-    'F67': 'kg/(h·bar)', //kilogram per hour bar
-    'F68': 'kg/(min·bar)', //kilogram per minute bar
-    'F69': 'kg/(s·bar)', //kilogram per second bar
-    'F70': 'mg/(d·bar)', //milligram per day bar
-    'F71': 'mg/(h·bar)', //milligram per hour bar
-    'F72': 'mg/(min·bar)', //milligram per minute bar
-    'F73': 'mg/(s·bar)', //milligram per second bar
-    'F74': 'g/bar', //gram per bar
-    'F75': 'mg/bar', //milligram per bar
-    'F76': 'mA/mm', //milliampere per millimetre
-    'F77': 'Pa.s/K', //pascal second per kelvin
-    'F78': 'inH₂O', //inch of water
-    'F79': 'inHg', //inch of mercury
-    'F80': '', //water horse power
-    'F81': 'bar/K', //bar per kelvin
-    'F82': 'hPa/K', //hectopascal per kelvin
-    'F83': 'kPa/K', //kilopascal per kelvin
-    'F84': 'mbar/K', //millibar per kelvin
-    'F85': 'MPa/K', //megapascal per kelvin
-    'F86': 'P/K', //poise per kelvin
-    'F87': 'V/(l·min)', //volt per litre minute
-    'F88': 'N·cm', //newton centimetre
-    'F89': 'Nm/°', //newton metre per degree
-    'F9': '', //fibre per cubic centimetre of air
-    'F90': 'N·m/A', //newton metre per ampere
-    'F91': 'bar·l/s', //bar litre per second
-    'F92': 'bar·m³/s', //bar cubic metre per second
-    'F93': 'hPa·l/s', //hectopascal litre per second
-    'F94': 'hPa·m³/s', //hectopascal cubic metre per second
-    'F95': 'mbar·l/s', //millibar litre per second
-    'F96': 'mbar·m³/s', //millibar cubic metre per second
-    'F97': 'MPa·l/s', //megapascal litre per second
-    'F98': 'MPa·m³/s', //megapascal cubic metre per second
-    'F99': 'Pa·l/s', //pascal litre per second
-    'FAH': '°F', //degree Fahrenheit
-    'FAR': 'F', //farad
-    'FB': '', //field
-    'FBM': '', //fibre metre
-    'FC': 'kft³', //thousand cubic foot
-    'FD': '', //million particle per cubic foot
-    'FE': '', //track foot
-    'FF': '', //hundred cubic metre
-    'FG': '', //transdermal patch
-    'FH': 'µmol', //micromole
-    'FIT': 'FIT', //failures in time
-    'FL': '', //flake ton
-    'FM': 'Mft³', //million cubic foot
-    'FNU': 'FNU', //Formazin nephelometric unit
-    'FOT': 'ft', //foot
-    'FP': 'lb/ft²', //pound per square foot
-    'FR': 'ft/min', //foot per minute
-    'FS': 'ft/s', //foot per second
-    'FTK': 'ft²', //square foot
-    'FTQ': 'ft³', //cubic foot
-    'G01': 'Pa·m³/s', //pascal cubic metre per second
-    'G04': 'cm/bar', //centimetre per bar
-    'G05': 'm/bar', //metre per bar
-    'G06': 'mm/bar', //millimetre per bar
-    'G08': 'in²/s', //square inch per second
-    'G09': 'm²/(s·K)', //square metre per second kelvin
-    'G10': 'St/K', //stokes per kelvin
-    'G11': 'g/(cm³·bar)', //gram per cubic centimetre bar
-    'G12': 'g/(dm³·bar)', //gram per cubic decimetre bar
-    'G13': 'g/(l·bar)', //gram per litre bar
-    'G14': 'g/(m³·bar)', //gram per cubic metre bar
-    'G15': 'g/(ml·bar)', //gram per millilitre bar
-    'G16': 'kg/(cm³·bar)', //kilogram per cubic centimetre bar
-    'G17': 'kg/(l·bar)', //kilogram per litre bar
-    'G18': 'kg/(m³·bar)', //kilogram per cubic metre bar
-    'G19': 'N·m/kg', //newton metre per kilogram
-    'G2': 'gal (US) /min', //US gallon per minute
-    'G20': 'lbf·ft/lb', //pound-force foot per pound
-    'G21': 'cup (US)', //cup [unit of volume]
-    'G23': 'pk (US)', //peck
-    'G24': 'tablespoon (US)', //tablespoon (US)
-    'G25': 'teaspoon (US)', //teaspoon (US)
-    'G26': 'st', //stere
-    'G27': 'cm³/K', //cubic centimetre per kelvin
-    'G28': 'l/K', //litre per kelvin
-    'G29': 'm³/K', //cubic metre per kelvin
-    'G3': 'gal (UK) /min', //Imperial gallon per minute
-    'G30': 'ml/K', //millilitre per kelvin
-    'G31': 'kg/cm³', //kilogram per cubic centimetre
-    'G32': 'oz/yd³', //ounce (avoirdupois) per cubic yard
-    'G33': 'g/(cm³·K)', //gram per cubic centimetre kelvin
-    'G34': 'g/(dm³·K)', //gram per cubic decimetre kelvin
-    'G35': 'g/(l·K)', //gram per litre kelvin
-    'G36': 'g/(m³·K)', //gram per cubic metre kelvin
-    'G37': 'g/(ml·K)', //gram per millilitre kelvin
-    'G38': 'kg/(cm³·K)', //kilogram per cubic centimetre kelvin
-    'G39': 'kg/(l·K)', //kilogram per litre kelvin
-    'G40': 'kg/(m³·K)', //kilogram per cubic metre kelvin
-    'G41': 'm²/(s·bar)', //square metre per second bar
-    'G42': 'µS/cm', //microsiemens per centimetre
-    'G43': 'µS/m', //microsiemens per metre
-    'G44': 'nS/cm', //nanosiemens per centimetre
-    'G45': 'nS/m', //nanosiemens per metre
-    'G46': 'St/bar', //stokes per bar
-    'G47': 'cm³/d', //cubic centimetre per day
-    'G48': 'cm³/h', //cubic centimetre per hour
-    'G49': 'cm³/min', //cubic centimetre per minute
-    'G50': 'gal/h', //gallon (US) per hour
-    'G51': 'l/s', //litre per second
-    'G52': 'm³/d', //cubic metre per day
-    'G53': 'm³/min', //cubic metre per minute
-    'G54': 'ml/d', //millilitre per day
-    'G55': 'ml/h', //millilitre per hour
-    'G56': 'in³/h', //cubic inch per hour
-    'G57': 'in³/min', //cubic inch per minute
-    'G58': 'in³/s', //cubic inch per second
-    'G59': 'mA/(l·min)', //milliampere per litre minute
-    'G60': 'V/bar', //volt per bar
-    'G61': 'cm³/(d·K)', //cubic centimetre per day kelvin
-    'G62': 'cm³/(h·K)', //cubic centimetre per hour kelvin
-    'G63': 'cm³/(min·K)', //cubic centimetre per minute kelvin
-    'G64': 'cm³/(s·K)', //cubic centimetre per second kelvin
-    'G65': 'l/(d·K)', //litre per day kelvin
-    'G66': 'l/(h·K)', //litre per hour kelvin
-    'G67': 'l/(min·K)', //litre per minute kelvin
-    'G68': 'l/(s·K)', //litre per second kelvin
-    'G69': 'm³/(d·K)', //cubic metre per day kelvin
-    'G7': '', //microfiche sheet
-    'G70': 'm³/(h·K)', //cubic metre per hour kelvin
-    'G71': 'm³/(min·K)', //cubic metre per minute kelvin
-    'G72': 'm³/(s·K)', //cubic metre per second kelvin
-    'G73': 'ml/(d·K)', //millilitre per day kelvin
-    'G74': 'ml/(h·K)', //millilitre per hour kelvin
-    'G75': 'ml/(min·K)', //millilitre per minute kelvin
-    'G76': 'ml/(s·K)', //millilitre per second kelvin
-    'G77': 'mm⁴', //millimetre to the fourth power
-    'G78': 'cm³/(d·bar)', //cubic centimetre per day bar
-    'G79': 'cm³/(h·bar)', //cubic centimetre per hour bar
-    'G80': 'cm³/(min·bar)', //cubic centimetre per minute bar
-    'G81': 'cm³/(s·bar)', //cubic centimetre per second bar
-    'G82': 'l/(d·bar)', //litre per day bar
-    'G83': 'l/(h·bar)', //litre per hour bar
-    'G84': 'l/(min·bar)', //litre per minute bar
-    'G85': 'l/(s·bar)', //litre per second bar
-    'G86': 'm³/(d·bar)', //cubic metre per day bar
-    'G87': 'm³/(h·bar)', //cubic metre per hour bar
-    'G88': 'm³/(min·bar)', //cubic metre per minute bar
-    'G89': 'm³/(s·bar)', //cubic metre per second bar
-    'G90': 'ml/(d·bar)', //millilitre per day bar
-    'G91': 'ml/(h·bar)', //millilitre per hour bar
-    'G92': 'ml/(min·bar)', //millilitre per minute bar
-    'G93': 'ml/(s·bar)', //millilitre per second bar
-    'G94': 'cm³/bar', //cubic centimetre per bar
-    'G95': 'l/bar', //litre per bar
-    'G96': 'm³/bar', //cubic metre per bar
-    'G97': 'ml/bar', //millilitre per bar
-    'G98': 'µH/kΩ', //microhenry per kiloohm
-    'G99': 'µH/Ω', //microhenry per ohm
-    'GB': 'gal (US)/d', //gallon (US) per day
-    'GBQ': 'GBq', //gigabecquerel
-    'GC': '', //gram per 100 gram
-    'GD': '', //gross barrel
-    'GDW': '', //gram, dry weight
-    'GE': 'lb/gal (US)', //pound per gallon (US)
-    'GF': 'g/m', //gram per metre (gram per 100 centimetres)
-    'GFI': 'gi F/S', //gram of fissile isotope
-    'GGR': '', //great gross
-    'GH': '', //half gallon (US)
-    'GIA': 'gi (US)', //gill (US)
-    'GIC': '', //gram, including container
-    'GII': 'gi (UK)', //gill (UK)
-    'GIP': '', //gram, including inner packaging
-    'GJ': 'g/ml', //gram per millilitre
-    'GK': '', //gram per kilogram
-    'GL': 'g/l', //gram per litre
-    'GLD': 'dry gal (US)', //dry gallon (US)
-    'GLI': 'gal (UK)', //gallon (UK)
-    'GLL': 'gal (US)', //gallon (US)
-    'GM': 'g/m²', //gram per square metre
-    'GN': '', //gross gallon
-    'GO': 'mg/m²', //milligram per square metre
-    'GP': 'mg/m³', //milligram per cubic metre
-    'GQ': 'µg/m³', //microgram per cubic metre
-    'GRM': 'g', //gram
-    'GRN': 'gr', //grain
-    'GRO': 'gr', //gross
-    'GRT': '', //gross register ton
-    'GT': '', //gross ton
-    'GV': 'GJ', //gigajoule
-    'GW': '', //gallon per thousand cubic foot
-    'GWH': 'GW·h', //gigawatt hour
-    'GY': '', //gross yard
-    'GZ': '', //gage system
-    'H03': 'H/kΩ', //henry per kiloohm
-    'H04': 'H/Ω', //henry per ohm
-    'H05': 'mH/kΩ', //millihenry per kiloohm
-    'H06': 'mH/Ω', //millihenry per ohm
-    'H07': 'Pa·s/bar', //pascal second per bar
-    'H08': 'µBq', //microbecquerel
-    'H09': '1/y', //reciprocal year
-    'H1': '', //half page – electronic
-    'H10': '1/h', //reciprocal hour
-    'H11': '1/mo', //reciprocal month
-    'H12': '°C/h', //degree Celsius per hour
-    'H13': '°C/min', //degree Celsius per minute
-    'H14': '°C/s', //degree Celsius per second
-    'H15': 'cm²/g', //square centimetre per gram
-    'H16': 'dam²', //square decametre
-    'H18': 'hm²', //square hectometre
-    'H19': 'hm³', //cubic hectometre
-    'H2': '', //half litre
-    'H20': 'km³', //cubic kilometre
-    'H21': '', //blank
-    'H22': 'V/(lbf/in²)', //volt square inch per pound-force
-    'H23': 'V/in', //volt per inch
-    'H24': 'V/µs', //volt per microsecond
-    'H25': '%/K', //percent per kelvin
-    'H26': 'Ω/m', //ohm per metre
-    'H27': '°/m', //degree per metre
-    'H28': 'µF/km', //microfarad per kilometre
-    'H29': 'µg/l', //microgram per litre
-    'H30': 'µm²', //square micrometre (square micron)
-    'H31': 'A/kg', //ampere per kilogram
-    'H32': 'A²·s', //ampere squared second
-    'H33': 'F/km', //farad per kilometre
-    'H34': 'Hz·m', //hertz metre
-    'H35': 'K·m/W', //kelvin metre per watt
-    'H36': 'MΩ/km', //megaohm per kilometre
-    'H37': 'MΩ/m', //megaohm per metre
-    'H38': 'MA', //megaampere
-    'H39': 'MHz·km', //megahertz kilometre
-    'H40': 'N/A', //newton per ampere
-    'H41': 'N·m·W⁻⁰‧⁵', //newton metre watt to the power minus 0,5
-    'H42': 'Pa/m', //pascal per metre
-    'H43': 'S/cm', //siemens per centimetre
-    'H44': 'TΩ', //teraohm
-    'H45': 'V·s/m', //volt second per metre
-    'H46': 'V/s', //volt per second
-    'H47': 'W/m³', //watt per cubic metre
-    'H48': 'aF', //attofarad
-    'H49': 'cm/h', //centimetre per hour
-    'H50': 'cm⁻³', //reciprocal cubic centimetre
-    'H51': 'dB/km', //decibel per kilometre
-    'H52': 'dB/m', //decibel per metre
-    'H53': 'kg/bar', //kilogram per bar
-    'H54': '(kg/dm³)/K', //kilogram per cubic decimetre kelvin
-    'H55': '(kg/dm³)/bar', //kilogram per cubic decimetre bar
-    'H56': 'kg/(m²·s)', //kilogram per square metre second
-    'H57': 'in/revolution', //inch per two pi radiant
-    'H58': 'm/(V·s)', //metre per volt second
-    'H59': 'm²/N', //square metre per newton
-    'H60': 'm³/m³', //cubic metre per cubic metre
-    'H61': 'mS/cm', //millisiemens per centimetre
-    'H62': 'mV/min', //millivolt per minute
-    'H63': 'mg/cm²', //milligram per square centimetre
-    'H64': 'mg/g', //milligram per gram
-    'H65': 'ml/m³', //millilitre per cubic metre
-    'H66': 'mm/y', //millimetre per year
-    'H67': 'mm/h', //millimetre per hour
-    'H68': 'mmol/g', //millimole per gram
-    'H69': 'pPa/km', //picopascal per kilometre
-    'H70': 'ps', //picosecond
-    'H71': '%/mo', //percent per month
-    'H72': '%/hbar', //percent per hectobar
-    'H73': '%/daK', //percent per decakelvin
-    'H74': 'W/m', //watt per metre
-    'H75': 'daPa', //decapascal
-    'H76': 'g/mm', //gram per millimetre
-    'H77': 'MW', //module width
-    'H78': 'cm H₂O', //conventional centimetre of water
-    'H79': 'Fg', //French gauge
-    'H80': 'U or RU', //rack unit
-    'H81': 'mm/min', //millimetre per minute
-    'H82': 'bp', //big point
-    'H83': 'l/kg', //litre per kilogram
-    'H84': 'g·mm', //gram millimetre
-    'H85': '1/wk', //reciprocal week
-    'H87': '', //piece
-    'H88': 'MΩ·km', //megaohm kilometre
-    'H89': '%/Ω', //percent per ohm
-    'H90': '%/°', //percent per degree
-    'H91': '%/10000', //percent per ten thousand
-    'H92': '%/100000', //percent per one hundred thousand
-    'H93': '%/100', //percent per hundred
-    'H94': '%/1000', //percent per thousand
-    'H95': '%/V', //percent per volt
-    'H96': '%/bar', //percent per bar
-    'H98': '%/in', //percent per inch
-    'H99': '%/m', //percent per metre
-    'HA': '', //hank
-    'HAD': 'piece·d', //Piece Day
-    'HAR': 'ha', //hectare
-    'HBA': 'hbar', //hectobar
-    'HBX': '', //hundred boxes
-    'HC': '', //hundred count
-    'HD': '', //half dozen
-    'HDW': '', //hundred kilogram, dry weight
-    'HE': '', //hundredth of a carat
-    'HEA': '', //head
-    'HF': '', //hundred foot
-    'HGM': 'hg', //hectogram
-    'HH': '', //hundred cubic foot
-    'HI': '', //hundred sheet
-    'HIU': '', //hundred international unit
-    'HJ': 'metric hp', //metric horse power
-    'HK': '', //hundred kilogram
-    'HKM': '', //hundred kilogram, net mass
-    'HL': '', //hundred foot (linear)
-    'HLT': 'hl', //hectolitre
-    'HM': 'mile/h', //mile per hour (statute mile)
-    'HMO': 'piece·mo', //Piece Month
-    'HMQ': 'Mm³', //million cubic metre
-    'HMT': 'hm', //hectometre
-    'HN': 'mm Hg', //conventional millimetre of mercury
-    'HO': '', //hundred troy ounce
-    'HP': 'mm H₂O', //conventional millimetre of water
-    'HPA': '', //hectolitre of pure alcohol
-    'HS': '', //hundred square foot
-    'HT': '', //half hour
-    'HTZ': 'Hz', //hertz
-    'HUR': 'h', //hour
-    'HWE': 'piece·k', //Piece Week
-    'HY': '', //hundred yard
-    'IA': 'in·lb', //inch pound (pound inch)
-    'IC': '', //count per inch
-    'IE': '', //person
-    'IF': '', //inches of water
-    'II': '', //column inch
-    'IL': '', //inch per minute
-    'IM': '', //impression
-    'INH': 'in', //inch
-    'INK': 'in²', //square inch
-    'INQ': 'in³', //cubic inch
-    'IP': '', //insurance policy
-    'ISD': '', //international sugar degree
-    'IT': '', //count per centimetre
-    'IU': 'in/s', //inch per second
-    'IUG': '', //international unit per gram
-    'IV': 'in/s²', //inch per second squared
-    'J10': '%/mm', //percent per millimetre
-    'J12': '‰/psi', //per mille per psi
-    'J13': '°API', //degree API
-    'J14': '°Bé', //degree Baume (origin scale)
-    'J15': '°Bé (US heavy)', //degree Baume (US heavy)
-    'J16': '°Bé (US light)', //degree Baume (US light)
-    'J17': '°Balling', //degree Balling
-    'J18': '°Bx', //degree Brix
-    'J19':
-        '°F·h·ft²/Btuth', //degree Fahrenheit hour square foot per British thermal unit (thermochemical)
-    'J2': 'J/kg', //joule per kilogram
-    'J20': '°F/K', //degree Fahrenheit per kelvin
-    'J21': '°F/bar', //degree Fahrenheit per bar
-    'J22':
-        '°F·h·ft²/BtuIT', //degree Fahrenheit hour square foot per British thermal unit (international table)
-    'J23': '°F/h', //degree Fahrenheit per hour
-    'J24': '°F/min', //degree Fahrenheit per minute
-    'J25': '°F/s', //degree Fahrenheit per second
-    'J26': '1/°F', //reciprocal degree Fahrenheit
-    'J27': '°Oechsle', //degree Oechsle
-    'J28': '°R/h', //degree Rankine per hour
-    'J29': '°R/min', //degree Rankine per minute
-    'J30': '°R/s', //degree Rankine per second
-    'J31': '°Tw', //degree Twaddell
-    'J32': 'µP', //micropoise
-    'J33': 'µg/kg', //microgram per kilogram
-    'J34': '(µg/m³)/K', //microgram per cubic metre kelvin
-    'J35': '(µg/m³)/bar', //microgram per cubic metre bar
-    'J36': 'µl/l', //microlitre per litre
-    'J38': 'Bd', //baud
-    'J39': 'Btu', //British thermal unit (mean)
-    'J40':
-        'BtuIT·ft/(h·ft²·°F)', //British thermal unit (international table) foot per hour square foot degree Fahrenheit
-    'J41':
-        'BtuIT·in/(h·ft²·°F)', //British thermal unit (international table) inch per hour square foot degree Fahrenheit
-    'J42':
-        'BtuIT·in/(s·ft²·°F)', //British thermal unit (international table) inch per second square foot degree Fahrenheit
-    'J43':
-        'BtuIT/(lb·°F)', //British thermal unit (international table) per pound degree Fahrenheit
-    'J44': 'BtuIT/min', //British thermal unit (international table) per minute
-    'J45': 'BtuIT/s', //British thermal unit (international table) per second
-    'J46':
-        'Btuth·ft/(h·ft²·°F)', //British thermal unit (thermochemical) foot per hour square foot degree Fahrenheit
-    'J47': 'Btuth/h', //British thermal unit (thermochemical) per hour
-    'J48':
-        'Btuth·in/(h·ft²·°F)', //British thermal unit (thermochemical) inch per hour square foot degree Fahrenheit
-    'J49':
-        'Btuth·in/(s·ft²·°F)', //British thermal unit (thermochemical) inch per second square foot degree Fahrenheit
-    'J50':
-        'Btuth/(lb·°F)', //British thermal unit (thermochemical) per pound degree Fahrenheit
-    'J51': 'Btuth/min', //British thermal unit (thermochemical) per minute
-    'J52': 'Btuth/s', //British thermal unit (thermochemical) per second
-    'J53': 'C·m²/kg', //coulomb square metre per kilogram
-    'J54': 'MBd', //megabaud
-    'J55': 'W·s', //watt second
-    'J56': 'bar/bar', //bar per bar
-    'J57': 'bbl (UK liq.)', //barrel (UK petroleum)
-    'J58': 'bbl (UK liq.)/min', //barrel (UK petroleum) per minute
-    'J59': 'bbl (UK liq.)/d', //barrel (UK petroleum) per day
-    'J60': 'bbl (UK liq.)/h', //barrel (UK petroleum) per hour
-    'J61': 'bbl (UK liq.)/s', //barrel (UK petroleum) per second
-    'J62': 'bbl (US)/h', //barrel (US petroleum) per hour
-    'J63': 'bbl (US)/s', //barrel (US petroleum) per second
-    'J64': 'bu (UK)/d', //bushel (UK) per day
-    'J65': 'bu (UK)/h', //bushel (UK) per hour
-    'J66': 'bu (UK)/min', //bushel (UK) per minute
-    'J67': 'bu (UK)/s', //bushel (UK) per second
-    'J68': 'bu (US dry)/d', //bushel (US dry) per day
-    'J69': 'bu (US dry)/h', //bushel (US dry) per hour
-    'J70': 'bu (US dry)/min', //bushel (US dry) per minute
-    'J71': 'bu (US dry)/s', //bushel (US dry) per second
-    'J72': 'cN·m', //centinewton metre
-    'J73': 'cP/K', //centipoise per kelvin
-    'J74': 'cP/bar', //centipoise per bar
-    'J75': 'cal', //calorie (mean)
-    'J76':
-        'calIT/(g·°C)', //calorie (international table) per gram degree Celsius
-    'J78':
-        'calth/(cm·s·°C)', //calorie (thermochemical) per centimetre second degree Celsius
-    'J79': 'calth/(g·°C)', //calorie (thermochemical) per gram degree Celsius
-    'J81': 'calth/min', //calorie (thermochemical) per minute
-    'J82': 'calth/s', //calorie (thermochemical) per second
-    'J83': 'clo', //clo
-    'J84': '(cm/s)/K', //centimetre per second kelvin
-    'J85': '(cm/s)/bar', //centimetre per second bar
-    'J87': 'cm³/m³', //cubic centimetre per cubic metre
-    'J89': 'cm Hg', //centimetre of mercury
-    'J90': 'dm³/d', //cubic decimetre per day
-    'J91': 'dm³/m³', //cubic decimetre per cubic metre
-    'J92': 'dm³/min', //cubic decimetre per minute
-    'J93': 'dm³/s', //cubic decimetre per second
-    'J94': 'dyn·cm', //dyne centimetre
-    'J95': 'fl oz (UK)/d', //ounce (UK fluid) per day
-    'J96': 'fl oz (UK)/h', //ounce (UK fluid) per hour
-    'J97': 'fl oz (UK)/min', //ounce (UK fluid) per minute
-    'J98': 'fl oz (UK)/s', //ounce (UK fluid) per second
-    'J99': 'fl oz (US)/d', //ounce (US fluid) per day
-    'JB': '', //jumbo
-    'JE': 'J/K', //joule per kelvin
-    'JG': '', //jug
-    'JK': 'MJ/kg', //megajoule per kilogram
-    'JM': 'MJ/m³', //megajoule per cubic metre
-    'JNT': '', //pipeline joint
-    'JO': '', //joint
-    'JOU': 'J', //joule
-    'JPS': '', //hundred metre
-    'JR': '', //jar
-    'JWL': '', //number of jewels
-    'K1': '', //kilowatt demand
-    'K10': 'fl oz (US)/h', //ounce (US fluid) per hour
-    'K11': 'fl oz (US)/min', //ounce (US fluid) per minute
-    'K12': 'fl oz (US)/s', //ounce (US fluid) per second
-    'K13': 'ft/°F', //foot per degree Fahrenheit
-    'K14': 'ft/h', //foot per hour
-    'K15': 'ft·lbf/h', //foot pound-force per hour
-    'K16': 'ft·lbf/min', //foot pound-force per minute
-    'K17': 'ft/psi', //foot per psi
-    'K18': '(ft/s)/°F', //foot per second degree Fahrenheit
-    'K19': '(ft/s)/psi', //foot per second psi
-    'K2': '', //kilovolt ampere reactive demand
-    'K20': '1/ft³', //reciprocal cubic foot
-    'K21': 'ft³/°F', //cubic foot per degree Fahrenheit
-    'K22': 'ft³/d', //cubic foot per day
-    'K23': 'ft³/psi', //cubic foot per psi
-    'K24': 'ft H₂O', //foot of water
-    'K25': 'ft Hg', //foot of mercury
-    'K26': 'gal (UK)/d', //gallon (UK) per day
-    'K27': 'gal (UK)/h', //gallon (UK) per hour
-    'K28': 'gal (UK)/s', //gallon (UK) per second
-    'K3': 'kvar·h', //kilovolt ampere reactive hour
-    'K30': 'gal (US liq.)/s', //gallon (US liquid) per second
-    'K31': 'gf/cm²', //gram-force per square centimetre
-    'K32': 'gi (UK)/d', //gill (UK) per day
-    'K33': 'gi (UK)/h', //gill (UK) per hour
-    'K34': 'gi (UK)/min', //gill (UK) per minute
-    'K35': 'gi (UK)/s', //gill (UK) per second
-    'K36': 'gi (US)/d', //gill (US) per day
-    'K37': 'gi (US)/h', //gill (US) per hour
-    'K38': 'gi (US)/min', //gill (US) per minute
-    'K39': 'gi (US)/s', //gill (US) per second
-    'K40': 'gn', //standard acceleration of free fall
-    'K41': 'gr/gal (US)', //grain per gallon (US)
-    'K42': 'boiler hp', //horsepower (boiler)
-    'K43': 'electric hp', //horsepower (electric)
-    'K45': 'in/°F', //inch per degree Fahrenheit
-    'K46': 'in/psi', //inch per psi
-    'K47': '(in/s)/°F', //inch per second degree Fahrenheit
-    'K48': '(in/s)/psi', //inch per second psi
-    'K49': '1/in³', //reciprocal cubic inch
-    'K5': 'kvar', //kilovolt ampere (reactive)
-    'K50': 'kBd', //kilobaud
-    'K51': 'kcal', //kilocalorie (mean)
-    'K52':
-        'kcal/(m·h·°C)', //kilocalorie (international table) per hour metre degree Celsius
-    'K53': 'kcalth', //kilocalorie (thermochemical)
-    'K54': 'kcalth/min', //kilocalorie (thermochemical) per minute
-    'K55': 'kcalth/s', //kilocalorie (thermochemical) per second
-    'K58': 'kmol/h', //kilomole per hour
-    'K59': '(kmol/m³)/K', //kilomole per cubic metre kelvin
-    'K6': 'kl', //kilolitre
-    'K60': '(kmol/m³)/bar', //kilomole per cubic metre bar
-    'K61': 'kmol/min', //kilomole per minute
-    'K62': 'l/l', //litre per litre
-    'K63': '1/l', //reciprocal litre
-    'K64': 'lb/°F', //pound (avoirdupois) per degree Fahrenheit
-    'K65': 'lb·ft²', //pound (avoirdupois) square foot
-    'K66': 'lb/d', //pound (avoirdupois) per day
-    'K67': 'lb/(ft·h)', //pound per foot hour
-    'K68': 'lb/(ft·s)', //pound per foot second
-    'K69': '(lb/ft³)/°F', //pound (avoirdupois) per cubic foot degree Fahrenheit
-    'K70': '(lb/ft³)/psi', //pound (avoirdupois) per cubic foot psi
-    'K71': 'lb/gal (UK)', //pound (avoirdupois) per gallon (UK)
-    'K73': '(lb/h)/°F', //pound (avoirdupois) per hour degree Fahrenheit
-    'K74': '(lb/h)/psi', //pound (avoirdupois) per hour psi
-    'K75': '(lb/in³)/°F', //pound (avoirdupois) per cubic inch degree Fahrenheit
-    'K76': '(lb/in³)/psi', //pound (avoirdupois) per cubic inch psi
-    'K77': 'lb/psi', //pound (avoirdupois) per psi
-    'K78': 'lb/min', //pound (avoirdupois) per minute
-    'K79': 'lb/(min·°F)', //pound (avoirdupois) per minute degree Fahrenheit
-    'K80': '(lb/min)/psi', //pound (avoirdupois) per minute psi
-    'K81': 'lb/s', //pound (avoirdupois) per second
-    'K82': '(lb/s)/°F', //pound (avoirdupois) per second degree Fahrenheit
-    'K83': '(lb/s)/psi', //pound (avoirdupois) per second psi
-    'K84': 'lb/yd³', //pound per cubic yard
-    'K85': 'lbf/ft²', //pound-force per square foot
-    'K86': 'psi/°F', //pound-force per square inch degree Fahrenheit
-    'K87': 'psi·in³/s', //psi cubic inch per second
-    'K88': 'psi·l/s', //psi litre per second
-    'K89': 'psi·m³/s', //psi cubic metre per second
-    'K90': 'psi·yd³/s', //psi cubic yard per second
-    'K91': 'lbf·s/ft²', //pound-force second per square foot
-    'K92': 'lbf·s/in²', //pound-force second per square inch
-    'K93': '1/psi', //reciprocal psi
-    'K94': 'qt (UK liq.)/d', //quart (UK liquid) per day
-    'K95': 'qt (UK liq.)/h', //quart (UK liquid) per hour
-    'K96': 'qt (UK liq.)/min', //quart (UK liquid) per minute
-    'K97': 'qt (UK liq.)/s', //quart (UK liquid) per second
-    'K98': 'qt (US liq.)/d', //quart (US liquid) per day
-    'K99': 'qt (US liq.)/h', //quart (US liquid) per hour
-    'KA': '', //cake
-    'KAT': 'kat', //katal
-    'KB': '', //kilocharacter
-    'KBA': 'kbar', //kilobar
-    'KCC': 'kg C₅ H₁₄ClNO', //kilogram of choline chloride
-    'KD': '', //kilogram decimal
-    'KDW': 'kg/net eda', //kilogram drained net weight
-    'KEL': 'K', //kelvin
-    'KF': '', //kilopacket
-    'KG': '', //keg
-    'KGM': 'kg', //kilogram
-    'KGS': 'kg/s', //kilogram per second
-    'KHY': 'kg H₂O₂', //kilogram of hydrogen peroxide
-    'KHZ': 'kHz', //kilohertz
-    'KI': '', //kilogram per millimetre width
-    'KIC': '', //kilogram, including container
-    'KIP': '', //kilogram, including inner packaging
-    'KJ': '', //kilosegment
-    'KJO': 'kJ', //kilojoule
-    'KL': 'kg/m', //kilogram per metre
-    'KLK': '', //lactic dry material percentage
-    'KLX': 'klx', //kilolux
-    'KMA': 'kg met.am.', //kilogram of methylamine
-    'KMH': 'km/h', //kilometre per hour
-    'KMK': 'km²', //square kilometre
-    'KMQ': 'kg/m³', //kilogram per cubic metre
-    'KMT': 'km', //kilometre
-    'KNI': 'kg N', //kilogram of nitrogen
-    'KNM': 'KN/m2', //kilonewton per square metre
-    'KNS': '', //kilogram named substance
-    'KNT': 'kn', //knot
-    'KO': '', //milliequivalence caustic potash per gram of product
-    'KPA': 'kPa', //kilopascal
-    'KPH': 'kg KOH', //kilogram of potassium hydroxide (caustic potash)
-    'KPO': 'kg K₂O', //kilogram of potassium oxide
-    'KPP': '', //kilogram of phosphorus pentoxide (phosphoric anhydride)
-    'KR': 'kR', //kiloroentgen
-    'KS': '', //thousand pound per square inch
-    'KSD': 'kg 90 % sdt', //kilogram of substance 90 % dry
-    'KSH': 'kg NaOH', //kilogram of sodium hydroxide (caustic soda)
-    'KT': '', //kit
-    'KTM': 'km', //kilometre
-    'KTN': 'kt', //kilotonne
-    'KUR': 'kg U', //kilogram of uranium
-    'KVA': 'kV·A', //kilovolt - ampere
-    'KVR': 'kvar', //kilovar
-    'KVT': 'kV', //kilovolt
-    'KW': 'kg/mm', //kilogram per millimetre
-    'KWH': 'kW·h', //kilowatt hour
-    'KWN': '', //Kilowatt hour per normalized cubic metre
-    'KWO': 'kg WO₃', //kilogram of tungsten trioxide
-    'KWS': '', //Kilowatt hour per standard cubic metre
-    'KWT': 'kW', //kilowatt
-    'KWY': 'kW/year', //kilowatt year
-    'KX': 'ml/kg', //millilitre per kilogram
-    'L10': 'qt (US liq.)/min', //quart (US liquid) per minute
-    'L11': 'qt (US liq.)/s', //quart (US liquid) per second
-    'L12': '(m/s)/K', //metre per second kelvin
-    'L13': '(m/s)/bar', //metre per second bar
-    'L14':
-        'm²·h·°C/kcal', //square metre hour degree Celsius per kilocalorie (international table)
-    'L15': 'mPa·s/K', //millipascal second per kelvin
-    'L16': 'mPa·s/bar', //millipascal second per bar
-    'L17': '(mg/m³)/K', //milligram per cubic metre kelvin
-    'L18': '(mg/m³)/bar', //milligram per cubic metre bar
-    'L19': 'ml/l', //millilitre per litre
-    'L2': 'l/min', //litre per minute
-    'L20': '1/mm³', //reciprocal cubic millimetre
-    'L21': 'mm³/m³', //cubic millimetre per cubic metre
-    'L23': 'mol/h', //mole per hour
-    'L24': '(mol/kg)/K', //mole per kilogram kelvin
-    'L25': '(mol/kg)/bar', //mole per kilogram bar
-    'L26': '(mol/l)/K', //mole per litre kelvin
-    'L27': '(mol/l)/bar', //mole per litre bar
-    'L28': '(mol/m³)/K', //mole per cubic metre kelvin
-    'L29': '(mol/m³)/bar', //mole per cubic metre bar
-    'L30': 'mol/min', //mole per minute
-    'L31': 'mrem', //milliroentgen aequivalent men
-    'L32': 'ng/kg', //nanogram per kilogram
-    'L33': 'oz/d', //ounce (avoirdupois) per day
-    'L34': 'oz/h', //ounce (avoirdupois) per hour
-    'L35': 'oz/min', //ounce (avoirdupois) per minute
-    'L36': 'oz/s', //ounce (avoirdupois) per second
-    'L37': 'oz/gal (UK)', //ounce (avoirdupois) per gallon (UK)
-    'L38': 'oz/gal (US)', //ounce (avoirdupois) per gallon (US)
-    'L39': 'oz/in³', //ounce (avoirdupois) per cubic inch
-    'L40': 'ozf', //ounce (avoirdupois)-force
-    'L41': 'ozf·in', //ounce (avoirdupois)-force inch
-    'L42': 'pS/m', //picosiemens per metre
-    'L43': 'pk (UK)', //peck (UK)
-    'L44': 'pk (UK)/d', //peck (UK) per day
-    'L45': 'pk (UK)/h', //peck (UK) per hour
-    'L46': 'pk (UK)/min', //peck (UK) per minute
-    'L47': 'pk (UK)/s', //peck (UK) per second
-    'L48': 'pk (US dry)/d', //peck (US dry) per day
-    'L49': 'pk (US dry)/h', //peck (US dry) per hour
-    'L50': 'pk (US dry)/min', //peck (US dry) per minute
-    'L51': 'pk (US dry)/s', //peck (US dry) per second
-    'L52': 'psi/psi', //psi per psi
-    'L53': 'pt (UK)/d', //pint (UK) per day
-    'L54': 'pt (UK)/h', //pint (UK) per hour
-    'L55': 'pt (UK)/min', //pint (UK) per minute
-    'L56': 'pt (UK)/s', //pint (UK) per second
-    'L57': 'pt (US liq.)/d', //pint (US liquid) per day
-    'L58': 'pt (US liq.)/h', //pint (US liquid) per hour
-    'L59': 'pt (US liq.)/min', //pint (US liquid) per minute
-    'L60': 'pt (US liq.)/s', //pint (US liquid) per second
-    'L61': 'pt (US dry)', //pint (US dry)
-    'L62': 'qt (US dry)', //quart (US dry)
-    'L63': 'slug/d', //slug per day
-    'L64': 'slug/(ft·s)', //slug per foot second
-    'L65': 'slug/ft³', //slug per cubic foot
-    'L66': 'slug/h', //slug per hour
-    'L67': 'slug/min', //slug per minute
-    'L68': 'slug/s', //slug per second
-    'L69': 't/K', //tonne per kelvin
-    'L70': 't/bar', //tonne per bar
-    'L71': 't/d', //tonne per day
-    'L72': '(t/d)/K', //tonne per day kelvin
-    'L73': '(t/d)/bar', //tonne per day bar
-    'L74': '(t/h)/K', //tonne per hour kelvin
-    'L75': '(t/h)/bar', //tonne per hour bar
-    'L76': '(t/m³)/K', //tonne per cubic metre kelvin
-    'L77': '(t/m³)/bar', //tonne per cubic metre bar
-    'L78': 't/min', //tonne per minute
-    'L79': '(t/min)/K', //tonne per minute kelvin
-    'L80': '(t/min)/bar', //tonne per minute bar
-    'L81': 't/s', //tonne per second
-    'L82': '(t/s)/K', //tonne per second kelvin
-    'L83': '(t/s)/bar', //tonne per second bar
-    'L84': 'British shipping ton', //ton (UK shipping)
-    'L85': 'ton (UK)/d', //ton long per day
-    'L86': '(US) shipping ton', //ton (US shipping)
-    'L87': 'ton (US)/°F', //ton short per degree Fahrenheit
-    'L88': 'ton (US)/d', //ton short per day
-    'L89': 'ton (US)/(h·°F)', //ton short per hour degree Fahrenheit
-    'L90': '(ton (US)/h)/psi', //ton short per hour psi
-    'L91': 'ton (US)/psi', //ton short per psi
-    'L92': 'ton.l/yd³ (UK)', //ton (UK long) per cubic yard
-    'L93': 'ton.s/yd³ (US)', //ton (US short) per cubic yard
-    'L94': 'ton.sh-force', //ton-force (US short)
-    'L95': 'y (365 days)', //common year
-    'L96': 'y (sidereal)', //sidereal year
-    'L98': 'yd/°F', //yard per degree Fahrenheit
-    'L99': 'yd/psi', //yard per psi
-    'LA': 'lb/in³', //pound per cubic inch
-    'LAC': '', //lactose excess percentage
-    'LBR': 'lb', //pound
-    'LBT': '', //troy pound (US)
-    'LC': '', //linear centimetre
-    'LD': 'l/d', //litre per day
-    'LE': '', //lite
-    'LEF': '', //leaf
-    'LF': '', //linear foot
-    'LH': '', //labour hour
-    'LI': '', //linear inch
-    'LJ': '', //large spray
-    'LK': '', //link
-    'LM': '', //linear metre
-    'LN': '', //length
-    'LO': '', //lot [unit of procurement]
-    'LP': '', //liquid pound
-    'LPA': '', //litre of pure alcohol
-    'LR': '', //layer
-    'LS': '', //lump sum
-    'LTN': 'ton (UK)', //ton (UK) or long ton (US)
-    'LTR': 'l', //litre
-    'LUB': '', //metric ton, lubricating oil
-    'LUM': 'lm', //lumen
-    'LUX': 'lx', //lux
-    'LX': '', //linear yard per pound
-    'LY': '', //linear yard
-    'M0': '', //magnetic tape
-    'M1': 'mg/l', //milligram per litre
-    'M10': '1/yd³', //reciprocal cubic yard
-    'M11': 'yd³/°F', //cubic yard per degree Fahrenheit
-    'M12': 'yd³/d', //cubic yard per day
-    'M13': 'yd³/h', //cubic yard per hour
-    'M14': 'yd³/psi', //cubic yard per psi
-    'M15': 'yd³/min', //cubic yard per minute
-    'M16': 'yd³/s', //cubic yard per second
-    'M17': 'kHz·m', //kilohertz metre
-    'M18': 'GHz·m', //gigahertz metre
-    'M19': 'Bft', //Beaufort
-    'M20': '1/MK', //reciprocal megakelvin or megakelvin to the power minus one
-    'M21': '1/kVAh', //reciprocal kilovolt - ampere reciprocal hour
-    'M22': '(ml/min)/cm²', //millilitre per square centimetre minute
-    'M23': 'N/cm', //newton per centimetre
-    'M24': 'Ω·km', //ohm kilometre
-    'M25': '%/°C', //percent per degree Celsius
-    'M26': 'GΩ/m', //gigaohm per metre
-    'M27': 'MHz·m', //megahertz metre
-    'M29': 'kg/kg', //kilogram per kilogram
-    'M30': '1/(V·A·s)', //reciprocal volt - ampere reciprocal second
-    'M31': 'kg/km', //kilogram per kilometre
-    'M32': 'Pa·s/l', //pascal second per litre
-    'M33': 'mmol/l', //millimole per litre
-    'M34': 'N·m/m²', //newton metre per square metre
-    'M35': 'mV·A', //millivolt - ampere
-    'M36': 'mo (30 days)', //30-day month
-    'M37': 'y (360 days)', //actual/360
-    'M38': 'km/s²', //kilometre per second squared
-    'M39': 'cm/s²', //centimetre per second squared
-    'M4': '', //monetary value
-    'M40': 'yd/s²', //yard per second squared
-    'M41': 'mm/s²', //millimetre per second squared
-    'M42': 'mi/s²', //mile (statute mile) per second squared
-    'M43': 'mil', //mil
-    'M44': 'rev', //revolution
-    'M45': '°/s²', //degree [unit of angle] per second squared
-    'M46': 'r/min', //revolution per minute
-    'M47': 'cmil', //circular mil
-    'M48': 'mi² (US survey)', //square mile (based on U.S. survey foot)
-    'M49': 'ch (US survey) ', //chain (based on U.S. survey foot)
-    'M5': 'µCi', //microcurie
-    'M50': 'fur', //furlong
-    'M51': 'ft (US survey) ', //foot (U.S. survey)
-    'M52': 'mi (US survey) ', //mile (based on U.S. survey foot)
-    'M53': 'm/Pa', //metre per pascal
-    'M55': 'm/rad', //metre per radiant
-    'M56': 'shake', //shake
-    'M57': 'mi/min', //mile per minute
-    'M58': 'mi/s', //mile per second
-    'M59': '(m/s)/Pa', //metre per second pascal
-    'M60': 'm/h', //metre per hour
-    'M61': 'in/y', //inch per year
-    'M62': 'km/s', //kilometre per second
-    'M63': 'in/min', //inch per minute
-    'M64': 'yd/s', //yard per second
-    'M65': 'yd/min', //yard per minute
-    'M66': 'yd/h', //yard per hour
-    'M67': 'acre-ft (US survey)', //acre-foot (based on U.S. survey foot)
-    'M68': 'cord', //cord (128 ft3)
-    'M69': 'mi³', //cubic mile (UK statute)
-    'M7': 'µin', //micro-inch
-    'M70': 'RT', //ton, register
-    'M71': 'm³/Pa', //cubic metre per pascal
-    'M72': 'B', //bel
-    'M73': '(kg/m³)/Pa', //kilogram per cubic metre pascal
-    'M74': 'kg/Pa', //kilogram per pascal
-    'M75': 'kip', //kilopound-force
-    'M76': 'pdl', //poundal
-    'M77': 'kg·m/s²', //kilogram metre per second squared
-    'M78': 'p', //pond
-    'M79': 'ft²/h', //square foot per hour
-    'M80': 'St/Pa', //stokes per pascal
-    'M81': 'cm²/s', //square centimetre per second
-    'M82': '(m²/s)/Pa', //square metre per second pascal
-    'M83': 'den', //denier
-    'M84': 'lb/yd', //pound per yard
-    'M85': '', //ton, assay
-    'M86': 'pfd', //pfund
-    'M87': '(kg/s)/Pa', //kilogram per second pascal
-    'M88': 't/mo', //tonne per month
-    'M89': 't/y', //tonne per year
-    'M9': 'MBTU/kft³', //million Btu per 1000 cubic foot
-    'M90': 'klb/h', //kilopound per hour
-    'M91': 'lb/lb', //pound per pound
-    'M92': 'lbf·ft', //pound-force foot
-    'M93': 'N·m/rad', //newton metre per radian
-    'M94': 'kg·m', //kilogram metre
-    'M95': 'pdl·ft', //poundal foot
-    'M96': 'pdl·in', //poundal inch
-    'M97': 'dyn·m', //dyne metre
-    'M98': 'kg·(cm/s)', //kilogram centimetre per second
-    'M99': 'g·(cm/s)', //gram centimetre per second
-    'MA': '', //machine per unit
-    'MAH': 'Mvar·h', //megavolt ampere reactive hour
-    'MAL': 'Ml', //megalitre
-    'MAM': 'Mm', //megametre
-    'MAR': 'kvar', //megavar
-    'MAW': 'MW', //megawatt
-    'MBE': '', //thousand standard brick equivalent
-    'MBF': '', //thousand board foot
-    'MBR': 'mbar', //millibar
-    'MC': 'µg', //microgram
-    'MCU': 'mCi', //millicurie
-    'MD': '', //air dry metric ton
-    'MF': '', //milligram per square foot per side
-    'MGM': 'mg', //milligram
-    'MHZ': 'MHz', //megahertz
-    'MIK': 'mi²', //square mile (statute mile)
-    'MIL': '', //thousand
-    'MIN': 'min', //minute [unit of time]
-    'MIO': '', //million
-    'MIU': '', //million international unit
-    'MK': 'mg/in²', //milligram per square inch
-    'MKD': 'm²·d', //Square Metre Day
-    'MKM': 'm²·mo', //Square Metre Month
-    'MKW': 'm²· wk', //Square Metre Week
-    'MLD': '', //milliard
-    'MLT': 'ml', //millilitre
-    'MMK': 'mm²', //square millimetre
-    'MMQ': 'mm³', //cubic millimetre
-    'MMT': 'mm', //millimetre
-    'MND': '', //kilogram, dry weight
-    'MNJ': 'MJ/m³', //Mega Joule per Normalised cubic Metre
-    'MON': 'mo', //month
-    'MPA': 'MPa', //megapascal
-    'MQ': '', //thousand metre
-    'MQD': 'm³·d', //Cubic Metre Day
-    'MQH': 'm³/h', //cubic metre per hour
-    'MQM': 'm³·mo', //Cubic Metre Month
-    'MQS': 'm³/s', //cubic metre per second
-    'MQW': 'm³·wk', //Cubic Metre Week
-    'MRD': 'm·day', //Metre Day
-    'MRM': 'm·mo', //Metre Month
-    'MRW': 'm·wk', //Metre Week
-    'MSK': 'm/s²', //metre per second squared
-    'MT': '', //mat
-    'MTK': 'm²', //square metre
-    'MTQ': 'm³', //cubic metre
-    'MTR': 'm', //metre
-    'MTS': 'm/s', //metre per second
-    'MTZ': 'mHz ', //millihertz
-    'MV': '', //number of mults
-    'MVA': 'MV·A', //megavolt - ampere
-    'MWH': 'MW·h', //megawatt hour (1000 kW.h)
-    'N1': '', //pen calorie
-    'N10': 'lb·(ft/s)', //pound foot per second
-    'N11': 'lb·(in/s)', //pound inch per second
-    'N12': 'PS', //Pferdestaerke
-    'N13': 'cmHg (0 ºC)', //centimetre of mercury (0 ºC)
-    'N14': 'cmH₂O (4 °C)', //centimetre of water (4 ºC)
-    'N15': 'ftH₂O (39,2 ºF)', //foot of water (39.2 ºF)
-    'N16': 'inHG (32 ºF)', //inch of mercury (32 ºF)
-    'N17': 'inHg (60 ºF)', //inch of mercury (60 ºF)
-    'N18': 'inH₂O (39,2 ºF)', //inch of water (39.2 ºF)
-    'N19': 'inH₂O (60 ºF)', //inch of water (60 ºF)
-    'N2': '', //number of lines
-    'N20': 'ksi', //kip per square inch
-    'N21': 'pdl/ft²', //poundal per square foot
-    'N22': 'oz/in²', //ounce (avoirdupois) per square inch
-    'N23': 'mH₂O', //conventional metre of water
-    'N24': 'g/mm²', //gram per square millimetre
-    'N25': 'lb/yd²', //pound per square yard
-    'N26': 'pdl/in²', //poundal per square inch
-    'N27': 'ft⁴', //foot to the fourth power
-    'N28': 'dm³/kg', //cubic decimetre per kilogram
-    'N29': 'ft³/lb', //cubic foot per pound
-    'N3': '', //print point
-    'N30': 'in³/lb', //cubic inch per pound
-    'N31': 'kN/m', //kilonewton per metre
-    'N32': 'pdl/in', //poundal per inch
-    'N33': 'lbf/yd', //pound-force per yard
-    'N34': '(pdl/ft²)·s', //poundal second per square foot
-    'N35': 'P/Pa', //poise per pascal
-    'N36': '(N/m²)·s', //newton second per square metre
-    'N37': 'kg/(m·s)', //kilogram per metre second
-    'N38': 'kg/(m·min)', //kilogram per metre minute
-    'N39': 'kg/(m·d)', //kilogram per metre day
-    'N40': 'kg/(m·h)', //kilogram per metre hour
-    'N41': 'g/(cm·s)', //gram per centimetre second
-    'N42': '(pdl/in²)·s', //poundal second per square inch
-    'N43': 'lb/(ft·min)', //pound per foot minute
-    'N44': 'lb/(ft·d)', //pound per foot day
-    'N45': '(m³/s)/Pa', //cubic metre per second pascal
-    'N46': 'ft·pdl', //foot poundal
-    'N47': 'in·pdl', //inch poundal
-    'N48': 'W/cm²', //watt per square centimetre
-    'N49': 'W/in²', //watt per square inch
-    'N50':
-        'BtuIT/(ft²·h)', //British thermal unit (international table) per square foot hour
-    'N51':
-        'Btuth/(ft²·h)', //British thermal unit (thermochemical) per square foot hour
-    'N52':
-        'Btuth/(ft²·min) ', //British thermal unit (thermochemical) per square foot minute
-    'N53':
-        'BtuIT/(ft²·s)', //British thermal unit (international table) per square foot second
-    'N54':
-        'Btuth/(ft²·s)', //British thermal unit (thermochemical) per square foot second
-    'N55':
-        'BtuIT/(in²·s)', //British thermal unit (international table) per square inch second
-    'N56':
-        'calth/(cm²·min)', //calorie (thermochemical) per square centimetre minute
-    'N57':
-        'calth/(cm²·s)', //calorie (thermochemical) per square centimetre second
-    'N58':
-        'BtuIT/ft³', //British thermal unit (international table) per cubic foot
-    'N59': 'Btuth/ft³', //British thermal unit (thermochemical) per cubic foot
-    'N60':
-        'BtuIT/ºF', //British thermal unit (international table) per degree Fahrenheit
-    'N61':
-        'Btuth/ºF', //British thermal unit (thermochemical) per degree Fahrenheit
-    'N62':
-        'BtuIT/ºR', //British thermal unit (international table) per degree Rankine
-    'N63':
-        'Btuth/ºR', //British thermal unit (thermochemical) per degree Rankine
-    'N64':
-        '(Btuth/°R)/lb', //British thermal unit (thermochemical) per pound degree Rankine
-    'N65': '(kcalIT/K)/g', //kilocalorie (international table) per gram kelvin
-    'N66': 'Btu (39 ºF) ', //British thermal unit (39 ºF)
-    'N67': 'Btu (59 ºF)', //British thermal unit (59 ºF)
-    'N68': 'Btu (60 ºF) ', //British thermal unit (60 ºF)
-    'N69': 'cal₂₀', //calorie (20 ºC)
-    'N70': 'quad', //quad (1015 BtuIT)
-    'N71': 'thm (EC)', //therm (EC)
-    'N72': 'thm (US)', //therm (U.S.)
-    'N73': 'Btuth/lb', //British thermal unit (thermochemical) per pound
-    'N74':
-        'BtuIT/(h·ft²·ºF)', //British thermal unit (international table) per hour square foot degree Fahrenheit
-    'N75':
-        'Btuth/(h·ft²·ºF)', //British thermal unit (thermochemical) per hour square foot degree Fahrenheit
-    'N76':
-        'BtuIT/(s·ft²·ºF)', //British thermal unit (international table) per second square foot degree Fahrenheit
-    'N77':
-        'Btuth/(s·ft²·ºF) ', //British thermal unit (thermochemical) per second square foot degree Fahrenheit
-    'N78': 'kW/(m²·K)', //kilowatt per square metre kelvin
-    'N79': 'K/Pa', //kelvin per pascal
-    'N80': 'W/(m·°C)', //watt per metre degree Celsius
-    'N81': 'kW/(m·K)', //kilowatt per metre kelvin
-    'N82': 'kW/(m·°C)', //kilowatt per metre degree Celsius
-    'N83': 'm/(°C·m)', //metre per degree Celcius metre
-    'N84':
-        'ºF/(BtuIT/h)', //degree Fahrenheit hour per British thermal unit (international table)
-    'N85':
-        'ºF/(Btuth/h)', //degree Fahrenheit hour per British thermal unit (thermochemical)
-    'N86':
-        'ºF/(BtuIT/s)', //degree Fahrenheit second per British thermal unit (international table)
-    'N87':
-        'ºF/(Btuth/s)', //degree Fahrenheit second per British thermal unit (thermochemical)
-    'N88':
-        'ºF·h·ft²/(BtuIT·in)', //degree Fahrenheit hour square foot per British thermal unit (international table) inch
-    'N89':
-        'ºF·h·ft²/(Btuth·in)', //degree Fahrenheit hour square foot per British thermal unit (thermochemical) inch
-    'N90': 'kF', //kilofarad
-    'N91': '1/J', //reciprocal joule
-    'N92': 'pS', //picosiemens
-    'N93': 'A/Pa', //ampere per pascal
-    'N94': 'Fr', //franklin
-    'N95': 'A·min', //ampere minute
-    'N96': 'Bi', //biot
-    'N97': 'Gi', //gilbert
-    'N98': 'V/Pa', //volt per pascal
-    'N99': 'pV', //picovolt
-    'NA': 'mg/kg', //milligram per kilogram
-    'NAR': '', //number of articles
-    'NB': '', //barge
-    'NBB': '', //number of bobbins
-    'NC': '', //car
-    'NCL': '', //number of cells
-    'ND': '', //net barrel
-    'NE': '', //net litre
-    'NEW': 'N', //newton
-    'NF': '', //message
-    'NG': '', //net gallon (us)
-    'NH': '', //message hour
-    'NI': '', //net imperial gallon
-    'NIL': '()', //nil
-    'NIU': '', //number of international units
-    'NJ': '', //number of screens
-    'NL': '', //load
-    'NM3': '', //Normalised cubic metre
-    'NMI': 'n mile', //nautical mile
-    'NMP': '', //number of packs
-    'NN': '', //train
-    'NPL': '', //number of parcels
-    'NPR': '', //number of pairs
-    'NPT': '', //number of parts
-    'NQ': '', //mho
-    'NR': '', //micromho
-    'NRL': '', //number of rolls
-    'NT': '', //net ton
-    'NTT': '', //net register ton
-    'NTU': 'NTU', //Nephelometric turbidity unit
-    'NU': 'N·m', //newton metre
-    'NV': '', //vehicle
-    'NX': '‰', //part per thousand
-    'NY': '', //pound per air dry metric ton
-    'OA': '', //panel
-    'ODE': '', //ozone depletion equivalent
-    'ODG': '', //ODS Grams
-    'ODK': '', //ODS Kilograms
-    'ODM': '', //ODS Milligrams
-    'OHM': 'Ω', //ohm
-    'ON': 'oz/yd²', //ounce per square yard
-    'ONZ': 'oz', //ounce (avoirdupois)
-    'OP': '', //two pack
-    'OPM': 'o/min', //oscillations per minute
-    'OT': '', //overtime hour
-    'OZ': '', //ounce av
-    'OZA': 'fl oz (US)', //fluid ounce (US)
-    'OZI': 'fl oz (UK)', //fluid ounce (UK)
-    'P0': '', //page - electronic
-    'P1': '% or pct', //percent
-    'P10': 'C/m', //coulomb per metre
-    'P11': 'kWb', //kiloweber
-    'P12': 'γ', //gamma
-    'P13': 'kT', //kilotesla
-    'P14': 'J/s', //joule per second
-    'P15': 'J/min', //joule per minute
-    'P16': 'J/h', //joule per hour
-    'P17': 'J/d', //joule per day
-    'P18': 'kJ/s', //kilojoule per second
-    'P19': 'kJ/min', //kilojoule per minute
-    'P2': 'lb/ft', //pound per foot
-    'P20': 'kJ/h', //kilojoule per hour
-    'P21': 'kJ/d', //kilojoule per day
-    'P22': 'nΩ', //nanoohm
-    'P23': 'Ω·cmil/ft ', //ohm circular-mil per foot
-    'P24': 'kH', //kilohenry
-    'P25': 'lm/ft²', //lumen per square foot
-    'P26': 'ph', //phot
-    'P27': 'ftc', //footcandle
-    'P28': 'cd/in²', //candela per square inch
-    'P29': 'ftL', //footlambert
-    'P3': '', //three pack
-    'P30': 'Lb', //lambert
-    'P31': 'sb', //stilb
-    'P32': 'cd/ft²', //candela per square foot
-    'P33': 'kcd', //kilocandela
-    'P34': 'mcd', //millicandela
-    'P35': 'HK', //Hefner-Kerze
-    'P36': 'IK', //international candle
-    'P37':
-        'BtuIT/ft²', //British thermal unit (international table) per square foot
-    'P38': 'Btuth/ft²', //British thermal unit (thermochemical) per square foot
-    'P39': 'calth/cm²', //calorie (thermochemical) per square centimetre
-    'P4': '', //four pack
-    'P40': 'Ly', //langley
-    'P41': 'dec', //decade (logarithmic)
-    'P42': 'Pa²·s', //pascal squared second
-    'P43': 'B/m', //bel per metre
-    'P44': 'lbmol', //pound mole
-    'P45': 'lbmol/s', //pound mole per second
-    'P46': 'lbmol/h', //pound mole per minute
-    'P47': 'kmol/kg', //kilomole per kilogram
-    'P48': 'lbmol/lb', //pound mole per pound
-    'P49': 'N·m²/A', //newton square metre per ampere
-    'P5': '', //five pack
-    'P50': 'Wb·m', //weber metre
-    'P51': '(mol/kg)/Pa', //mol per kilogram pascal
-    'P52': '(mol/m³)/Pa', //mol per cubic metre pascal
-    'P53': 'unit pole ', //unit pole
-    'P54': 'mGy/s', //milligray per second
-    'P55': 'µGy/s', //microgray per second
-    'P56': 'nGy/s', //nanogray per second
-    'P57': 'Gy/min', //gray per minute
-    'P58': 'mGy/min', //milligray per minute
-    'P59': 'µGy/min', //microgray per minute
-    'P6': '', //six pack
-    'P60': 'nGy/min', //nanogray per minute
-    'P61': 'Gy/h', //gray per hour
-    'P62': 'mGy/h', //milligray per hour
-    'P63': 'µGy/h', //microgray per hour
-    'P64': 'nGy/h', //nanogray per hour
-    'P65': 'Sv/s', //sievert per second
-    'P66': 'mSv/s', //millisievert per second
-    'P67': 'µSv/s', //microsievert per second
-    'P68': 'nSv/s', //nanosievert per second
-    'P69': 'rem/s', //rem per second
-    'P7': '', //seven pack
-    'P70': 'Sv/h', //sievert per hour
-    'P71': 'mSv/h', //millisievert per hour
-    'P72': 'µSv/h', //microsievert per hour
-    'P73': 'nSv/h', //nanosievert per hour
-    'P74': 'Sv/min', //sievert per minute
-    'P75': 'mSv/min', //millisievert per minute
-    'P76': 'µSv/min', //microsievert per minute
-    'P77': 'nSv/min', //nanosievert per minute
-    'P78': '1/in²', //reciprocal square inch
-    'P79': 'Pa/(kg/m²)', //pascal square metre per kilogram
-    'P8': '', //eight pack
-    'P80': 'mPa/m', //millipascal per metre
-    'P81': 'kPa/m', //kilopascal per metre
-    'P82': 'hPa/m', //hectopascal per metre
-    'P83': 'Atm/m', //standard atmosphere per metre
-    'P84': 'at/m', //technical atmosphere per metre
-    'P85': 'Torr/m', //torr per metre
-    'P86': 'psi/in', //psi per inch
-    'P87': '(m³/s)/m²', //cubic metre per second square metre
-    'P88': 'rhe', //rhe
-    'P89': 'lbf·ft/in', //pound-force foot per inch
-    'P9': '', //nine pack
-    'P90': 'lbf·in/in', //pound-force inch per inch
-    'P91': 'perm (0 ºC) ', //perm (0 ºC)
-    'P92': 'perm (23 ºC) ', //perm (23 ºC)
-    'P93': 'byte/s', //byte per second
-    'P94': 'kbyte/s', //kilobyte per second
-    'P95': 'Mbyte/s', //megabyte per second
-    'P96': '1/V', //reciprocal volt
-    'P97': '1/rad', //reciprocal radian
-    'P98': 'PaΣνB', //pascal to the power sum of stoichiometric numbers
-    'P99':
-        '(mol/m³)∑νB', //mole per cubiv metre to the power sum of stoichiometric numbers
-    'PA': '', //packet
-    'PAL': 'Pa', //pascal
-    'PB': '', //pair inch
-    'PD': '', //pad
-    'PE': '', //pound equivalent
-    'PF': '', //pallet (lift)
-    'PFL': '', //proof litre
-    'PG': '', //plate
-    'PGL': '', //proof gallon
-    'PI': '', //pitch
-    'PK': '', //pack
-    'PL': '', //pail
-    'PLA': '°P', //degree Plato
-    'PM': '', //pound percentage
-    'PN': '', //pound net
-    'PO': 'lb/in', //pound per inch of length
-    'PQ': 'ppi', //page per inch
-    'PR': '', //pair
-    'PS': 'lbf/in²', //pound-force per square inch
-    'PT': 'pt (US)', //pint (US)
-    'PTD': 'dry pt (US)', //dry pint (US)
-    'PTI': 'pt (UK)', //pint (UK)
-    'PTL': 'liq pt (US)', //liquid pint (US)
-    'PTN': 'PTN', //portion
-    'PU': '', //tray / tray pack
-    'PV': '', //half pint (US)
-    'PW': '', //pound per inch of width
-    'PY': '', //peck dry (US)
-    'PZ': '', //peck dry (UK)
-    'Q10': 'J/T', //joule per tesla
-    'Q11': 'E', //erlang
-    'Q12': 'o', //octet
-    'Q13': 'o/s', //octet per second
-    'Q14': 'Sh', //shannon
-    'Q15': 'Hart', //hartley
-    'Q16': 'nat', //natural unit of information
-    'Q17': 'Sh/s', //shannon per second
-    'Q18': 'Hart/s', //hartley per second
-    'Q19': 'nat/s', //natural unit of information per second
-    'Q20': 's/kg', //second per kilogramm
-    'Q21': 'W·m²', //watt square metre
-    'Q22': '1/(Hz·rad·m³)', //second per radian cubic metre
-    'Q23': '1/Wb', //weber to the power minus one
-    'Q24': '1/in', //reciprocal inch
-    'Q25': 'dpt', //dioptre
-    'Q26': '1/1', //one per one
-    'Q27': 'N·m/m²', //newton metre per metre
-    'Q28': 'kg/(m²·Pa·s)', //kilogram per square metre pascal second
-    'Q29': 'µg/hg', //microgram per hectogram
-    'Q3': '', //meal
-    'Q30': 'pH', //pH (potential of Hydrogen)
-    'Q31': 'kJ/g', //kilojoule per gram
-    'Q32': 'fl', //femtolitre
-    'Q33': 'pl', //picolitre
-    'Q34': 'nl', //nanolitre
-    'Q35': 'MW/min', //megawatts per minute
-    'Q36': 'm2/m3', //square metre per cubic metre
-    'Q37': '', //Standard cubic metre per day
-    'Q38': '', //Standard cubic metre per hour
-    'Q39': '', //Normalized cubic metre per day
-    'Q40': '', //Normalized cubic metre per hour
-    'Q41': '', //Joule per normalised cubic metre
-    'Q42': '', //Joule per standard cubic metre
-    'QA': '', //page - facsimile
-    'QAN': '', //quarter (of a year)
-    'QB': '', //page - hardcopy
-    'QD': '', //quarter dozen
-    'QH': '', //quarter hour
-    'QK': '', //quarter kilogram
-    'QR': 'qr', //quire
-    'QT': 'qt (US)', //quart (US)
-    'QTD': 'dry qt (US)', //dry quart (US)
-    'QTI': 'qt (UK)', //quart (UK)
-    'QTL': 'liq qt (US)', //liquid quart (US)
-    'QTR': 'Qr (UK)', //quarter (UK)
-    'R1': '', //pica
-    'R4': 'cal', //calorie
-    'R9': '', //thousand cubic metre
-    'RA': '', //rack
-    'RD': '', //rod
-    'RG': '', //ring
-    'RH': '', //running or operating hour
-    'RK': '', //roll metric measure
-    'RL': '', //reel
-    'RM': '', //ream
-    'RN': '', //ream metric measure
-    'RO': '', //roll
-    'ROM': '', //room
-    'RP': '', //pound per ream
-    'RPM': 'r/min', //revolutions per minute
-    'RPS': 'r/s', //revolutions per second
-    'RS': '', //reset
-    'RT': '', //revenue ton mile
-    'RU': '', //run
-    'S3': 'ft²/s', //square foot per second
-    'S4': 'm²/s', //square metre per second
-    'S5': '', //sixty fourths of an inch
-    'S6': '', //session
-    'S7': '', //storage unit
-    'S8': '', //standard advertising unit
-    'SA': '', //sack
-    'SAN': '', //half year (6 months)
-    'SCO': '', //score
-    'SCR': '', //scruple
-    'SD': '', //solid pound
-    'SE': '', //section
-    'SEC': 's', //second [unit of time]
-    'SET': '', //set
-    'SG': '', //segment
-    'SHT': '', //shipping ton
-    'SIE': 'S', //siemens
-    'SK': '', //split tank truck
-    'SL': '', //slipsheet
-    'SM3': '', //Standard cubic metre
-    'SMI': 'mile', //mile (statute mile)
-    'SN': 'rd²', //square rod
-    'SO': '', //spool
-    'SP': '', //shelf package
-    'SQ': '', //square
-    'SQR': '', //square, roofing
-    'SR': '', //strip
-    'SS': '', //sheet metric measure
-    'SST': '', //short standard (7200 matches)
-    'ST': '', //sheet
-    'STC': '', //stick
-    'STI': 'st', //stone (UK)
-    'STK': '', //stick, cigarette
-    'STL': '', //standard litre
-    'STN': 'ton (US)', //ton (US) or short ton (UK/US)
-    'STW': '', //straw
-    'SV': '', //skid
-    'SW': '', //skein
-    'SX': '', //shipment
-    'SYR': '', //syringe
-    'T0': '', //telecommunication line in service
-    'T1': '', //thousand pound gross
-    'T3': '', //thousand piece
-    'T4': '', //thousand bag
-    'T5': '', //thousand casing
-    'T6': '', //thousand gallon (US)
-    'T7': '', //thousand impression
-    'T8': '', //thousand linear inch
-    'TA': '', //tenth cubic foot
-    'TAH': 'kA·h', //kiloampere hour (thousand ampere hour)
-    'TAN': 'TAN', //total acid number
-    'TC': '', //truckload
-    'TD': '', //therm
-    'TE': '', //tote
-    'TF': '', //ten square yard
-    'TI': '', //thousand square inch
-    'TIC': '', //metric ton, including container
-    'TIP': '', //metric ton, including inner packaging
-    'TJ': '', //thousand square centimetre
-    'TK': '', //tank, rectangular
-    'TKM': 't·km', //tonne kilometre
-    'TL': '', //thousand foot (linear)
-    'TMS': '', //kilogram of imported meat, less offal
-    'TN': '', //tin
-    'TNE': 't', //tonne (metric ton)
-    'TP': '', //ten pack
-    'TPI': 'TPI', //teeth per inch
-    'TPR': '', //ten pair
-    'TQ': '', //thousand foot
-    'TQD': 'km³/d', //thousand cubic metre per day
-    'TR': '', //ten square foot
-    'TRL': '', //trillion (EUR)
-    'TS': '', //thousand square foot
-    'TSD': '', //tonne of substance 90 % dry
-    'TSH': '', //ton of steam per hour
-    'TST': '', //ten set
-    'TT': '', //thousand linear metre
-    'TTS': '', //ten thousand sticks
-    'TU': '', //tube
-    'TV': '', //thousand kilogram
-    'TW': '', //thousand sheet
-    'TY': '', //tank, cylindrical
-    'U1': '', //treatment
-    'U2': '', //tablet
-    'UA': 'Torr', //torr
-    'UB': '', //telecommunication line in service average
-    'UC': '', //telecommunication port
-    'UD': '', //tenth minute
-    'UE': '', //tenth hour
-    'UF': '', //usage per telecommunication line average
-    'UH': '', //ten thousand yard
-    'UM': '', //million unit
-    'VA': 'V·A / kg', //volt - ampere per kilogram
-    'VI': '', //vial
-    'VLT': 'V', //volt
-    'VP': '', //percent volume
-    'VQ': '', //bulk
-    'VS': '', //visit
-    'W2': '', //wet kilo
-    'W4': '', //two week
-    'WA': 'W/kg', //watt per kilogram
-    'WB': '', //wet pound
-    'WCD': '', //cord
-    'WE': '', //wet ton
-    'WEB': 'Wb', //weber
-    'WEE': 'wk', //week
-    'WG': '', //wine gallon
-    'WH': '', //wheel
-    'WHR': 'W·h', //watt hour
-    'WI': '', //weight per square inch
-    'WM': '', //working month
-    'WR': '', //wrap
-    'WSD': 'std', //standard
-    'WTT': 'W', //watt
-    'WW': '', //millilitre of water
-    'X1': 'ch (UK)', //Gunter's chain
-    'YDK': 'yd²', //square yard
-    'YDQ': 'yd³', //cubic yard
-    'YL': '', //hundred linear yard
-    'YRD': 'yd', //yard
-    'YT': '', //ten yard
-    'Z1': '', //lift van
-    'Z11': '', //hanging container
-    'Z2': '', //chest
-    'Z3': '', //cask
-    'Z4': '', //hogshead
-    'Z5': '', //lug
-    'Z6': '', //conference point
-    'Z8': '', //newspage agate line
-    'Z9': 'nmol', //nanomole
-    'ZP': '', //page
-    'ZZ': '', //mutually defined
+  static const Map<String, UnitInfo> unitMap = {
+    '05': UnitInfo(code: '05', symbol: '', description: 'lift'),
+    '06': UnitInfo(code: '06', symbol: '', description: 'small spray'),
+    '08': UnitInfo(code: '08', symbol: '', description: 'heat lot'),
+    '10': UnitInfo(code: '10', symbol: '', description: 'group'),
+    '11': UnitInfo(code: '11', symbol: '', description: 'outfit'),
+    '13': UnitInfo(code: '13', symbol: '', description: 'ration'),
+    '14': UnitInfo(code: '14', symbol: '', description: 'shot'),
+    '15': UnitInfo(code: '15', symbol: '', description: 'stick, military'),
+    '16': UnitInfo(
+      code: '16',
+      symbol: '',
+      description: 'hundred fifteen kg drum',
+    ),
+    '17': UnitInfo(code: '17', symbol: '', description: 'hundred lb drum'),
+    '18': UnitInfo(
+      code: '18',
+      symbol: '',
+      description: 'fiftyfive gallon (US) drum',
+    ),
+    '19': UnitInfo(code: '19', symbol: '', description: 'tank truck'),
+    '1A': UnitInfo(code: '1A', symbol: '', description: 'car mile'),
+    '1B': UnitInfo(code: '1B', symbol: '', description: 'car count'),
+    '1C': UnitInfo(code: '1C', symbol: '', description: 'locomotive count'),
+    '1D': UnitInfo(code: '1D', symbol: '', description: 'caboose count'),
+    '1E': UnitInfo(code: '1E', symbol: '', description: 'empty car'),
+    '1F': UnitInfo(code: '1F', symbol: '', description: 'train mile'),
+    '1G': UnitInfo(
+      code: '1G',
+      symbol: '',
+      description: 'fuel usage gallon (US)',
+    ),
+    '1H': UnitInfo(code: '1H', symbol: '', description: 'caboose mile'),
+    '1I': UnitInfo(code: '1I', symbol: '', description: 'fixed rate'),
+    '1J': UnitInfo(code: '1J', symbol: '', description: 'ton mile'),
+    '1K': UnitInfo(code: '1K', symbol: '', description: 'locomotive mile'),
+    '1L': UnitInfo(code: '1L', symbol: '', description: 'total car count'),
+    '1M': UnitInfo(code: '1M', symbol: '', description: 'total car mile'),
+    '1X': UnitInfo(code: '1X', symbol: '', description: 'quarter mile'),
+    '20': UnitInfo(
+      code: '20',
+      symbol: '',
+      description: 'twenty foot container',
+    ),
+    '21': UnitInfo(code: '21', symbol: '', description: 'forty foot container'),
+    '22': UnitInfo(
+      code: '22',
+      symbol: 'dl/g',
+      description: 'decilitre per gram',
+    ),
+    '23': UnitInfo(
+      code: '23',
+      symbol: 'g/cm³',
+      description: 'gram per cubic centimetre',
+    ),
+    '24': UnitInfo(code: '24', symbol: '', description: 'theoretical pound'),
+    '25': UnitInfo(
+      code: '25',
+      symbol: 'g/cm²',
+      description: 'gram per square centimetre',
+    ),
+    '26': UnitInfo(code: '26', symbol: '', description: 'actual ton'),
+    '27': UnitInfo(code: '27', symbol: '', description: 'theoretical ton'),
+    '28': UnitInfo(
+      code: '28',
+      symbol: 'kg/m²',
+      description: 'kilogram per square metre',
+    ),
+    '29': UnitInfo(
+      code: '29',
+      symbol: 'lb/kft²',
+      description: 'pound per thousand square foot',
+    ),
+    '2A': UnitInfo(
+      code: '2A',
+      symbol: 'rad/s',
+      description: 'radian per second',
+    ),
+    '2B': UnitInfo(
+      code: '2B',
+      symbol: 'rad/s²',
+      description: 'radian per second squared',
+    ),
+    '2C': UnitInfo(code: '2C', symbol: 'R', description: 'roentgen'),
+    '2G': UnitInfo(code: '2G', symbol: 'V', description: 'volt AC'),
+    '2H': UnitInfo(code: '2H', symbol: 'V', description: 'volt DC'),
+    '2I': UnitInfo(
+      code: '2I',
+      symbol: 'BtuIT/h',
+      description: 'British thermal unit (international table) per hour',
+    ),
+    '2J': UnitInfo(
+      code: '2J',
+      symbol: 'cm³/s',
+      description: 'cubic centimetre per second',
+    ),
+    '2K': UnitInfo(
+      code: '2K',
+      symbol: 'ft³/h',
+      description: 'cubic foot per hour',
+    ),
+    '2L': UnitInfo(
+      code: '2L',
+      symbol: 'ft³/min',
+      description: 'cubic foot per minute',
+    ),
+    '2M': UnitInfo(
+      code: '2M',
+      symbol: 'cm/s',
+      description: 'centimetre per second',
+    ),
+    '2N': UnitInfo(code: '2N', symbol: 'dB', description: 'decibel'),
+    '2P': UnitInfo(code: '2P', symbol: 'kbyte', description: 'kilobyte'),
+    '2Q': UnitInfo(code: '2Q', symbol: 'kBq', description: 'kilobecquerel'),
+    '2R': UnitInfo(code: '2R', symbol: 'kCi', description: 'kilocurie'),
+    '2U': UnitInfo(code: '2U', symbol: 'Mg', description: 'megagram'),
+    '2V': UnitInfo(
+      code: '2V',
+      symbol: 'Mg/h',
+      description: 'megagram per hour',
+    ),
+    '2W': UnitInfo(code: '2W', symbol: '', description: 'bin'),
+    '2X': UnitInfo(
+      code: '2X',
+      symbol: 'm/min',
+      description: 'metre per minute',
+    ),
+    '2Y': UnitInfo(code: '2Y', symbol: 'mR', description: 'milliroentgen'),
+    '2Z': UnitInfo(code: '2Z', symbol: 'mV', description: 'millivolt'),
+    '30': UnitInfo(
+      code: '30',
+      symbol: '',
+      description: 'horse power day per air dry metric ton',
+    ),
+    '31': UnitInfo(code: '31', symbol: '', description: 'catch weight'),
+    '32': UnitInfo(
+      code: '32',
+      symbol: '',
+      description: 'kilogram per air dry metric ton',
+    ),
+    '33': UnitInfo(
+      code: '33',
+      symbol: 'kPa·m²/g',
+      description: 'kilopascal square metre per gram',
+    ),
+    '34': UnitInfo(
+      code: '34',
+      symbol: 'kPa/mm',
+      description: 'kilopascal per millimetre',
+    ),
+    '35': UnitInfo(
+      code: '35',
+      symbol: 'ml/(cm²·s)',
+      description: 'millilitre per square centimetre second',
+    ),
+    '36': UnitInfo(
+      code: '36',
+      symbol: 'ft³/(min/ft²)',
+      description: 'cubic foot per minute per square foot',
+    ),
+    '37': UnitInfo(
+      code: '37',
+      symbol: 'oz/ft²',
+      description: 'ounce per square foot',
+    ),
+    '38': UnitInfo(
+      code: '38',
+      symbol: 'oz/(ft²/cin)',
+      description: 'ounce per square foot per 0,01inch',
+    ),
+    '3B': UnitInfo(code: '3B', symbol: 'MJ', description: 'megajoule'),
+    '3C': UnitInfo(code: '3C', symbol: '', description: 'manmonth'),
+    '3E': UnitInfo(
+      code: '3E',
+      symbol: '',
+      description: 'pound per pound of product',
+    ),
+    '3G': UnitInfo(
+      code: '3G',
+      symbol: '',
+      description: 'pound per piece of product',
+    ),
+    '3H': UnitInfo(
+      code: '3H',
+      symbol: '',
+      description: 'kilogram per kilogram of product',
+    ),
+    '3I': UnitInfo(
+      code: '3I',
+      symbol: '',
+      description: 'kilogram per piece of product',
+    ),
+    '40': UnitInfo(
+      code: '40',
+      symbol: 'ml/s',
+      description: 'millilitre per second',
+    ),
+    '41': UnitInfo(
+      code: '41',
+      symbol: 'ml/min',
+      description: 'millilitre per minute',
+    ),
+    '43': UnitInfo(code: '43', symbol: '', description: 'super bulk bag'),
+    '44': UnitInfo(
+      code: '44',
+      symbol: '',
+      description: 'fivehundred kg bulk bag',
+    ),
+    '45': UnitInfo(
+      code: '45',
+      symbol: '',
+      description: 'threehundred kg bulk bag',
+    ),
+    '46': UnitInfo(code: '46', symbol: '', description: 'fifty lb bulk bag'),
+    '47': UnitInfo(code: '47', symbol: '', description: 'fifty lb bag'),
+    '48': UnitInfo(code: '48', symbol: '', description: 'bulk car load'),
+    '4A': UnitInfo(code: '4A', symbol: '', description: 'bobbin'),
+    '4B': UnitInfo(code: '4B', symbol: '', description: 'cap'),
+    '4C': UnitInfo(code: '4C', symbol: 'cSt', description: 'centistokes'),
+    '4E': UnitInfo(code: '4E', symbol: '', description: 'twenty pack'),
+    '4G': UnitInfo(code: '4G', symbol: 'µl', description: 'microlitre'),
+    '4H': UnitInfo(
+      code: '4H',
+      symbol: 'µm',
+      description: 'micrometre (micron)',
+    ),
+    '4K': UnitInfo(code: '4K', symbol: 'mA', description: 'milliampere'),
+    '4L': UnitInfo(code: '4L', symbol: 'Mbyte', description: 'megabyte'),
+    '4M': UnitInfo(
+      code: '4M',
+      symbol: 'mg/h',
+      description: 'milligram per hour',
+    ),
+    '4N': UnitInfo(code: '4N', symbol: 'MBq', description: 'megabecquerel'),
+    '4O': UnitInfo(code: '4O', symbol: 'µF', description: 'microfarad'),
+    '4P': UnitInfo(code: '4P', symbol: 'N/m', description: 'newton per metre'),
+    '4Q': UnitInfo(code: '4Q', symbol: 'oz·in', description: 'ounce inch'),
+    '4R': UnitInfo(code: '4R', symbol: 'oz·ft', description: 'ounce foot'),
+    '4T': UnitInfo(code: '4T', symbol: 'pF', description: 'picofarad'),
+    '4U': UnitInfo(code: '4U', symbol: 'lb/h', description: 'pound per hour'),
+    '4W': UnitInfo(
+      code: '4W',
+      symbol: 'ton (US) /h',
+      description: 'ton (US) per hour',
+    ),
+    '4X': UnitInfo(
+      code: '4X',
+      symbol: 'kl/h',
+      description: 'kilolitre per hour',
+    ),
+    '53': UnitInfo(code: '53', symbol: '', description: 'theoretical kilogram'),
+    '54': UnitInfo(code: '54', symbol: '', description: 'theoretical tonne'),
+    '56': UnitInfo(code: '56', symbol: '', description: 'sitas'),
+    '57': UnitInfo(code: '57', symbol: '', description: 'mesh'),
+    '58': UnitInfo(code: '58', symbol: '', description: 'net kilogram'),
+    '59': UnitInfo(code: '59', symbol: 'ppm', description: 'part per million'),
+    '5A': UnitInfo(
+      code: '5A',
+      symbol: 'barrel (US)/min',
+      description: 'barrel (US) per minute',
+    ),
+    '5B': UnitInfo(code: '5B', symbol: '', description: 'batch'),
+    '5C': UnitInfo(
+      code: '5C',
+      symbol: '',
+      description: 'gallon(US) per thousand',
+    ),
+    '5E': UnitInfo(code: '5E', symbol: '', description: 'MMSCF/day'),
+    '5F': UnitInfo(code: '5F', symbol: '', description: 'pound per thousand'),
+    '5G': UnitInfo(code: '5G', symbol: '', description: 'pump'),
+    '5H': UnitInfo(code: '5H', symbol: '', description: 'stage'),
+    '5I': UnitInfo(
+      code: '5I',
+      symbol: 'std',
+      description: 'standard cubic foot',
+    ),
+    '5J': UnitInfo(
+      code: '5J',
+      symbol: '',
+      description: 'hydraulic horse power',
+    ),
+    '5K': UnitInfo(code: '5K', symbol: '', description: 'count per minute'),
+    '5P': UnitInfo(code: '5P', symbol: '', description: 'seismic level'),
+    '5Q': UnitInfo(code: '5Q', symbol: '', description: 'seismic line'),
+    '60': UnitInfo(code: '60', symbol: '', description: 'percent weight'),
+    '61': UnitInfo(
+      code: '61',
+      symbol: 'ppb',
+      description: 'part per billion (US)',
+    ),
+    '62': UnitInfo(
+      code: '62',
+      symbol: '',
+      description: 'percent per 1000 hour',
+    ),
+    '63': UnitInfo(code: '63', symbol: '', description: 'failure rate in time'),
+    '64': UnitInfo(
+      code: '64',
+      symbol: '',
+      description: 'pound per square inch, gauge',
+    ),
+    '66': UnitInfo(code: '66', symbol: 'Oe', description: 'oersted'),
+    '69': UnitInfo(code: '69', symbol: '', description: 'test specific scale'),
+    '71': UnitInfo(
+      code: '71',
+      symbol: '',
+      description: 'volt ampere per pound',
+    ),
+    '72': UnitInfo(code: '72', symbol: '', description: 'watt per pound'),
+    '73': UnitInfo(
+      code: '73',
+      symbol: '',
+      description: 'ampere tum per centimetre',
+    ),
+    '74': UnitInfo(code: '74', symbol: 'mPa', description: 'millipascal'),
+    '76': UnitInfo(code: '76', symbol: 'Gs', description: 'gauss'),
+    '77': UnitInfo(code: '77', symbol: 'mil', description: 'milli-inch'),
+    '78': UnitInfo(code: '78', symbol: 'kGs', description: 'kilogauss'),
+    '80': UnitInfo(
+      code: '80',
+      symbol: 'lb/in²',
+      description: 'pound per square inch absolute',
+    ),
+    '81': UnitInfo(code: '81', symbol: 'H', description: 'henry'),
+    '84': UnitInfo(
+      code: '84',
+      symbol: 'klbf/in²',
+      description: 'kilopound-force per square inch',
+    ),
+    '85': UnitInfo(
+      code: '85',
+      symbol: 'ft·lbf',
+      description: 'foot pound-force',
+    ),
+    '87': UnitInfo(
+      code: '87',
+      symbol: 'lb/ft³',
+      description: 'pound per cubic foot',
+    ),
+    '89': UnitInfo(code: '89', symbol: 'P', description: 'poise'),
+    '90': UnitInfo(
+      code: '90',
+      symbol: '',
+      description: 'Saybold universal second',
+    ),
+    '91': UnitInfo(code: '91', symbol: 'St', description: 'stokes'),
+    '92': UnitInfo(
+      code: '92',
+      symbol: '',
+      description: 'calorie per cubic centimetre',
+    ),
+    '93': UnitInfo(
+      code: '93',
+      symbol: 'cal/g',
+      description: 'calorie per gram',
+    ),
+    '94': UnitInfo(code: '94', symbol: '', description: 'curl unit'),
+    '95': UnitInfo(
+      code: '95',
+      symbol: '',
+      description: 'twenty thousand gallon (US) tankcar',
+    ),
+    '96': UnitInfo(
+      code: '96',
+      symbol: '',
+      description: 'ten thousand gallon (US) tankcar',
+    ),
+    '97': UnitInfo(code: '97', symbol: '', description: 'ten kg drum'),
+    '98': UnitInfo(code: '98', symbol: '', description: 'fifteen kg drum'),
+    'A1': UnitInfo(code: 'A1', symbol: 'cal₁₅', description: '15 °C calorie'),
+    'A10': UnitInfo(
+      code: 'A10',
+      symbol: 'A·m²/(J·s)',
+      description: 'ampere square metre per joule second',
+    ),
+    'A11': UnitInfo(code: 'A11', symbol: 'Å', description: 'angstrom'),
+    'A12': UnitInfo(
+      code: 'A12',
+      symbol: 'ua',
+      description: 'astronomical unit',
+    ),
+    'A13': UnitInfo(code: 'A13', symbol: 'aJ', description: 'attojoule'),
+    'A14': UnitInfo(code: 'A14', symbol: 'b', description: 'barn'),
+    'A15': UnitInfo(
+      code: 'A15',
+      symbol: 'b/eV',
+      description: 'barn per electronvolt',
+    ),
+    'A16': UnitInfo(
+      code: 'A16',
+      symbol: 'b/(sr·eV)',
+      description: 'barn per steradian electronvolt',
+    ),
+    'A17': UnitInfo(
+      code: 'A17',
+      symbol: 'b/sr',
+      description: 'barn per steradian',
+    ),
+    'A18': UnitInfo(
+      code: 'A18',
+      symbol: 'Bq/kg',
+      description: 'becquerel per kilogram',
+    ),
+    'A19': UnitInfo(
+      code: 'A19',
+      symbol: 'Bq/m³',
+      description: 'becquerel per cubic metre',
+    ),
+    'A2': UnitInfo(
+      code: 'A2',
+      symbol: 'A/cm',
+      description: 'ampere per centimetre',
+    ),
+    'A20': UnitInfo(
+      code: 'A20',
+      symbol: 'BtuIT/(s·ft²·°R)',
+      description:
+          'British thermal unit (international table) per second square foot degree Rankine',
+    ),
+    'A21': UnitInfo(
+      code: 'A21',
+      symbol: 'Btu/IT(lb·°R)',
+      description:
+          'British thermal unit (international table) per pound degree Rankine',
+    ),
+    'A22': UnitInfo(
+      code: 'A22',
+      symbol: 'BtuIT/(s·ft·°R)',
+      description:
+          'British thermal unit (international table) per second foot degree Rankine',
+    ),
+    'A23': UnitInfo(
+      code: 'A23',
+      symbol: 'BtuIT/(h·ft²·°R)',
+      description:
+          'British thermal unit (international table) per hour square foot degree Rankine',
+    ),
+    'A24': UnitInfo(
+      code: 'A24',
+      symbol: 'cd/m²',
+      description: 'candela per square metre',
+    ),
+    'A25': UnitInfo(code: 'A25', symbol: 'CV', description: 'cheval vapeur'),
+    'A26': UnitInfo(code: 'A26', symbol: 'C·m', description: 'coulomb metre'),
+    'A27': UnitInfo(
+      code: 'A27',
+      symbol: 'C·m²/V',
+      description: 'coulomb metre squared per volt',
+    ),
+    'A28': UnitInfo(
+      code: 'A28',
+      symbol: 'C/cm³',
+      description: 'coulomb per cubic centimetre',
+    ),
+    'A29': UnitInfo(
+      code: 'A29',
+      symbol: 'C/m³',
+      description: 'coulomb per cubic metre',
+    ),
+    'A3': UnitInfo(
+      code: 'A3',
+      symbol: 'A/mm',
+      description: 'ampere per millimetre',
+    ),
+    'A30': UnitInfo(
+      code: 'A30',
+      symbol: 'C/mm³',
+      description: 'coulomb per cubic millimetre',
+    ),
+    'A31': UnitInfo(
+      code: 'A31',
+      symbol: 'C/(kg·s)',
+      description: 'coulomb per kilogram second',
+    ),
+    'A32': UnitInfo(
+      code: 'A32',
+      symbol: 'C/mol',
+      description: 'coulomb per mole',
+    ),
+    'A33': UnitInfo(
+      code: 'A33',
+      symbol: 'C/cm²',
+      description: 'coulomb per square centimetre',
+    ),
+    'A34': UnitInfo(
+      code: 'A34',
+      symbol: 'C/m²',
+      description: 'coulomb per square metre',
+    ),
+    'A35': UnitInfo(
+      code: 'A35',
+      symbol: 'C/mm²',
+      description: 'coulomb per square millimetre',
+    ),
+    'A36': UnitInfo(
+      code: 'A36',
+      symbol: 'cm³/mol',
+      description: 'cubic centimetre per mole',
+    ),
+    'A37': UnitInfo(
+      code: 'A37',
+      symbol: 'dm³/mol',
+      description: 'cubic decimetre per mole',
+    ),
+    'A38': UnitInfo(
+      code: 'A38',
+      symbol: 'm³/C',
+      description: 'cubic metre per coulomb',
+    ),
+    'A39': UnitInfo(
+      code: 'A39',
+      symbol: 'm³/kg',
+      description: 'cubic metre per kilogram',
+    ),
+    'A4': UnitInfo(
+      code: 'A4',
+      symbol: 'A/cm²',
+      description: 'ampere per square centimetre',
+    ),
+    'A40': UnitInfo(
+      code: 'A40',
+      symbol: 'm³/mol',
+      description: 'cubic metre per mole',
+    ),
+    'A41': UnitInfo(
+      code: 'A41',
+      symbol: 'A/m²',
+      description: 'ampere per square metre',
+    ),
+    'A42': UnitInfo(
+      code: 'A42',
+      symbol: 'Ci/kg',
+      description: 'curie per kilogram',
+    ),
+    'A43': UnitInfo(
+      code: 'A43',
+      symbol: 'dwt',
+      description: 'deadweight tonnage',
+    ),
+    'A44': UnitInfo(code: 'A44', symbol: 'dal', description: 'decalitre'),
+    'A45': UnitInfo(code: 'A45', symbol: 'dam', description: 'decametre'),
+    'A47': UnitInfo(
+      code: 'A47',
+      symbol: 'dtex (g/10km)',
+      description: 'decitex',
+    ),
+    'A48': UnitInfo(code: 'A48', symbol: '°R', description: 'degree Rankine'),
+    'A49': UnitInfo(code: 'A49', symbol: 'den (g/9 km)', description: 'denier'),
+    'A5': UnitInfo(
+      code: 'A5',
+      symbol: 'A·m²',
+      description: 'ampere square metre',
+    ),
+    'A50': UnitInfo(
+      code: 'A50',
+      symbol: 'dyn·s/cm³',
+      description: 'dyne second per cubic centimetre',
+    ),
+    'A51': UnitInfo(
+      code: 'A51',
+      symbol: 'dyn·s/cm',
+      description: 'dyne second per centimetre',
+    ),
+    'A52': UnitInfo(
+      code: 'A52',
+      symbol: 'dyn·s/cm⁵',
+      description: 'dyne second per centimetre to the fifth power',
+    ),
+    'A53': UnitInfo(code: 'A53', symbol: 'eV', description: 'electronvolt'),
+    'A54': UnitInfo(
+      code: 'A54',
+      symbol: 'eV/m',
+      description: 'electronvolt per metre',
+    ),
+    'A55': UnitInfo(
+      code: 'A55',
+      symbol: 'eV·m²',
+      description: 'electronvolt square metre',
+    ),
+    'A56': UnitInfo(
+      code: 'A56',
+      symbol: 'eV·m²/kg',
+      description: 'electronvolt square metre per kilogram',
+    ),
+    'A57': UnitInfo(code: 'A57', symbol: 'erg', description: 'erg'),
+    'A58': UnitInfo(
+      code: 'A58',
+      symbol: 'erg/cm',
+      description: 'erg per centimetre',
+    ),
+    'A59': UnitInfo(code: 'A59', symbol: '', description: '8-part cloud cover'),
+    'A6': UnitInfo(
+      code: 'A6',
+      symbol: 'A/(m²·K²)',
+      description: 'ampere per square metre kelvin squared',
+    ),
+    'A60': UnitInfo(
+      code: 'A60',
+      symbol: 'erg/cm³',
+      description: 'erg per cubic centimetre',
+    ),
+    'A61': UnitInfo(code: 'A61', symbol: 'erg/g', description: 'erg per gram'),
+    'A62': UnitInfo(
+      code: 'A62',
+      symbol: 'erg/g·s',
+      description: 'erg per gram second',
+    ),
+    'A63': UnitInfo(
+      code: 'A63',
+      symbol: 'erg/s',
+      description: 'erg per second',
+    ),
+    'A64': UnitInfo(
+      code: 'A64',
+      symbol: 'erg/(s·cm²)',
+      description: 'erg per second square centimetre',
+    ),
+    'A65': UnitInfo(
+      code: 'A65',
+      symbol: 'erg/(cm²·s)',
+      description: 'erg per square centimetre second',
+    ),
+    'A66': UnitInfo(
+      code: 'A66',
+      symbol: 'erg·cm²',
+      description: 'erg square centimetre',
+    ),
+    'A67': UnitInfo(
+      code: 'A67',
+      symbol: 'erg·cm²/g',
+      description: 'erg square centimetre per gram',
+    ),
+    'A68': UnitInfo(code: 'A68', symbol: 'EJ', description: 'exajoule'),
+    'A69': UnitInfo(code: 'A69', symbol: 'F/m', description: 'farad per metre'),
+    'A7': UnitInfo(
+      code: 'A7',
+      symbol: 'A/mm²',
+      description: 'ampere per square millimetre',
+    ),
+    'A70': UnitInfo(code: 'A70', symbol: 'fJ', description: 'femtojoule'),
+    'A71': UnitInfo(code: 'A71', symbol: 'fm', description: 'femtometre'),
+    'A73': UnitInfo(
+      code: 'A73',
+      symbol: 'ft/s²',
+      description: 'foot per second squared',
+    ),
+    'A74': UnitInfo(
+      code: 'A74',
+      symbol: 'ft·lbf/s',
+      description: 'foot pound-force per second',
+    ),
+    'A75': UnitInfo(code: 'A75', symbol: '', description: 'freight ton'),
+    'A76': UnitInfo(code: 'A76', symbol: 'Gal', description: 'gal'),
+    'A77': UnitInfo(
+      code: 'A77',
+      symbol: '',
+      description:
+          'Gaussian CGS (Centimetre-Gram-Second system) unit of displacement',
+    ),
+    'A78': UnitInfo(
+      code: 'A78',
+      symbol: '',
+      description:
+          'Gaussian CGS (Centimetre-Gram-Second system) unit of electric current',
+    ),
+    'A79': UnitInfo(
+      code: 'A79',
+      symbol: '',
+      description:
+          'Gaussian CGS (Centimetre-Gram-Second system) unit of electric charge',
+    ),
+    'A8': UnitInfo(code: 'A8', symbol: 'A·s', description: 'ampere second'),
+    'A80': UnitInfo(
+      code: 'A80',
+      symbol: '',
+      description:
+          'Gaussian CGS (Centimetre-Gram-Second system) unit of electric field strength',
+    ),
+    'A81': UnitInfo(
+      code: 'A81',
+      symbol: '',
+      description:
+          'Gaussian CGS (Centimetre-Gram-Second system) unit of electric polarization',
+    ),
+    'A82': UnitInfo(
+      code: 'A82',
+      symbol: '',
+      description:
+          'Gaussian CGS (Centimetre-Gram-Second system) unit of electric potential',
+    ),
+    'A83': UnitInfo(
+      code: 'A83',
+      symbol: '',
+      description:
+          'Gaussian CGS (Centimetre-Gram-Second system) unit of magnetization',
+    ),
+    'A84': UnitInfo(
+      code: 'A84',
+      symbol: 'GC/m³',
+      description: 'gigacoulomb per cubic metre',
+    ),
+    'A85': UnitInfo(
+      code: 'A85',
+      symbol: 'GeV',
+      description: 'gigaelectronvolt',
+    ),
+    'A86': UnitInfo(code: 'A86', symbol: 'GHz', description: 'gigahertz'),
+    'A87': UnitInfo(code: 'A87', symbol: 'GΩ', description: 'gigaohm'),
+    'A88': UnitInfo(code: 'A88', symbol: 'GΩ·m', description: 'gigaohm metre'),
+    'A89': UnitInfo(code: 'A89', symbol: 'GPa', description: 'gigapascal'),
+    'A9': UnitInfo(code: 'A9', symbol: '', description: 'rate'),
+    'A90': UnitInfo(code: 'A90', symbol: 'GW', description: 'gigawatt'),
+    'A91': UnitInfo(code: 'A91', symbol: '', description: 'grade'),
+    'A93': UnitInfo(
+      code: 'A93',
+      symbol: 'g/m³',
+      description: 'gram per cubic metre',
+    ),
+    'A94': UnitInfo(code: 'A94', symbol: 'g/mol', description: 'gram per mole'),
+    'A95': UnitInfo(code: 'A95', symbol: 'Gy', description: 'gray'),
+    'A96': UnitInfo(
+      code: 'A96',
+      symbol: 'Gy/s',
+      description: 'gray per second',
+    ),
+    'A97': UnitInfo(code: 'A97', symbol: 'hPa', description: 'hectopascal'),
+    'A98': UnitInfo(code: 'A98', symbol: 'H/m', description: 'henry per metre'),
+    'A99': UnitInfo(code: 'A99', symbol: 'bit', description: 'bit'),
+    'AA': UnitInfo(code: 'AA', symbol: '', description: 'ball'),
+    'AB': UnitInfo(code: 'AB', symbol: 'pk', description: 'bulk pack'),
+    'ACR': UnitInfo(code: 'ACR', symbol: 'acre', description: 'acre'),
+    'ACT': UnitInfo(code: 'ACT', symbol: '', description: 'activity'),
+    'AD': UnitInfo(code: 'AD', symbol: 'byte', description: 'byte'),
+    'AE': UnitInfo(code: 'AE', symbol: 'A/m', description: 'ampere per metre'),
+    'AH': UnitInfo(code: 'AH', symbol: '', description: 'additional minute'),
+    'AI': UnitInfo(
+      code: 'AI',
+      symbol: '',
+      description: 'average minute per call',
+    ),
+    'AJ': UnitInfo(code: 'AJ', symbol: '', description: 'cop'),
+    'AK': UnitInfo(code: 'AK', symbol: 'fth', description: 'fathom'),
+    'AL': UnitInfo(code: 'AL', symbol: '', description: 'access line'),
+    'AM': UnitInfo(code: 'AM', symbol: '', description: 'ampoule'),
+    'AMH': UnitInfo(code: 'AMH', symbol: 'A·h', description: 'ampere hour'),
+    'AMP': UnitInfo(code: 'AMP', symbol: 'A', description: 'ampere'),
+    'ANN': UnitInfo(code: 'ANN', symbol: 'y', description: 'year'),
+    'AP': UnitInfo(code: 'AP', symbol: '', description: 'aluminium pound only'),
+    'APZ': UnitInfo(
+      code: 'APZ',
+      symbol: 'tr oz',
+      description: 'troy ounce or apothecary ounce',
+    ),
+    'AQ': UnitInfo(
+      code: 'AQ',
+      symbol: '',
+      description: 'anti-hemophilic factor (AHF) unit',
+    ),
+    'AR': UnitInfo(code: 'AR', symbol: '', description: 'suppository'),
+    'ARE': UnitInfo(code: 'ARE', symbol: 'a', description: 'are'),
+    'AS': UnitInfo(code: 'AS', symbol: '', description: 'assortment'),
+    'ASM': UnitInfo(
+      code: 'ASM',
+      symbol: '',
+      description: 'alcoholic strength by mass',
+    ),
+    'ASU': UnitInfo(
+      code: 'ASU',
+      symbol: '',
+      description: 'alcoholic strength by volume',
+    ),
+    'ATM': UnitInfo(
+      code: 'ATM',
+      symbol: 'atm',
+      description: 'standard atmosphere',
+    ),
+    'ATT': UnitInfo(
+      code: 'ATT',
+      symbol: 'at',
+      description: 'technical atmosphere',
+    ),
+    'AV': UnitInfo(code: 'AV', symbol: '', description: 'capsule'),
+    'AW': UnitInfo(code: 'AW', symbol: '', description: 'powder filled vial'),
+    'AWG': UnitInfo(
+      code: 'AWG',
+      symbol: 'AWG',
+      description: 'american wire gauge',
+    ),
+    'AY': UnitInfo(code: 'AY', symbol: '', description: 'assembly'),
+    'AZ': UnitInfo(
+      code: 'AZ',
+      symbol: 'BtuIT/lb',
+      description: 'British thermal unit (international table) per pound',
+    ),
+    'B0': UnitInfo(
+      code: 'B0',
+      symbol: 'BTU/ft³',
+      description: 'Btu per cubic foot',
+    ),
+    'B1': UnitInfo(
+      code: 'B1',
+      symbol: 'barrel (US)/d',
+      description: 'barrel (US) per day',
+    ),
+    'B10': UnitInfo(
+      code: 'B10',
+      symbol: 'bit/s',
+      description: 'bit per second',
+    ),
+    'B11': UnitInfo(
+      code: 'B11',
+      symbol: 'J/(kg·K)',
+      description: 'joule per kilogram kelvin',
+    ),
+    'B12': UnitInfo(code: 'B12', symbol: 'J/m', description: 'joule per metre'),
+    'B13': UnitInfo(
+      code: 'B13',
+      symbol: 'J/m²',
+      description: 'joule per square metre',
+    ),
+    'B14': UnitInfo(
+      code: 'B14',
+      symbol: 'J/m⁴',
+      description: 'joule per metre to the fourth power',
+    ),
+    'B15': UnitInfo(
+      code: 'B15',
+      symbol: 'J/mol',
+      description: 'joule per mole',
+    ),
+    'B16': UnitInfo(
+      code: 'B16',
+      symbol: 'J/(mol·K)',
+      description: 'joule per mole kelvin',
+    ),
+    'B17': UnitInfo(code: 'B17', symbol: '', description: 'credit'),
+    'B18': UnitInfo(code: 'B18', symbol: 'J·s', description: 'joule second'),
+    'B19': UnitInfo(code: 'B19', symbol: '', description: 'digit'),
+    'B2': UnitInfo(code: 'B2', symbol: '', description: 'bunk'),
+    'B20': UnitInfo(
+      code: 'B20',
+      symbol: 'J·m²/kg',
+      description: 'joule square metre per kilogram',
+    ),
+    'B21': UnitInfo(code: 'B21', symbol: 'K/W', description: 'kelvin per watt'),
+    'B22': UnitInfo(code: 'B22', symbol: 'kA', description: 'kiloampere'),
+    'B23': UnitInfo(
+      code: 'B23',
+      symbol: 'kA/m²',
+      description: 'kiloampere per square metre',
+    ),
+    'B24': UnitInfo(
+      code: 'B24',
+      symbol: 'kA/m',
+      description: 'kiloampere per metre',
+    ),
+    'B25': UnitInfo(
+      code: 'B25',
+      symbol: 'kBq/kg',
+      description: 'kilobecquerel per kilogram',
+    ),
+    'B26': UnitInfo(code: 'B26', symbol: 'kC', description: 'kilocoulomb'),
+    'B27': UnitInfo(
+      code: 'B27',
+      symbol: 'kC/m³',
+      description: 'kilocoulomb per cubic metre',
+    ),
+    'B28': UnitInfo(
+      code: 'B28',
+      symbol: 'kC/m²',
+      description: 'kilocoulomb per square metre',
+    ),
+    'B29': UnitInfo(
+      code: 'B29',
+      symbol: 'keV',
+      description: 'kiloelectronvolt',
+    ),
+    'B3': UnitInfo(code: 'B3', symbol: '', description: 'batting pound'),
+    'B30': UnitInfo(code: 'B30', symbol: 'Gibit', description: 'gibibit'),
+    'B31': UnitInfo(
+      code: 'B31',
+      symbol: 'kg·m/s',
+      description: 'kilogram metre per second',
+    ),
+    'B32': UnitInfo(
+      code: 'B32',
+      symbol: 'kg·m²',
+      description: 'kilogram metre squared',
+    ),
+    'B33': UnitInfo(
+      code: 'B33',
+      symbol: 'kg·m²/s',
+      description: 'kilogram metre squared per second',
+    ),
+    'B34': UnitInfo(
+      code: 'B34',
+      symbol: 'kg/dm³',
+      description: 'kilogram per cubic decimetre',
+    ),
+    'B35': UnitInfo(
+      code: 'B35',
+      symbol: 'kg/l or kg/L',
+      description: 'kilogram per litre',
+    ),
+    'B36': UnitInfo(
+      code: 'B36',
+      symbol: 'calth/g',
+      description: 'calorie (thermochemical) per gram',
+    ),
+    'B37': UnitInfo(code: 'B37', symbol: 'kgf', description: 'kilogram-force'),
+    'B38': UnitInfo(
+      code: 'B38',
+      symbol: 'kgf·m',
+      description: 'kilogram-force metre',
+    ),
+    'B39': UnitInfo(
+      code: 'B39',
+      symbol: 'kgf·m/s',
+      description: 'kilogram-force metre per second',
+    ),
+    'B4': UnitInfo(code: 'B4', symbol: '', description: 'barrel, imperial'),
+    'B40': UnitInfo(
+      code: 'B40',
+      symbol: 'kgf/m²',
+      description: 'kilogram-force per square metre',
+    ),
+    'B41': UnitInfo(
+      code: 'B41',
+      symbol: 'kJ/K',
+      description: 'kilojoule per kelvin',
+    ),
+    'B42': UnitInfo(
+      code: 'B42',
+      symbol: 'kJ/kg',
+      description: 'kilojoule per kilogram',
+    ),
+    'B43': UnitInfo(
+      code: 'B43',
+      symbol: 'kJ/(kg·K)',
+      description: 'kilojoule per kilogram kelvin',
+    ),
+    'B44': UnitInfo(
+      code: 'B44',
+      symbol: 'kJ/mol',
+      description: 'kilojoule per mole',
+    ),
+    'B45': UnitInfo(code: 'B45', symbol: 'kmol', description: 'kilomole'),
+    'B46': UnitInfo(
+      code: 'B46',
+      symbol: 'kmol/m³',
+      description: 'kilomole per cubic metre',
+    ),
+    'B47': UnitInfo(code: 'B47', symbol: 'kN', description: 'kilonewton'),
+    'B48': UnitInfo(
+      code: 'B48',
+      symbol: 'kN·m',
+      description: 'kilonewton metre',
+    ),
+    'B49': UnitInfo(code: 'B49', symbol: 'kΩ', description: 'kiloohm'),
+    'B5': UnitInfo(code: 'B5', symbol: '', description: 'billet'),
+    'B50': UnitInfo(code: 'B50', symbol: 'kΩ·m', description: 'kiloohm metre'),
+    'B51': UnitInfo(code: 'B51', symbol: 'kp', description: 'kilopond'),
+    'B52': UnitInfo(code: 'B52', symbol: 'ks', description: 'kilosecond'),
+    'B53': UnitInfo(code: 'B53', symbol: 'kS', description: 'kilosiemens'),
+    'B54': UnitInfo(
+      code: 'B54',
+      symbol: 'kS/m',
+      description: 'kilosiemens per metre',
+    ),
+    'B55': UnitInfo(
+      code: 'B55',
+      symbol: 'kV/m',
+      description: 'kilovolt per metre',
+    ),
+    'B56': UnitInfo(
+      code: 'B56',
+      symbol: 'kWb/m',
+      description: 'kiloweber per metre',
+    ),
+    'B57': UnitInfo(code: 'B57', symbol: 'ly', description: 'light year'),
+    'B58': UnitInfo(
+      code: 'B58',
+      symbol: 'l/mol',
+      description: 'litre per mole',
+    ),
+    'B59': UnitInfo(code: 'B59', symbol: 'lm·h', description: 'lumen hour'),
+    'B6': UnitInfo(code: 'B6', symbol: '', description: 'bun'),
+    'B60': UnitInfo(
+      code: 'B60',
+      symbol: 'lm/m²',
+      description: 'lumen per square metre',
+    ),
+    'B61': UnitInfo(code: 'B61', symbol: 'lm/W', description: 'lumen per watt'),
+    'B62': UnitInfo(code: 'B62', symbol: 'lm·s', description: 'lumen second'),
+    'B63': UnitInfo(code: 'B63', symbol: 'lx·h', description: 'lux hour'),
+    'B64': UnitInfo(code: 'B64', symbol: 'lx·s', description: 'lux second'),
+    'B65': UnitInfo(code: 'B65', symbol: 'Mx', description: 'maxwell'),
+    'B66': UnitInfo(
+      code: 'B66',
+      symbol: 'MA/m²',
+      description: 'megaampere per square metre',
+    ),
+    'B67': UnitInfo(
+      code: 'B67',
+      symbol: 'MBq/kg',
+      description: 'megabecquerel per kilogram',
+    ),
+    'B68': UnitInfo(code: 'B68', symbol: 'Gbit', description: 'gigabit'),
+    'B69': UnitInfo(
+      code: 'B69',
+      symbol: 'MC/m³',
+      description: 'megacoulomb per cubic metre',
+    ),
+    'B7': UnitInfo(code: 'B7', symbol: '', description: 'cycle'),
+    'B70': UnitInfo(
+      code: 'B70',
+      symbol: 'MC/m²',
+      description: 'megacoulomb per square metre',
+    ),
+    'B71': UnitInfo(
+      code: 'B71',
+      symbol: 'MeV',
+      description: 'megaelectronvolt',
+    ),
+    'B72': UnitInfo(
+      code: 'B72',
+      symbol: 'Mg/m³',
+      description: 'megagram per cubic metre',
+    ),
+    'B73': UnitInfo(code: 'B73', symbol: 'MN', description: 'meganewton'),
+    'B74': UnitInfo(
+      code: 'B74',
+      symbol: 'MN·m',
+      description: 'meganewton metre',
+    ),
+    'B75': UnitInfo(code: 'B75', symbol: 'MΩ', description: 'megaohm'),
+    'B76': UnitInfo(code: 'B76', symbol: 'MΩ·m', description: 'megaohm metre'),
+    'B77': UnitInfo(
+      code: 'B77',
+      symbol: 'MS/m',
+      description: 'megasiemens per metre',
+    ),
+    'B78': UnitInfo(code: 'B78', symbol: 'MV', description: 'megavolt'),
+    'B79': UnitInfo(
+      code: 'B79',
+      symbol: 'MV/m',
+      description: 'megavolt per metre',
+    ),
+    'B8': UnitInfo(
+      code: 'B8',
+      symbol: 'J/m³',
+      description: 'joule per cubic metre',
+    ),
+    'B80': UnitInfo(
+      code: 'B80',
+      symbol: 'Gbit/s',
+      description: 'gigabit per second',
+    ),
+    'B81': UnitInfo(
+      code: 'B81',
+      symbol: 'm⁻²/s',
+      description: 'reciprocal metre squared reciprocal second',
+    ),
+    'B82': UnitInfo(
+      code: 'B82',
+      symbol: '',
+      description: 'inch per linear foot',
+    ),
+    'B83': UnitInfo(
+      code: 'B83',
+      symbol: 'm⁴',
+      description: 'metre to the fourth power',
+    ),
+    'B84': UnitInfo(code: 'B84', symbol: 'µA', description: 'microampere'),
+    'B85': UnitInfo(code: 'B85', symbol: 'µbar', description: 'microbar'),
+    'B86': UnitInfo(code: 'B86', symbol: 'µC', description: 'microcoulomb'),
+    'B87': UnitInfo(
+      code: 'B87',
+      symbol: 'µC/m³',
+      description: 'microcoulomb per cubic metre',
+    ),
+    'B88': UnitInfo(
+      code: 'B88',
+      symbol: 'µC/m²',
+      description: 'microcoulomb per square metre',
+    ),
+    'B89': UnitInfo(
+      code: 'B89',
+      symbol: 'µF/m',
+      description: 'microfarad per metre',
+    ),
+    'B9': UnitInfo(code: 'B9', symbol: '', description: 'batt'),
+    'B90': UnitInfo(code: 'B90', symbol: 'µH', description: 'microhenry'),
+    'B91': UnitInfo(
+      code: 'B91',
+      symbol: 'µH/m',
+      description: 'microhenry per metre',
+    ),
+    'B92': UnitInfo(code: 'B92', symbol: 'µN', description: 'micronewton'),
+    'B93': UnitInfo(
+      code: 'B93',
+      symbol: 'µN·m',
+      description: 'micronewton metre',
+    ),
+    'B94': UnitInfo(code: 'B94', symbol: 'µΩ', description: 'microohm'),
+    'B95': UnitInfo(code: 'B95', symbol: 'µΩ·m', description: 'microohm metre'),
+    'B96': UnitInfo(code: 'B96', symbol: 'µPa', description: 'micropascal'),
+    'B97': UnitInfo(code: 'B97', symbol: 'µrad', description: 'microradian'),
+    'B98': UnitInfo(code: 'B98', symbol: 'µs', description: 'microsecond'),
+    'B99': UnitInfo(code: 'B99', symbol: 'µS', description: 'microsiemens'),
+    'BAR': UnitInfo(
+      code: 'BAR',
+      symbol: 'bar',
+      description: 'bar [unit of pressure]',
+    ),
+    'BB': UnitInfo(code: 'BB', symbol: '', description: 'base box'),
+    'BD': UnitInfo(code: 'BD', symbol: '', description: 'board'),
+    'BE': UnitInfo(code: 'BE', symbol: '', description: 'bundle'),
+    'BFT': UnitInfo(code: 'BFT', symbol: 'fbm', description: 'board foot'),
+    'BG': UnitInfo(code: 'BG', symbol: '', description: 'bag'),
+    'BH': UnitInfo(code: 'BH', symbol: '', description: 'brush'),
+    'BHP': UnitInfo(
+      code: 'BHP',
+      symbol: 'BHP',
+      description: 'brake horse power',
+    ),
+    'BIL': UnitInfo(code: 'BIL', symbol: '', description: 'billion (EUR)'),
+    'BJ': UnitInfo(code: 'BJ', symbol: '', description: 'bucket'),
+    'BK': UnitInfo(code: 'BK', symbol: '', description: 'basket'),
+    'BL': UnitInfo(code: 'BL', symbol: '', description: 'bale'),
+    'BLD': UnitInfo(
+      code: 'BLD',
+      symbol: 'bbl (US)',
+      description: 'dry barrel (US)',
+    ),
+    'BLL': UnitInfo(
+      code: 'BLL',
+      symbol: 'barrel (US)',
+      description: 'barrel (US)',
+    ),
+    'BO': UnitInfo(code: 'BO', symbol: '', description: 'bottle'),
+    'BP': UnitInfo(code: 'BP', symbol: '', description: 'hundred board foot'),
+    'BPM': UnitInfo(
+      code: 'BPM',
+      symbol: 'BPM',
+      description: 'beats per minute',
+    ),
+    'BQL': UnitInfo(code: 'BQL', symbol: 'Bq', description: 'becquerel'),
+    'BR': UnitInfo(
+      code: 'BR',
+      symbol: '',
+      description: 'bar [unit of packaging]',
+    ),
+    'BT': UnitInfo(code: 'BT', symbol: '', description: 'bolt'),
+    'BTU': UnitInfo(
+      code: 'BTU',
+      symbol: 'BtuIT',
+      description: 'British thermal unit (international table)',
+    ),
+    'BUA': UnitInfo(code: 'BUA', symbol: 'bu (US)', description: 'bushel (US)'),
+    'BUI': UnitInfo(
+      code: 'BUI',
+      symbol: 'bushel (UK)',
+      description: 'bushel (UK)',
+    ),
+    'BW': UnitInfo(code: 'BW', symbol: '', description: 'base weight'),
+    'BX': UnitInfo(code: 'BX', symbol: '', description: 'box'),
+    'BZ': UnitInfo(code: 'BZ', symbol: '', description: 'million BTUs'),
+    'C0': UnitInfo(code: 'C0', symbol: '', description: 'call'),
+    'C1': UnitInfo(
+      code: 'C1',
+      symbol: '',
+      description: 'composite product pound (total weight)',
+    ),
+    'C10': UnitInfo(code: 'C10', symbol: 'mF', description: 'millifarad'),
+    'C11': UnitInfo(code: 'C11', symbol: 'mGal', description: 'milligal'),
+    'C12': UnitInfo(
+      code: 'C12',
+      symbol: 'mg/m',
+      description: 'milligram per metre',
+    ),
+    'C13': UnitInfo(code: 'C13', symbol: 'mGy', description: 'milligray'),
+    'C14': UnitInfo(code: 'C14', symbol: 'mH', description: 'millihenry'),
+    'C15': UnitInfo(code: 'C15', symbol: 'mJ', description: 'millijoule'),
+    'C16': UnitInfo(
+      code: 'C16',
+      symbol: 'mm/s',
+      description: 'millimetre per second',
+    ),
+    'C17': UnitInfo(
+      code: 'C17',
+      symbol: 'mm²/s',
+      description: 'millimetre squared per second',
+    ),
+    'C18': UnitInfo(code: 'C18', symbol: 'mmol', description: 'millimole'),
+    'C19': UnitInfo(
+      code: 'C19',
+      symbol: 'mol/kg',
+      description: 'mole per kilogram',
+    ),
+    'C2': UnitInfo(code: 'C2', symbol: '', description: 'carset'),
+    'C20': UnitInfo(code: 'C20', symbol: 'mN', description: 'millinewton'),
+    'C21': UnitInfo(code: 'C21', symbol: 'Kibit', description: 'kibibit'),
+    'C22': UnitInfo(
+      code: 'C22',
+      symbol: 'mN/m',
+      description: 'millinewton per metre',
+    ),
+    'C23': UnitInfo(code: 'C23', symbol: 'mΩ·m', description: 'milliohm metre'),
+    'C24': UnitInfo(
+      code: 'C24',
+      symbol: 'mPa·s',
+      description: 'millipascal second',
+    ),
+    'C25': UnitInfo(code: 'C25', symbol: 'mrad', description: 'milliradian'),
+    'C26': UnitInfo(code: 'C26', symbol: 'ms', description: 'millisecond'),
+    'C27': UnitInfo(code: 'C27', symbol: 'mS', description: 'millisiemens'),
+    'C28': UnitInfo(code: 'C28', symbol: 'mSv', description: 'millisievert'),
+    'C29': UnitInfo(code: 'C29', symbol: 'mT', description: 'millitesla'),
+    'C3': UnitInfo(
+      code: 'C3',
+      symbol: 'µV/m',
+      description: 'microvolt per metre',
+    ),
+    'C30': UnitInfo(
+      code: 'C30',
+      symbol: 'mV/m',
+      description: 'millivolt per metre',
+    ),
+    'C31': UnitInfo(code: 'C31', symbol: 'mW', description: 'milliwatt'),
+    'C32': UnitInfo(
+      code: 'C32',
+      symbol: 'mW/m²',
+      description: 'milliwatt per square metre',
+    ),
+    'C33': UnitInfo(code: 'C33', symbol: 'mWb', description: 'milliweber'),
+    'C34': UnitInfo(code: 'C34', symbol: 'mol', description: 'mole'),
+    'C35': UnitInfo(
+      code: 'C35',
+      symbol: 'mol/dm³',
+      description: 'mole per cubic decimetre',
+    ),
+    'C36': UnitInfo(
+      code: 'C36',
+      symbol: 'mol/m³',
+      description: 'mole per cubic metre',
+    ),
+    'C37': UnitInfo(code: 'C37', symbol: 'kbit', description: 'kilobit'),
+    'C38': UnitInfo(
+      code: 'C38',
+      symbol: 'mol/l',
+      description: 'mole per litre',
+    ),
+    'C39': UnitInfo(code: 'C39', symbol: 'nA', description: 'nanoampere'),
+    'C4': UnitInfo(code: 'C4', symbol: '', description: 'carload'),
+    'C40': UnitInfo(code: 'C40', symbol: 'nC', description: 'nanocoulomb'),
+    'C41': UnitInfo(code: 'C41', symbol: 'nF', description: 'nanofarad'),
+    'C42': UnitInfo(
+      code: 'C42',
+      symbol: 'nF/m',
+      description: 'nanofarad per metre',
+    ),
+    'C43': UnitInfo(code: 'C43', symbol: 'nH', description: 'nanohenry'),
+    'C44': UnitInfo(
+      code: 'C44',
+      symbol: 'nH/m',
+      description: 'nanohenry per metre',
+    ),
+    'C45': UnitInfo(code: 'C45', symbol: 'nm', description: 'nanometre'),
+    'C46': UnitInfo(code: 'C46', symbol: 'nΩ·m', description: 'nanoohm metre'),
+    'C47': UnitInfo(code: 'C47', symbol: 'ns', description: 'nanosecond'),
+    'C48': UnitInfo(code: 'C48', symbol: 'nT', description: 'nanotesla'),
+    'C49': UnitInfo(code: 'C49', symbol: 'nW', description: 'nanowatt'),
+    'C5': UnitInfo(code: 'C5', symbol: '', description: 'cost'),
+    'C50': UnitInfo(code: 'C50', symbol: 'Np', description: 'neper'),
+    'C51': UnitInfo(
+      code: 'C51',
+      symbol: 'Np/s',
+      description: 'neper per second',
+    ),
+    'C52': UnitInfo(code: 'C52', symbol: 'pm', description: 'picometre'),
+    'C53': UnitInfo(
+      code: 'C53',
+      symbol: 'N·m·s',
+      description: 'newton metre second',
+    ),
+    'C54': UnitInfo(
+      code: 'C54',
+      symbol: 'N·m²/kg²',
+      description: 'newton metre squared per kilogram squared',
+    ),
+    'C55': UnitInfo(
+      code: 'C55',
+      symbol: 'N/m²',
+      description: 'newton per square metre',
+    ),
+    'C56': UnitInfo(
+      code: 'C56',
+      symbol: 'N/mm²',
+      description: 'newton per square millimetre',
+    ),
+    'C57': UnitInfo(code: 'C57', symbol: 'N·s', description: 'newton second'),
+    'C58': UnitInfo(
+      code: 'C58',
+      symbol: 'N·s/m',
+      description: 'newton second per metre',
+    ),
+    'C59': UnitInfo(code: 'C59', symbol: '', description: 'octave'),
+    'C6': UnitInfo(code: 'C6', symbol: '', description: 'cell'),
+    'C60': UnitInfo(code: 'C60', symbol: 'Ω·cm', description: 'ohm centimetre'),
+    'C61': UnitInfo(code: 'C61', symbol: 'Ω·m', description: 'ohm metre'),
+    'C62': UnitInfo(code: 'C62', symbol: '1', description: 'one'),
+    'C63': UnitInfo(code: 'C63', symbol: 'pc', description: 'parsec'),
+    'C64': UnitInfo(
+      code: 'C64',
+      symbol: 'Pa/K',
+      description: 'pascal per kelvin',
+    ),
+    'C65': UnitInfo(code: 'C65', symbol: 'Pa·s', description: 'pascal second'),
+    'C66': UnitInfo(
+      code: 'C66',
+      symbol: 'Pa·s/m³',
+      description: 'pascal second per cubic metre',
+    ),
+    'C67': UnitInfo(
+      code: 'C67',
+      symbol: 'Pa· s/m',
+      description: 'pascal second per metre',
+    ),
+    'C68': UnitInfo(code: 'C68', symbol: 'PJ', description: 'petajoule'),
+    'C69': UnitInfo(code: 'C69', symbol: '', description: 'phon'),
+    'C7': UnitInfo(code: 'C7', symbol: 'cP', description: 'centipoise'),
+    'C70': UnitInfo(code: 'C70', symbol: 'pA', description: 'picoampere'),
+    'C71': UnitInfo(code: 'C71', symbol: 'pC', description: 'picocoulomb'),
+    'C72': UnitInfo(
+      code: 'C72',
+      symbol: 'pF/m',
+      description: 'picofarad per metre',
+    ),
+    'C73': UnitInfo(code: 'C73', symbol: 'pH', description: 'picohenry'),
+    'C74': UnitInfo(
+      code: 'C74',
+      symbol: 'kbit/s',
+      description: 'kilobit per second',
+    ),
+    'C75': UnitInfo(code: 'C75', symbol: 'pW', description: 'picowatt'),
+    'C76': UnitInfo(
+      code: 'C76',
+      symbol: 'pW/m²',
+      description: 'picowatt per square metre',
+    ),
+    'C77': UnitInfo(code: 'C77', symbol: '', description: 'pound gage'),
+    'C78': UnitInfo(code: 'C78', symbol: 'lbf', description: 'pound-force'),
+    'C79': UnitInfo(
+      code: 'C79',
+      symbol: 'kVAh',
+      description: 'kilovolt ampere hour',
+    ),
+    'C8': UnitInfo(
+      code: 'C8',
+      symbol: 'mC/kg',
+      description: 'millicoulomb per kilogram',
+    ),
+    'C80': UnitInfo(code: 'C80', symbol: 'rad', description: 'rad'),
+    'C81': UnitInfo(code: 'C81', symbol: 'rad', description: 'radian'),
+    'C82': UnitInfo(
+      code: 'C82',
+      symbol: 'rad·m²/mol',
+      description: 'radian square metre per mole',
+    ),
+    'C83': UnitInfo(
+      code: 'C83',
+      symbol: 'rad·m²/kg',
+      description: 'radian square metre per kilogram',
+    ),
+    'C84': UnitInfo(
+      code: 'C84',
+      symbol: 'rad/m',
+      description: 'radian per metre',
+    ),
+    'C85': UnitInfo(
+      code: 'C85',
+      symbol: 'Å⁻¹',
+      description: 'reciprocal angstrom',
+    ),
+    'C86': UnitInfo(
+      code: 'C86',
+      symbol: 'm⁻³',
+      description: 'reciprocal cubic metre',
+    ),
+    'C87': UnitInfo(
+      code: 'C87',
+      symbol: 'm⁻³/s',
+      description: 'reciprocal cubic metre per second',
+    ),
+    'C88': UnitInfo(
+      code: 'C88',
+      symbol: 'eV⁻¹/m³',
+      description: 'reciprocal electron volt per cubic metre',
+    ),
+    'C89': UnitInfo(
+      code: 'C89',
+      symbol: 'H⁻¹',
+      description: 'reciprocal henry',
+    ),
+    'C9': UnitInfo(code: 'C9', symbol: '', description: 'coil group'),
+    'C90': UnitInfo(
+      code: 'C90',
+      symbol: 'J⁻¹/m³',
+      description: 'reciprocal joule per cubic metre',
+    ),
+    'C91': UnitInfo(
+      code: 'C91',
+      symbol: 'K⁻¹',
+      description: 'reciprocal kelvin or kelvin to the power minus one',
+    ),
+    'C92': UnitInfo(
+      code: 'C92',
+      symbol: 'm⁻¹',
+      description: 'reciprocal metre',
+    ),
+    'C93': UnitInfo(
+      code: 'C93',
+      symbol: 'm⁻²',
+      description: 'reciprocal square metre',
+    ),
+    'C94': UnitInfo(
+      code: 'C94',
+      symbol: 'min⁻¹',
+      description: 'reciprocal minute',
+    ),
+    'C95': UnitInfo(
+      code: 'C95',
+      symbol: 'mol⁻¹',
+      description: 'reciprocal mole',
+    ),
+    'C96': UnitInfo(
+      code: 'C96',
+      symbol: 'Pa⁻¹',
+      description: 'reciprocal pascal or pascal to the power minus one',
+    ),
+    'C97': UnitInfo(
+      code: 'C97',
+      symbol: 's⁻¹',
+      description: 'reciprocal second',
+    ),
+    'C98': UnitInfo(
+      code: 'C98',
+      symbol: 's⁻¹/m³',
+      description: 'reciprocal second per cubic metre',
+    ),
+    'C99': UnitInfo(
+      code: 'C99',
+      symbol: 's⁻¹/m²',
+      description: 'reciprocal second per metre squared',
+    ),
+    'CA': UnitInfo(code: 'CA', symbol: '', description: 'can'),
+    'CCT': UnitInfo(
+      code: 'CCT',
+      symbol: '',
+      description: 'carrying capacity in metric ton',
+    ),
+    'CDL': UnitInfo(code: 'CDL', symbol: 'cd', description: 'candela'),
+    'CEL': UnitInfo(code: 'CEL', symbol: '°C', description: 'degree Celsius'),
+    'CEN': UnitInfo(code: 'CEN', symbol: '', description: 'hundred'),
+    'CG': UnitInfo(code: 'CG', symbol: '', description: 'card'),
+    'CGM': UnitInfo(code: 'CGM', symbol: 'cg', description: 'centigram'),
+    'CH': UnitInfo(code: 'CH', symbol: '', description: 'container'),
+    'CJ': UnitInfo(code: 'CJ', symbol: '', description: 'cone'),
+    'CK': UnitInfo(code: 'CK', symbol: '', description: 'connector'),
+    'CKG': UnitInfo(
+      code: 'CKG',
+      symbol: 'C/kg',
+      description: 'coulomb per kilogram',
+    ),
+    'CL': UnitInfo(code: 'CL', symbol: '', description: 'coil'),
+    'CLF': UnitInfo(code: 'CLF', symbol: '', description: 'hundred leave'),
+    'CLT': UnitInfo(code: 'CLT', symbol: 'cl', description: 'centilitre'),
+    'CMK': UnitInfo(
+      code: 'CMK',
+      symbol: 'cm²',
+      description: 'square centimetre',
+    ),
+    'CMQ': UnitInfo(
+      code: 'CMQ',
+      symbol: 'cm³',
+      description: 'cubic centimetre',
+    ),
+    'CMT': UnitInfo(code: 'CMT', symbol: 'cm', description: 'centimetre'),
+    'CNP': UnitInfo(code: 'CNP', symbol: '', description: 'hundred pack'),
+    'CNT': UnitInfo(code: 'CNT', symbol: '', description: 'cental (UK)'),
+    'CO': UnitInfo(code: 'CO', symbol: '', description: 'carboy'),
+    'COU': UnitInfo(code: 'COU', symbol: 'C', description: 'coulomb'),
+    'CQ': UnitInfo(code: 'CQ', symbol: '', description: 'cartridge'),
+    'CR': UnitInfo(code: 'CR', symbol: '', description: 'crate'),
+    'CS': UnitInfo(code: 'CS', symbol: '', description: 'case'),
+    'CT': UnitInfo(code: 'CT', symbol: '', description: 'carton'),
+    'CTG': UnitInfo(code: 'CTG', symbol: '', description: 'content gram'),
+    'CTM': UnitInfo(code: 'CTM', symbol: '', description: 'metric carat'),
+    'CTN': UnitInfo(
+      code: 'CTN',
+      symbol: '',
+      description: 'content ton (metric)',
+    ),
+    'CU': UnitInfo(code: 'CU', symbol: '', description: 'cup'),
+    'CUR': UnitInfo(code: 'CUR', symbol: 'Ci', description: 'curie'),
+    'CV': UnitInfo(code: 'CV', symbol: '', description: 'cover'),
+    'CWA': UnitInfo(
+      code: 'CWA',
+      symbol: 'cwt (US)',
+      description: 'hundred pound (cwt) / hundred weight (US)',
+    ),
+    'CWI': UnitInfo(
+      code: 'CWI',
+      symbol: 'cwt (UK)',
+      description: 'hundred weight (UK)',
+    ),
+    'CY': UnitInfo(code: 'CY', symbol: '', description: 'cylinder'),
+    'CZ': UnitInfo(code: 'CZ', symbol: '', description: 'combo'),
+    'D03': UnitInfo(
+      code: 'D03',
+      symbol: 'kW·h/h',
+      description: 'kilowatt hour per hour',
+    ),
+    'D04': UnitInfo(
+      code: 'D04',
+      symbol: '',
+      description: 'lot [unit of weight]',
+    ),
+    'D1': UnitInfo(
+      code: 'D1',
+      symbol: 's⁻¹/sr',
+      description: 'reciprocal second per steradian',
+    ),
+    'D10': UnitInfo(
+      code: 'D10',
+      symbol: 'S/m',
+      description: 'siemens per metre',
+    ),
+    'D11': UnitInfo(code: 'D11', symbol: 'Mibit', description: 'mebibit'),
+    'D12': UnitInfo(
+      code: 'D12',
+      symbol: 'S·m²/mol',
+      description: 'siemens square metre per mole',
+    ),
+    'D13': UnitInfo(code: 'D13', symbol: 'Sv', description: 'sievert'),
+    'D14': UnitInfo(
+      code: 'D14',
+      symbol: '',
+      description: 'thousand linear yard',
+    ),
+    'D15': UnitInfo(code: 'D15', symbol: '', description: 'sone'),
+    'D16': UnitInfo(
+      code: 'D16',
+      symbol: 'cm²/erg',
+      description: 'square centimetre per erg',
+    ),
+    'D17': UnitInfo(
+      code: 'D17',
+      symbol: 'cm²/(sr·erg)',
+      description: 'square centimetre per steradian erg',
+    ),
+    'D18': UnitInfo(code: 'D18', symbol: 'm·K', description: 'metre kelvin'),
+    'D19': UnitInfo(
+      code: 'D19',
+      symbol: 'm²·K/W',
+      description: 'square metre kelvin per watt',
+    ),
+    'D2': UnitInfo(
+      code: 'D2',
+      symbol: 's⁻¹/(sr·m²)',
+      description: 'reciprocal second per steradian metre squared',
+    ),
+    'D20': UnitInfo(
+      code: 'D20',
+      symbol: 'm²/J',
+      description: 'square metre per joule',
+    ),
+    'D21': UnitInfo(
+      code: 'D21',
+      symbol: 'm²/kg',
+      description: 'square metre per kilogram',
+    ),
+    'D22': UnitInfo(
+      code: 'D22',
+      symbol: 'm²/mol',
+      description: 'square metre per mole',
+    ),
+    'D23': UnitInfo(code: 'D23', symbol: '', description: 'pen gram (protein)'),
+    'D24': UnitInfo(
+      code: 'D24',
+      symbol: 'm²/sr',
+      description: 'square metre per steradian',
+    ),
+    'D25': UnitInfo(
+      code: 'D25',
+      symbol: 'm²/(sr·J)',
+      description: 'square metre per steradian joule',
+    ),
+    'D26': UnitInfo(
+      code: 'D26',
+      symbol: 'm²/(V·s)',
+      description: 'square metre per volt second',
+    ),
+    'D27': UnitInfo(code: 'D27', symbol: 'sr', description: 'steradian'),
+    'D28': UnitInfo(code: 'D28', symbol: '', description: 'syphon'),
+    'D29': UnitInfo(code: 'D29', symbol: 'THz', description: 'terahertz'),
+    'D30': UnitInfo(code: 'D30', symbol: 'TJ', description: 'terajoule'),
+    'D31': UnitInfo(code: 'D31', symbol: 'TW', description: 'terawatt'),
+    'D32': UnitInfo(code: 'D32', symbol: 'TW·h', description: 'terawatt hour'),
+    'D33': UnitInfo(code: 'D33', symbol: 'T', description: 'tesla'),
+    'D34': UnitInfo(code: 'D34', symbol: 'tex (g/km)', description: 'tex'),
+    'D35': UnitInfo(
+      code: 'D35',
+      symbol: 'calth',
+      description: 'calorie (thermochemical)',
+    ),
+    'D36': UnitInfo(code: 'D36', symbol: 'Mbit', description: 'megabit'),
+    'D37': UnitInfo(
+      code: 'D37',
+      symbol: 'calth/(g·K)',
+      description: 'calorie (thermochemical) per gram kelvin',
+    ),
+    'D38': UnitInfo(
+      code: 'D38',
+      symbol: 'calth/(s·cm·K)',
+      description: 'calorie (thermochemical) per second centimetre kelvin',
+    ),
+    'D39': UnitInfo(
+      code: 'D39',
+      symbol: 'calth/(s·cm²·K)',
+      description:
+          'calorie (thermochemical) per second square centimetre kelvin',
+    ),
+    'D40': UnitInfo(code: 'D40', symbol: '', description: 'thousand litre'),
+    'D41': UnitInfo(
+      code: 'D41',
+      symbol: 't/m³',
+      description: 'tonne per cubic metre',
+    ),
+    'D42': UnitInfo(
+      code: 'D42',
+      symbol: 'y (tropical)',
+      description: 'tropical year',
+    ),
+    'D43': UnitInfo(
+      code: 'D43',
+      symbol: 'u',
+      description: 'unified atomic mass unit',
+    ),
+    'D44': UnitInfo(code: 'D44', symbol: 'var', description: 'var'),
+    'D45': UnitInfo(
+      code: 'D45',
+      symbol: 'V²/K²',
+      description: 'volt squared per kelvin squared',
+    ),
+    'D46': UnitInfo(code: 'D46', symbol: 'V·A', description: 'volt - ampere'),
+    'D47': UnitInfo(
+      code: 'D47',
+      symbol: 'V/cm',
+      description: 'volt per centimetre',
+    ),
+    'D48': UnitInfo(code: 'D48', symbol: 'V/K', description: 'volt per kelvin'),
+    'D49': UnitInfo(
+      code: 'D49',
+      symbol: 'mV/K',
+      description: 'millivolt per kelvin',
+    ),
+    'D5': UnitInfo(
+      code: 'D5',
+      symbol: 'kg/cm²',
+      description: 'kilogram per square centimetre',
+    ),
+    'D50': UnitInfo(code: 'D50', symbol: 'V/m', description: 'volt per metre'),
+    'D51': UnitInfo(
+      code: 'D51',
+      symbol: 'V/mm',
+      description: 'volt per millimetre',
+    ),
+    'D52': UnitInfo(code: 'D52', symbol: 'W/K', description: 'watt per kelvin'),
+    'D53': UnitInfo(
+      code: 'D53',
+      symbol: 'W/(m·K)',
+      description: 'watt per metre kelvin',
+    ),
+    'D54': UnitInfo(
+      code: 'D54',
+      symbol: 'W/m²',
+      description: 'watt per square metre',
+    ),
+    'D55': UnitInfo(
+      code: 'D55',
+      symbol: 'W/(m²·K)',
+      description: 'watt per square metre kelvin',
+    ),
+    'D56': UnitInfo(
+      code: 'D56',
+      symbol: 'W/(m²·K⁴)',
+      description: 'watt per square metre kelvin to the fourth power',
+    ),
+    'D57': UnitInfo(
+      code: 'D57',
+      symbol: 'W/sr',
+      description: 'watt per steradian',
+    ),
+    'D58': UnitInfo(
+      code: 'D58',
+      symbol: 'W/(sr·m²)',
+      description: 'watt per steradian square metre',
+    ),
+    'D59': UnitInfo(
+      code: 'D59',
+      symbol: 'Wb/m',
+      description: 'weber per metre',
+    ),
+    'D6': UnitInfo(
+      code: 'D6',
+      symbol: 'R/s',
+      description: 'roentgen per second',
+    ),
+    'D60': UnitInfo(
+      code: 'D60',
+      symbol: 'Wb/mm',
+      description: 'weber per millimetre',
+    ),
+    'D61': UnitInfo(
+      code: 'D61',
+      symbol: '\'',
+      description: 'minute [unit of angle]',
+    ),
+    'D62': UnitInfo(
+      code: 'D62',
+      symbol: '"',
+      description: 'second [unit of angle]',
+    ),
+    'D63': UnitInfo(code: 'D63', symbol: '', description: 'book'),
+    'D64': UnitInfo(code: 'D64', symbol: '', description: 'block'),
+    'D65': UnitInfo(code: 'D65', symbol: '', description: 'round'),
+    'D66': UnitInfo(code: 'D66', symbol: '', description: 'cassette'),
+    'D67': UnitInfo(code: 'D67', symbol: '', description: 'dollar per hour'),
+    'D68': UnitInfo(code: 'D68', symbol: '', description: 'number of words'),
+    'D69': UnitInfo(
+      code: 'D69',
+      symbol: 'in⁴',
+      description: 'inch to the fourth power',
+    ),
+    'D7': UnitInfo(code: 'D7', symbol: '', description: 'sandwich'),
+    'D70': UnitInfo(
+      code: 'D70',
+      symbol: 'calIT',
+      description: 'calorie (international table)',
+    ),
+    'D71': UnitInfo(
+      code: 'D71',
+      symbol: 'calIT/(s·cm·K)',
+      description: 'calorie (international table) per second centimetre kelvin',
+    ),
+    'D72': UnitInfo(
+      code: 'D72',
+      symbol: 'calIT/(s·cm²·K)',
+      description:
+          'calorie (international table) per second square centimetre kelvin',
+    ),
+    'D73': UnitInfo(
+      code: 'D73',
+      symbol: 'J·m²',
+      description: 'joule square metre',
+    ),
+    'D74': UnitInfo(
+      code: 'D74',
+      symbol: 'kg/mol',
+      description: 'kilogram per mole',
+    ),
+    'D75': UnitInfo(
+      code: 'D75',
+      symbol: 'calIT/g',
+      description: 'calorie (international table) per gram',
+    ),
+    'D76': UnitInfo(
+      code: 'D76',
+      symbol: 'calIT/(g·K)',
+      description: 'calorie (international table) per gram kelvin',
+    ),
+    'D77': UnitInfo(code: 'D77', symbol: 'MC', description: 'megacoulomb'),
+    'D78': UnitInfo(
+      code: 'D78',
+      symbol: 'MJ/s',
+      description: 'megajoule per second',
+    ),
+    'D79': UnitInfo(code: 'D79', symbol: '', description: 'beam'),
+    'D8': UnitInfo(code: 'D8', symbol: '', description: 'draize score'),
+    'D80': UnitInfo(code: 'D80', symbol: 'µW', description: 'microwatt'),
+    'D81': UnitInfo(code: 'D81', symbol: 'µT', description: 'microtesla'),
+    'D82': UnitInfo(code: 'D82', symbol: 'µV', description: 'microvolt'),
+    'D83': UnitInfo(
+      code: 'D83',
+      symbol: 'mN·m',
+      description: 'millinewton metre',
+    ),
+    'D85': UnitInfo(
+      code: 'D85',
+      symbol: 'µW/m²',
+      description: 'microwatt per square metre',
+    ),
+    'D86': UnitInfo(code: 'D86', symbol: 'mC', description: 'millicoulomb'),
+    'D87': UnitInfo(
+      code: 'D87',
+      symbol: 'mmol/kg',
+      description: 'millimole per kilogram',
+    ),
+    'D88': UnitInfo(
+      code: 'D88',
+      symbol: 'mC/m³',
+      description: 'millicoulomb per cubic metre',
+    ),
+    'D89': UnitInfo(
+      code: 'D89',
+      symbol: 'mC/m²',
+      description: 'millicoulomb per square metre',
+    ),
+    'D9': UnitInfo(
+      code: 'D9',
+      symbol: 'dyn/cm²',
+      description: 'dyne per square centimetre',
+    ),
+    'D90': UnitInfo(code: 'D90', symbol: '', description: 'cubic metre (net)'),
+    'D91': UnitInfo(code: 'D91', symbol: 'rem', description: 'rem'),
+    'D92': UnitInfo(code: 'D92', symbol: '', description: 'band'),
+    'D93': UnitInfo(
+      code: 'D93',
+      symbol: 's/m³',
+      description: 'second per cubic metre',
+    ),
+    'D94': UnitInfo(
+      code: 'D94',
+      symbol: 's/(rad·m³)',
+      description: 'second per cubic metre radian',
+    ),
+    'D95': UnitInfo(code: 'D95', symbol: 'J/g', description: 'joule per gram'),
+    'D96': UnitInfo(code: 'D96', symbol: '', description: 'pound gross'),
+    'D97': UnitInfo(code: 'D97', symbol: '', description: 'pallet/unit load'),
+    'D98': UnitInfo(code: 'D98', symbol: '', description: 'mass pound'),
+    'D99': UnitInfo(code: 'D99', symbol: '', description: 'sleeve'),
+    'DAA': UnitInfo(code: 'DAA', symbol: 'daa', description: 'decare'),
+    'DAD': UnitInfo(code: 'DAD', symbol: '', description: 'ten day'),
+    'DAY': UnitInfo(code: 'DAY', symbol: 'd', description: 'day'),
+    'DB': UnitInfo(code: 'DB', symbol: '', description: 'dry pound'),
+    'DBM': UnitInfo(
+      code: 'DBM',
+      symbol: 'dBm',
+      description: 'Decibel-milliwatts',
+    ),
+    'DBW': UnitInfo(code: 'DBW', symbol: 'dBW', description: 'Decibel watt'),
+    'DC': UnitInfo(code: 'DC', symbol: '', description: 'disk (disc)'),
+    'DD': UnitInfo(
+      code: 'DD',
+      symbol: '°',
+      description: 'degree [unit of angle]',
+    ),
+    'DE': UnitInfo(code: 'DE', symbol: '', description: 'deal'),
+    'DEC': UnitInfo(code: 'DEC', symbol: '', description: 'decade'),
+    'DG': UnitInfo(code: 'DG', symbol: 'dg', description: 'decigram'),
+    'DI': UnitInfo(code: 'DI', symbol: '', description: 'dispenser'),
+    'DJ': UnitInfo(code: 'DJ', symbol: 'dag', description: 'decagram'),
+    'DLT': UnitInfo(code: 'DLT', symbol: 'dl', description: 'decilitre'),
+    'DMA': UnitInfo(
+      code: 'DMA',
+      symbol: 'dam³',
+      description: 'cubic decametre',
+    ),
+    'DMK': UnitInfo(
+      code: 'DMK',
+      symbol: 'dm²',
+      description: 'square decimetre',
+    ),
+    'DMO': UnitInfo(code: 'DMO', symbol: '', description: 'standard kilolitre'),
+    'DMQ': UnitInfo(code: 'DMQ', symbol: 'dm³', description: 'cubic decimetre'),
+    'DMT': UnitInfo(code: 'DMT', symbol: 'dm', description: 'decimetre'),
+    'DN': UnitInfo(code: 'DN', symbol: 'dN·m', description: 'decinewton metre'),
+    'DPC': UnitInfo(code: 'DPC', symbol: '', description: 'dozen piece'),
+    'DPR': UnitInfo(code: 'DPR', symbol: '', description: 'dozen pair'),
+    'DPT': UnitInfo(
+      code: 'DPT',
+      symbol: '',
+      description: 'displacement tonnage',
+    ),
+    'DQ': UnitInfo(code: 'DQ', symbol: '', description: 'data record'),
+    'DR': UnitInfo(code: 'DR', symbol: '', description: 'drum'),
+    'DRA': UnitInfo(code: 'DRA', symbol: '', description: 'dram (US)'),
+    'DRI': UnitInfo(code: 'DRI', symbol: '', description: 'dram (UK)'),
+    'DRL': UnitInfo(code: 'DRL', symbol: '', description: 'dozen roll'),
+    'DRM': UnitInfo(code: 'DRM', symbol: '', description: 'drachm (UK)'),
+    'DS': UnitInfo(code: 'DS', symbol: '', description: 'display'),
+    'DT': UnitInfo(code: 'DT', symbol: '', description: 'dry ton'),
+    'DTN': UnitInfo(code: 'DTN', symbol: 'dt or dtn', description: 'decitonne'),
+    'DU': UnitInfo(code: 'DU', symbol: 'dyn', description: 'dyne'),
+    'DWT': UnitInfo(code: 'DWT', symbol: '', description: 'pennyweight'),
+    'DX': UnitInfo(
+      code: 'DX',
+      symbol: 'dyn/cm',
+      description: 'dyne per centimetre',
+    ),
+    'DY': UnitInfo(code: 'DY', symbol: '', description: 'directory book'),
+    'DZN': UnitInfo(code: 'DZN', symbol: 'DOZ', description: 'dozen'),
+    'DZP': UnitInfo(code: 'DZP', symbol: '', description: 'dozen pack'),
+    'E01': UnitInfo(
+      code: 'E01',
+      symbol: 'N/cm²',
+      description: 'newton per square centimetre',
+    ),
+    'E07': UnitInfo(
+      code: 'E07',
+      symbol: 'MW·h/h',
+      description: 'megawatt hour per hour',
+    ),
+    'E08': UnitInfo(
+      code: 'E08',
+      symbol: 'MW/Hz',
+      description: 'megawatt per hertz',
+    ),
+    'E09': UnitInfo(
+      code: 'E09',
+      symbol: 'mA·h',
+      description: 'milliampere hour',
+    ),
+    'E10': UnitInfo(code: 'E10', symbol: 'deg da', description: 'degree day'),
+    'E11': UnitInfo(code: 'E11', symbol: '', description: 'gigacalorie'),
+    'E12': UnitInfo(code: 'E12', symbol: '', description: 'mille'),
+    'E14': UnitInfo(
+      code: 'E14',
+      symbol: 'kcalIT',
+      description: 'kilocalorie (international table)',
+    ),
+    'E15': UnitInfo(
+      code: 'E15',
+      symbol: 'kcalth/h',
+      description: 'kilocalorie (thermochemical) per hour',
+    ),
+    'E16': UnitInfo(
+      code: 'E16',
+      symbol: 'BtuIT/h',
+      description: 'million Btu(IT) per hour',
+    ),
+    'E17': UnitInfo(
+      code: 'E17',
+      symbol: 'ft³/s',
+      description: 'cubic foot per second',
+    ),
+    'E18': UnitInfo(code: 'E18', symbol: 't/h', description: 'tonne per hour'),
+    'E19': UnitInfo(code: 'E19', symbol: '', description: 'ping'),
+    'E2': UnitInfo(code: 'E2', symbol: '', description: 'belt'),
+    'E20': UnitInfo(
+      code: 'E20',
+      symbol: 'Mbit/s',
+      description: 'megabit per second',
+    ),
+    'E21': UnitInfo(code: 'E21', symbol: '', description: 'shares'),
+    'E22': UnitInfo(code: 'E22', symbol: '', description: 'TEU'),
+    'E23': UnitInfo(code: 'E23', symbol: '', description: 'tyre'),
+    'E25': UnitInfo(code: 'E25', symbol: '', description: 'active unit'),
+    'E27': UnitInfo(code: 'E27', symbol: '', description: 'dose'),
+    'E28': UnitInfo(code: 'E28', symbol: '', description: 'air dry ton'),
+    'E3': UnitInfo(code: 'E3', symbol: '', description: 'trailer'),
+    'E30': UnitInfo(code: 'E30', symbol: '', description: 'strand'),
+    'E31': UnitInfo(
+      code: 'E31',
+      symbol: 'm²/l',
+      description: 'square metre per litre',
+    ),
+    'E32': UnitInfo(code: 'E32', symbol: 'l/h', description: 'litre per hour'),
+    'E33': UnitInfo(code: 'E33', symbol: '', description: 'foot per thousand'),
+    'E34': UnitInfo(code: 'E34', symbol: 'Gbyte', description: 'gigabyte'),
+    'E35': UnitInfo(code: 'E35', symbol: 'Tbyte', description: 'terabyte'),
+    'E36': UnitInfo(code: 'E36', symbol: 'Pbyte', description: 'petabyte'),
+    'E37': UnitInfo(code: 'E37', symbol: '', description: 'pixel'),
+    'E38': UnitInfo(code: 'E38', symbol: '', description: 'megapixel'),
+    'E39': UnitInfo(code: 'E39', symbol: 'dpi', description: 'dots per inch'),
+    'E4': UnitInfo(code: 'E4', symbol: '', description: 'gross kilogram'),
+    'E40': UnitInfo(
+      code: 'E40',
+      symbol: 'ppht',
+      description: 'part per hundred thousand',
+    ),
+    'E41': UnitInfo(
+      code: 'E41',
+      symbol: 'kgf/mm²',
+      description: 'kilogram-force per square millimetre',
+    ),
+    'E42': UnitInfo(
+      code: 'E42',
+      symbol: 'kgf/cm²',
+      description: 'kilogram-force per square centimetre',
+    ),
+    'E43': UnitInfo(
+      code: 'E43',
+      symbol: 'J/cm²',
+      description: 'joule per square centimetre',
+    ),
+    'E44': UnitInfo(
+      code: 'E44',
+      symbol: 'kgf·m/cm²',
+      description: 'kilogram-force metre per square centimetre',
+    ),
+    'E45': UnitInfo(code: 'E45', symbol: 'mΩ', description: 'milliohm'),
+    'E46': UnitInfo(
+      code: 'E46',
+      symbol: 'kW·h/m³',
+      description: 'kilowatt hour per cubic metre',
+    ),
+    'E47': UnitInfo(
+      code: 'E47',
+      symbol: 'kW·h/K',
+      description: 'kilowatt hour per kelvin',
+    ),
+    'E48': UnitInfo(code: 'E48', symbol: '', description: 'service unit'),
+    'E49': UnitInfo(code: 'E49', symbol: '', description: 'working day'),
+    'E5': UnitInfo(code: 'E5', symbol: '', description: 'metric long ton'),
+    'E50': UnitInfo(code: 'E50', symbol: '', description: 'accounting unit'),
+    'E51': UnitInfo(code: 'E51', symbol: '', description: 'job'),
+    'E52': UnitInfo(code: 'E52', symbol: '', description: 'run foot'),
+    'E53': UnitInfo(code: 'E53', symbol: '', description: 'test'),
+    'E54': UnitInfo(code: 'E54', symbol: '', description: 'trip'),
+    'E55': UnitInfo(code: 'E55', symbol: '', description: 'use'),
+    'E56': UnitInfo(code: 'E56', symbol: '', description: 'well'),
+    'E57': UnitInfo(code: 'E57', symbol: '', description: 'zone'),
+    'E58': UnitInfo(
+      code: 'E58',
+      symbol: 'Ebit/s',
+      description: 'exabit per second',
+    ),
+    'E59': UnitInfo(code: 'E59', symbol: 'Eibyte', description: 'exbibyte'),
+    'E60': UnitInfo(code: 'E60', symbol: 'Pibyte', description: 'pebibyte'),
+    'E61': UnitInfo(code: 'E61', symbol: 'Tibyte', description: 'tebibyte'),
+    'E62': UnitInfo(code: 'E62', symbol: 'Gibyte', description: 'gibibyte'),
+    'E63': UnitInfo(code: 'E63', symbol: 'Mibyte', description: 'mebibyte'),
+    'E64': UnitInfo(code: 'E64', symbol: 'Kibyte', description: 'kibibyte'),
+    'E65': UnitInfo(
+      code: 'E65',
+      symbol: 'Eibit/m',
+      description: 'exbibit per metre',
+    ),
+    'E66': UnitInfo(
+      code: 'E66',
+      symbol: 'Eibit/m²',
+      description: 'exbibit per square metre',
+    ),
+    'E67': UnitInfo(
+      code: 'E67',
+      symbol: 'Eibit/m³',
+      description: 'exbibit per cubic metre',
+    ),
+    'E68': UnitInfo(
+      code: 'E68',
+      symbol: 'Gbyte/s',
+      description: 'gigabyte per second',
+    ),
+    'E69': UnitInfo(
+      code: 'E69',
+      symbol: 'Gibit/m',
+      description: 'gibibit per metre',
+    ),
+    'E70': UnitInfo(
+      code: 'E70',
+      symbol: 'Gibit/m²',
+      description: 'gibibit per square metre',
+    ),
+    'E71': UnitInfo(
+      code: 'E71',
+      symbol: 'Gibit/m³',
+      description: 'gibibit per cubic metre',
+    ),
+    'E72': UnitInfo(
+      code: 'E72',
+      symbol: 'Kibit/m',
+      description: 'kibibit per metre',
+    ),
+    'E73': UnitInfo(
+      code: 'E73',
+      symbol: 'Kibit/m²',
+      description: 'kibibit per square metre',
+    ),
+    'E74': UnitInfo(
+      code: 'E74',
+      symbol: 'Kibit/m³',
+      description: 'kibibit per cubic metre',
+    ),
+    'E75': UnitInfo(
+      code: 'E75',
+      symbol: 'Mibit/m',
+      description: 'mebibit per metre',
+    ),
+    'E76': UnitInfo(
+      code: 'E76',
+      symbol: 'Mibit/m²',
+      description: 'mebibit per square metre',
+    ),
+    'E77': UnitInfo(
+      code: 'E77',
+      symbol: 'Mibit/m³',
+      description: 'mebibit per cubic metre',
+    ),
+    'E78': UnitInfo(code: 'E78', symbol: 'Pbit', description: 'petabit'),
+    'E79': UnitInfo(
+      code: 'E79',
+      symbol: 'Pbit/s',
+      description: 'petabit per second',
+    ),
+    'E80': UnitInfo(
+      code: 'E80',
+      symbol: 'Pibit/m',
+      description: 'pebibit per metre',
+    ),
+    'E81': UnitInfo(
+      code: 'E81',
+      symbol: 'Pibit/m²',
+      description: 'pebibit per square metre',
+    ),
+    'E82': UnitInfo(
+      code: 'E82',
+      symbol: 'Pibit/m³',
+      description: 'pebibit per cubic metre',
+    ),
+    'E83': UnitInfo(code: 'E83', symbol: 'Tbit', description: 'terabit'),
+    'E84': UnitInfo(
+      code: 'E84',
+      symbol: 'Tbit/s',
+      description: 'terabit per second',
+    ),
+    'E85': UnitInfo(
+      code: 'E85',
+      symbol: 'Tibit/m',
+      description: 'tebibit per metre',
+    ),
+    'E86': UnitInfo(
+      code: 'E86',
+      symbol: 'Tibit/m³',
+      description: 'tebibit per cubic metre',
+    ),
+    'E87': UnitInfo(
+      code: 'E87',
+      symbol: 'Tibit/m²',
+      description: 'tebibit per square metre',
+    ),
+    'E88': UnitInfo(code: 'E88', symbol: 'bit/m', description: 'bit per metre'),
+    'E89': UnitInfo(
+      code: 'E89',
+      symbol: 'bit/m²',
+      description: 'bit per square metre',
+    ),
+    'E90': UnitInfo(
+      code: 'E90',
+      symbol: 'cm⁻¹',
+      description: 'reciprocal centimetre',
+    ),
+    'E91': UnitInfo(code: 'E91', symbol: 'd⁻¹', description: 'reciprocal day'),
+    'E92': UnitInfo(
+      code: 'E92',
+      symbol: 'dm³/h',
+      description: 'cubic decimetre per hour',
+    ),
+    'E93': UnitInfo(
+      code: 'E93',
+      symbol: 'kg/h',
+      description: 'kilogram per hour',
+    ),
+    'E94': UnitInfo(
+      code: 'E94',
+      symbol: 'kmol/s',
+      description: 'kilomole per second',
+    ),
+    'E95': UnitInfo(
+      code: 'E95',
+      symbol: 'mol/s',
+      description: 'mole per second',
+    ),
+    'E96': UnitInfo(
+      code: 'E96',
+      symbol: '°/s',
+      description: 'degree per second',
+    ),
+    'E97': UnitInfo(
+      code: 'E97',
+      symbol: 'mm/(°C·m)',
+      description: 'millimetre per degree Celcius metre',
+    ),
+    'E98': UnitInfo(
+      code: 'E98',
+      symbol: '°C/K',
+      description: 'degree Celsius per kelvin',
+    ),
+    'E99': UnitInfo(
+      code: 'E99',
+      symbol: 'hPa/bar',
+      description: 'hectopascal per bar',
+    ),
+    'EA': UnitInfo(code: 'EA', symbol: '', description: 'each'),
+    'EB': UnitInfo(code: 'EB', symbol: '', description: 'electronic mail box'),
+    'EC': UnitInfo(code: 'EC', symbol: '', description: 'each per month'),
+    'EP': UnitInfo(code: 'EP', symbol: '', description: 'eleven pack'),
+    'EQ': UnitInfo(code: 'EQ', symbol: '', description: 'equivalent gallon'),
+    'EV': UnitInfo(code: 'EV', symbol: '', description: 'envelope'),
+    'F01': UnitInfo(
+      code: 'F01',
+      symbol: 'bit/m³',
+      description: 'bit per cubic metre',
+    ),
+    'F02': UnitInfo(
+      code: 'F02',
+      symbol: 'K/K',
+      description: 'kelvin per kelvin',
+    ),
+    'F03': UnitInfo(
+      code: 'F03',
+      symbol: 'kPa/bar',
+      description: 'kilopascal per bar',
+    ),
+    'F04': UnitInfo(
+      code: 'F04',
+      symbol: 'mbar/bar',
+      description: 'millibar per bar',
+    ),
+    'F05': UnitInfo(
+      code: 'F05',
+      symbol: 'MPa/bar',
+      description: 'megapascal per bar',
+    ),
+    'F06': UnitInfo(code: 'F06', symbol: 'P/bar', description: 'poise per bar'),
+    'F07': UnitInfo(
+      code: 'F07',
+      symbol: 'Pa/bar',
+      description: 'pascal per bar',
+    ),
+    'F08': UnitInfo(
+      code: 'F08',
+      symbol: 'mA/in',
+      description: 'milliampere per inch',
+    ),
+    'F1': UnitInfo(
+      code: 'F1',
+      symbol: '',
+      description: 'thousand cubic foot per day',
+    ),
+    'F10': UnitInfo(code: 'F10', symbol: 'K/h', description: 'kelvin per hour'),
+    'F11': UnitInfo(
+      code: 'F11',
+      symbol: 'K/min',
+      description: 'kelvin per minute',
+    ),
+    'F12': UnitInfo(
+      code: 'F12',
+      symbol: 'K/s',
+      description: 'kelvin per second',
+    ),
+    'F13': UnitInfo(code: 'F13', symbol: 'slug', description: 'slug'),
+    'F14': UnitInfo(code: 'F14', symbol: 'g/K', description: 'gram per kelvin'),
+    'F15': UnitInfo(
+      code: 'F15',
+      symbol: 'kg/K',
+      description: 'kilogram per kelvin',
+    ),
+    'F16': UnitInfo(
+      code: 'F16',
+      symbol: 'mg/K',
+      description: 'milligram per kelvin',
+    ),
+    'F17': UnitInfo(
+      code: 'F17',
+      symbol: 'lbf/ft',
+      description: 'pound-force per foot',
+    ),
+    'F18': UnitInfo(
+      code: 'F18',
+      symbol: 'kg·cm²',
+      description: 'kilogram square centimetre',
+    ),
+    'F19': UnitInfo(
+      code: 'F19',
+      symbol: 'kg·mm²',
+      description: 'kilogram square millimetre',
+    ),
+    'F20': UnitInfo(
+      code: 'F20',
+      symbol: 'lb·in²',
+      description: 'pound inch squared',
+    ),
+    'F21': UnitInfo(
+      code: 'F21',
+      symbol: 'lbf·in',
+      description: 'pound-force inch',
+    ),
+    'F22': UnitInfo(
+      code: 'F22',
+      symbol: 'lbf·ft/A',
+      description: 'pound-force foot per ampere',
+    ),
+    'F23': UnitInfo(
+      code: 'F23',
+      symbol: 'g/dm³',
+      description: 'gram per cubic decimetre',
+    ),
+    'F24': UnitInfo(
+      code: 'F24',
+      symbol: 'kg/kmol',
+      description: 'kilogram per kilomol',
+    ),
+    'F25': UnitInfo(code: 'F25', symbol: 'g/Hz', description: 'gram per hertz'),
+    'F26': UnitInfo(code: 'F26', symbol: 'g/d', description: 'gram per day'),
+    'F27': UnitInfo(code: 'F27', symbol: 'g/h', description: 'gram per hour'),
+    'F28': UnitInfo(
+      code: 'F28',
+      symbol: 'g/min',
+      description: 'gram per minute',
+    ),
+    'F29': UnitInfo(code: 'F29', symbol: 'g/s', description: 'gram per second'),
+    'F30': UnitInfo(
+      code: 'F30',
+      symbol: 'kg/d',
+      description: 'kilogram per day',
+    ),
+    'F31': UnitInfo(
+      code: 'F31',
+      symbol: 'kg/min',
+      description: 'kilogram per minute',
+    ),
+    'F32': UnitInfo(
+      code: 'F32',
+      symbol: 'mg/d',
+      description: 'milligram per day',
+    ),
+    'F33': UnitInfo(
+      code: 'F33',
+      symbol: 'mg/min',
+      description: 'milligram per minute',
+    ),
+    'F34': UnitInfo(
+      code: 'F34',
+      symbol: 'mg/s',
+      description: 'milligram per second',
+    ),
+    'F35': UnitInfo(
+      code: 'F35',
+      symbol: 'g/(d·K)',
+      description: 'gram per day kelvin',
+    ),
+    'F36': UnitInfo(
+      code: 'F36',
+      symbol: 'g/(h·K)',
+      description: 'gram per hour kelvin',
+    ),
+    'F37': UnitInfo(
+      code: 'F37',
+      symbol: 'g/(min·K)',
+      description: 'gram per minute kelvin',
+    ),
+    'F38': UnitInfo(
+      code: 'F38',
+      symbol: 'g/(s·K)',
+      description: 'gram per second kelvin',
+    ),
+    'F39': UnitInfo(
+      code: 'F39',
+      symbol: 'kg/(d·K)',
+      description: 'kilogram per day kelvin',
+    ),
+    'F40': UnitInfo(
+      code: 'F40',
+      symbol: 'kg/(h·K)',
+      description: 'kilogram per hour kelvin',
+    ),
+    'F41': UnitInfo(
+      code: 'F41',
+      symbol: 'kg/(min·K)',
+      description: 'kilogram per minute kelvin',
+    ),
+    'F42': UnitInfo(
+      code: 'F42',
+      symbol: 'kg/(s·K)',
+      description: 'kilogram per second kelvin',
+    ),
+    'F43': UnitInfo(
+      code: 'F43',
+      symbol: 'mg/(d·K)',
+      description: 'milligram per day kelvin',
+    ),
+    'F44': UnitInfo(
+      code: 'F44',
+      symbol: 'mg/(h·K)',
+      description: 'milligram per hour kelvin',
+    ),
+    'F45': UnitInfo(
+      code: 'F45',
+      symbol: 'mg/(min·K)',
+      description: 'milligram per minute kelvin',
+    ),
+    'F46': UnitInfo(
+      code: 'F46',
+      symbol: 'mg/(s·K)',
+      description: 'milligram per second kelvin',
+    ),
+    'F47': UnitInfo(
+      code: 'F47',
+      symbol: 'N/mm',
+      description: 'newton per millimetre',
+    ),
+    'F48': UnitInfo(
+      code: 'F48',
+      symbol: 'lbf/in',
+      description: 'pound-force per inch',
+    ),
+    'F49': UnitInfo(
+      code: 'F49',
+      symbol: 'rd (US)',
+      description: 'rod [unit of distance]',
+    ),
+    'F50': UnitInfo(
+      code: 'F50',
+      symbol: 'µm/K',
+      description: 'micrometre per kelvin',
+    ),
+    'F51': UnitInfo(
+      code: 'F51',
+      symbol: 'cm/K',
+      description: 'centimetre per kelvin',
+    ),
+    'F52': UnitInfo(
+      code: 'F52',
+      symbol: 'm/K',
+      description: 'metre per kelvin',
+    ),
+    'F53': UnitInfo(
+      code: 'F53',
+      symbol: 'mm/K',
+      description: 'millimetre per kelvin',
+    ),
+    'F54': UnitInfo(
+      code: 'F54',
+      symbol: 'mΩ/m',
+      description: 'milliohm per metre',
+    ),
+    'F55': UnitInfo(
+      code: 'F55',
+      symbol: 'Ω/mi',
+      description: 'ohm per mile (statute mile)',
+    ),
+    'F56': UnitInfo(
+      code: 'F56',
+      symbol: 'Ω/km',
+      description: 'ohm per kilometre',
+    ),
+    'F57': UnitInfo(
+      code: 'F57',
+      symbol: 'mA/(lbf/in²)',
+      description: 'milliampere per pound-force per square inch',
+    ),
+    'F58': UnitInfo(
+      code: 'F58',
+      symbol: '1/bar',
+      description: 'reciprocal bar',
+    ),
+    'F59': UnitInfo(
+      code: 'F59',
+      symbol: 'mA/bar',
+      description: 'milliampere per bar',
+    ),
+    'F60': UnitInfo(
+      code: 'F60',
+      symbol: '°C/bar',
+      description: 'degree Celsius per bar',
+    ),
+    'F61': UnitInfo(
+      code: 'F61',
+      symbol: 'K/bar',
+      description: 'kelvin per bar',
+    ),
+    'F62': UnitInfo(
+      code: 'F62',
+      symbol: 'g/(d·bar)',
+      description: 'gram per day bar',
+    ),
+    'F63': UnitInfo(
+      code: 'F63',
+      symbol: 'g/(h·bar)',
+      description: 'gram per hour bar',
+    ),
+    'F64': UnitInfo(
+      code: 'F64',
+      symbol: 'g/(min·bar)',
+      description: 'gram per minute bar',
+    ),
+    'F65': UnitInfo(
+      code: 'F65',
+      symbol: 'g/(s·bar)',
+      description: 'gram per second bar',
+    ),
+    'F66': UnitInfo(
+      code: 'F66',
+      symbol: 'kg/(d·bar)',
+      description: 'kilogram per day bar',
+    ),
+    'F67': UnitInfo(
+      code: 'F67',
+      symbol: 'kg/(h·bar)',
+      description: 'kilogram per hour bar',
+    ),
+    'F68': UnitInfo(
+      code: 'F68',
+      symbol: 'kg/(min·bar)',
+      description: 'kilogram per minute bar',
+    ),
+    'F69': UnitInfo(
+      code: 'F69',
+      symbol: 'kg/(s·bar)',
+      description: 'kilogram per second bar',
+    ),
+    'F70': UnitInfo(
+      code: 'F70',
+      symbol: 'mg/(d·bar)',
+      description: 'milligram per day bar',
+    ),
+    'F71': UnitInfo(
+      code: 'F71',
+      symbol: 'mg/(h·bar)',
+      description: 'milligram per hour bar',
+    ),
+    'F72': UnitInfo(
+      code: 'F72',
+      symbol: 'mg/(min·bar)',
+      description: 'milligram per minute bar',
+    ),
+    'F73': UnitInfo(
+      code: 'F73',
+      symbol: 'mg/(s·bar)',
+      description: 'milligram per second bar',
+    ),
+    'F74': UnitInfo(code: 'F74', symbol: 'g/bar', description: 'gram per bar'),
+    'F75': UnitInfo(
+      code: 'F75',
+      symbol: 'mg/bar',
+      description: 'milligram per bar',
+    ),
+    'F76': UnitInfo(
+      code: 'F76',
+      symbol: 'mA/mm',
+      description: 'milliampere per millimetre',
+    ),
+    'F77': UnitInfo(
+      code: 'F77',
+      symbol: 'Pa.s/K',
+      description: 'pascal second per kelvin',
+    ),
+    'F78': UnitInfo(code: 'F78', symbol: 'inH₂O', description: 'inch of water'),
+    'F79': UnitInfo(
+      code: 'F79',
+      symbol: 'inHg',
+      description: 'inch of mercury',
+    ),
+    'F80': UnitInfo(code: 'F80', symbol: '', description: 'water horse power'),
+    'F81': UnitInfo(
+      code: 'F81',
+      symbol: 'bar/K',
+      description: 'bar per kelvin',
+    ),
+    'F82': UnitInfo(
+      code: 'F82',
+      symbol: 'hPa/K',
+      description: 'hectopascal per kelvin',
+    ),
+    'F83': UnitInfo(
+      code: 'F83',
+      symbol: 'kPa/K',
+      description: 'kilopascal per kelvin',
+    ),
+    'F84': UnitInfo(
+      code: 'F84',
+      symbol: 'mbar/K',
+      description: 'millibar per kelvin',
+    ),
+    'F85': UnitInfo(
+      code: 'F85',
+      symbol: 'MPa/K',
+      description: 'megapascal per kelvin',
+    ),
+    'F86': UnitInfo(
+      code: 'F86',
+      symbol: 'P/K',
+      description: 'poise per kelvin',
+    ),
+    'F87': UnitInfo(
+      code: 'F87',
+      symbol: 'V/(l·min)',
+      description: 'volt per litre minute',
+    ),
+    'F88': UnitInfo(
+      code: 'F88',
+      symbol: 'N·cm',
+      description: 'newton centimetre',
+    ),
+    'F89': UnitInfo(
+      code: 'F89',
+      symbol: 'Nm/°',
+      description: 'newton metre per degree',
+    ),
+    'F9': UnitInfo(
+      code: 'F9',
+      symbol: '',
+      description: 'fibre per cubic centimetre of air',
+    ),
+    'F90': UnitInfo(
+      code: 'F90',
+      symbol: 'N·m/A',
+      description: 'newton metre per ampere',
+    ),
+    'F91': UnitInfo(
+      code: 'F91',
+      symbol: 'bar·l/s',
+      description: 'bar litre per second',
+    ),
+    'F92': UnitInfo(
+      code: 'F92',
+      symbol: 'bar·m³/s',
+      description: 'bar cubic metre per second',
+    ),
+    'F93': UnitInfo(
+      code: 'F93',
+      symbol: 'hPa·l/s',
+      description: 'hectopascal litre per second',
+    ),
+    'F94': UnitInfo(
+      code: 'F94',
+      symbol: 'hPa·m³/s',
+      description: 'hectopascal cubic metre per second',
+    ),
+    'F95': UnitInfo(
+      code: 'F95',
+      symbol: 'mbar·l/s',
+      description: 'millibar litre per second',
+    ),
+    'F96': UnitInfo(
+      code: 'F96',
+      symbol: 'mbar·m³/s',
+      description: 'millibar cubic metre per second',
+    ),
+    'F97': UnitInfo(
+      code: 'F97',
+      symbol: 'MPa·l/s',
+      description: 'megapascal litre per second',
+    ),
+    'F98': UnitInfo(
+      code: 'F98',
+      symbol: 'MPa·m³/s',
+      description: 'megapascal cubic metre per second',
+    ),
+    'F99': UnitInfo(
+      code: 'F99',
+      symbol: 'Pa·l/s',
+      description: 'pascal litre per second',
+    ),
+    'FAH': UnitInfo(
+      code: 'FAH',
+      symbol: '°F',
+      description: 'degree Fahrenheit',
+    ),
+    'FAR': UnitInfo(code: 'FAR', symbol: 'F', description: 'farad'),
+    'FB': UnitInfo(code: 'FB', symbol: '', description: 'field'),
+    'FBM': UnitInfo(code: 'FBM', symbol: '', description: 'fibre metre'),
+    'FC': UnitInfo(
+      code: 'FC',
+      symbol: 'kft³',
+      description: 'thousand cubic foot',
+    ),
+    'FD': UnitInfo(
+      code: 'FD',
+      symbol: '',
+      description: 'million particle per cubic foot',
+    ),
+    'FE': UnitInfo(code: 'FE', symbol: '', description: 'track foot'),
+    'FF': UnitInfo(code: 'FF', symbol: '', description: 'hundred cubic metre'),
+    'FG': UnitInfo(code: 'FG', symbol: '', description: 'transdermal patch'),
+    'FH': UnitInfo(code: 'FH', symbol: 'µmol', description: 'micromole'),
+    'FIT': UnitInfo(
+      code: 'FIT',
+      symbol: 'FIT',
+      description: 'failures in time',
+    ),
+    'FL': UnitInfo(code: 'FL', symbol: '', description: 'flake ton'),
+    'FM': UnitInfo(
+      code: 'FM',
+      symbol: 'Mft³',
+      description: 'million cubic foot',
+    ),
+    'FNU': UnitInfo(
+      code: 'FNU',
+      symbol: 'FNU',
+      description: 'Formazin nephelometric unit',
+    ),
+    'FOT': UnitInfo(code: 'FOT', symbol: 'ft', description: 'foot'),
+    'FP': UnitInfo(
+      code: 'FP',
+      symbol: 'lb/ft²',
+      description: 'pound per square foot',
+    ),
+    'FR': UnitInfo(
+      code: 'FR',
+      symbol: 'ft/min',
+      description: 'foot per minute',
+    ),
+    'FS': UnitInfo(code: 'FS', symbol: 'ft/s', description: 'foot per second'),
+    'FTK': UnitInfo(code: 'FTK', symbol: 'ft²', description: 'square foot'),
+    'FTQ': UnitInfo(code: 'FTQ', symbol: 'ft³', description: 'cubic foot'),
+    'G01': UnitInfo(
+      code: 'G01',
+      symbol: 'Pa·m³/s',
+      description: 'pascal cubic metre per second',
+    ),
+    'G04': UnitInfo(
+      code: 'G04',
+      symbol: 'cm/bar',
+      description: 'centimetre per bar',
+    ),
+    'G05': UnitInfo(code: 'G05', symbol: 'm/bar', description: 'metre per bar'),
+    'G06': UnitInfo(
+      code: 'G06',
+      symbol: 'mm/bar',
+      description: 'millimetre per bar',
+    ),
+    'G08': UnitInfo(
+      code: 'G08',
+      symbol: 'in²/s',
+      description: 'square inch per second',
+    ),
+    'G09': UnitInfo(
+      code: 'G09',
+      symbol: 'm²/(s·K)',
+      description: 'square metre per second kelvin',
+    ),
+    'G10': UnitInfo(
+      code: 'G10',
+      symbol: 'St/K',
+      description: 'stokes per kelvin',
+    ),
+    'G11': UnitInfo(
+      code: 'G11',
+      symbol: 'g/(cm³·bar)',
+      description: 'gram per cubic centimetre bar',
+    ),
+    'G12': UnitInfo(
+      code: 'G12',
+      symbol: 'g/(dm³·bar)',
+      description: 'gram per cubic decimetre bar',
+    ),
+    'G13': UnitInfo(
+      code: 'G13',
+      symbol: 'g/(l·bar)',
+      description: 'gram per litre bar',
+    ),
+    'G14': UnitInfo(
+      code: 'G14',
+      symbol: 'g/(m³·bar)',
+      description: 'gram per cubic metre bar',
+    ),
+    'G15': UnitInfo(
+      code: 'G15',
+      symbol: 'g/(ml·bar)',
+      description: 'gram per millilitre bar',
+    ),
+    'G16': UnitInfo(
+      code: 'G16',
+      symbol: 'kg/(cm³·bar)',
+      description: 'kilogram per cubic centimetre bar',
+    ),
+    'G17': UnitInfo(
+      code: 'G17',
+      symbol: 'kg/(l·bar)',
+      description: 'kilogram per litre bar',
+    ),
+    'G18': UnitInfo(
+      code: 'G18',
+      symbol: 'kg/(m³·bar)',
+      description: 'kilogram per cubic metre bar',
+    ),
+    'G19': UnitInfo(
+      code: 'G19',
+      symbol: 'N·m/kg',
+      description: 'newton metre per kilogram',
+    ),
+    'G2': UnitInfo(
+      code: 'G2',
+      symbol: 'gal (US) /min',
+      description: 'US gallon per minute',
+    ),
+    'G20': UnitInfo(
+      code: 'G20',
+      symbol: 'lbf·ft/lb',
+      description: 'pound-force foot per pound',
+    ),
+    'G21': UnitInfo(
+      code: 'G21',
+      symbol: 'cup (US)',
+      description: 'cup [unit of volume]',
+    ),
+    'G23': UnitInfo(code: 'G23', symbol: 'pk (US)', description: 'peck'),
+    'G24': UnitInfo(
+      code: 'G24',
+      symbol: 'tablespoon (US)',
+      description: 'tablespoon (US)',
+    ),
+    'G25': UnitInfo(
+      code: 'G25',
+      symbol: 'teaspoon (US)',
+      description: 'teaspoon (US)',
+    ),
+    'G26': UnitInfo(code: 'G26', symbol: 'st', description: 'stere'),
+    'G27': UnitInfo(
+      code: 'G27',
+      symbol: 'cm³/K',
+      description: 'cubic centimetre per kelvin',
+    ),
+    'G28': UnitInfo(
+      code: 'G28',
+      symbol: 'l/K',
+      description: 'litre per kelvin',
+    ),
+    'G29': UnitInfo(
+      code: 'G29',
+      symbol: 'm³/K',
+      description: 'cubic metre per kelvin',
+    ),
+    'G3': UnitInfo(
+      code: 'G3',
+      symbol: 'gal (UK) /min',
+      description: 'Imperial gallon per minute',
+    ),
+    'G30': UnitInfo(
+      code: 'G30',
+      symbol: 'ml/K',
+      description: 'millilitre per kelvin',
+    ),
+    'G31': UnitInfo(
+      code: 'G31',
+      symbol: 'kg/cm³',
+      description: 'kilogram per cubic centimetre',
+    ),
+    'G32': UnitInfo(
+      code: 'G32',
+      symbol: 'oz/yd³',
+      description: 'ounce (avoirdupois) per cubic yard',
+    ),
+    'G33': UnitInfo(
+      code: 'G33',
+      symbol: 'g/(cm³·K)',
+      description: 'gram per cubic centimetre kelvin',
+    ),
+    'G34': UnitInfo(
+      code: 'G34',
+      symbol: 'g/(dm³·K)',
+      description: 'gram per cubic decimetre kelvin',
+    ),
+    'G35': UnitInfo(
+      code: 'G35',
+      symbol: 'g/(l·K)',
+      description: 'gram per litre kelvin',
+    ),
+    'G36': UnitInfo(
+      code: 'G36',
+      symbol: 'g/(m³·K)',
+      description: 'gram per cubic metre kelvin',
+    ),
+    'G37': UnitInfo(
+      code: 'G37',
+      symbol: 'g/(ml·K)',
+      description: 'gram per millilitre kelvin',
+    ),
+    'G38': UnitInfo(
+      code: 'G38',
+      symbol: 'kg/(cm³·K)',
+      description: 'kilogram per cubic centimetre kelvin',
+    ),
+    'G39': UnitInfo(
+      code: 'G39',
+      symbol: 'kg/(l·K)',
+      description: 'kilogram per litre kelvin',
+    ),
+    'G40': UnitInfo(
+      code: 'G40',
+      symbol: 'kg/(m³·K)',
+      description: 'kilogram per cubic metre kelvin',
+    ),
+    'G41': UnitInfo(
+      code: 'G41',
+      symbol: 'm²/(s·bar)',
+      description: 'square metre per second bar',
+    ),
+    'G42': UnitInfo(
+      code: 'G42',
+      symbol: 'µS/cm',
+      description: 'microsiemens per centimetre',
+    ),
+    'G43': UnitInfo(
+      code: 'G43',
+      symbol: 'µS/m',
+      description: 'microsiemens per metre',
+    ),
+    'G44': UnitInfo(
+      code: 'G44',
+      symbol: 'nS/cm',
+      description: 'nanosiemens per centimetre',
+    ),
+    'G45': UnitInfo(
+      code: 'G45',
+      symbol: 'nS/m',
+      description: 'nanosiemens per metre',
+    ),
+    'G46': UnitInfo(
+      code: 'G46',
+      symbol: 'St/bar',
+      description: 'stokes per bar',
+    ),
+    'G47': UnitInfo(
+      code: 'G47',
+      symbol: 'cm³/d',
+      description: 'cubic centimetre per day',
+    ),
+    'G48': UnitInfo(
+      code: 'G48',
+      symbol: 'cm³/h',
+      description: 'cubic centimetre per hour',
+    ),
+    'G49': UnitInfo(
+      code: 'G49',
+      symbol: 'cm³/min',
+      description: 'cubic centimetre per minute',
+    ),
+    'G50': UnitInfo(
+      code: 'G50',
+      symbol: 'gal/h',
+      description: 'gallon (US) per hour',
+    ),
+    'G51': UnitInfo(
+      code: 'G51',
+      symbol: 'l/s',
+      description: 'litre per second',
+    ),
+    'G52': UnitInfo(
+      code: 'G52',
+      symbol: 'm³/d',
+      description: 'cubic metre per day',
+    ),
+    'G53': UnitInfo(
+      code: 'G53',
+      symbol: 'm³/min',
+      description: 'cubic metre per minute',
+    ),
+    'G54': UnitInfo(
+      code: 'G54',
+      symbol: 'ml/d',
+      description: 'millilitre per day',
+    ),
+    'G55': UnitInfo(
+      code: 'G55',
+      symbol: 'ml/h',
+      description: 'millilitre per hour',
+    ),
+    'G56': UnitInfo(
+      code: 'G56',
+      symbol: 'in³/h',
+      description: 'cubic inch per hour',
+    ),
+    'G57': UnitInfo(
+      code: 'G57',
+      symbol: 'in³/min',
+      description: 'cubic inch per minute',
+    ),
+    'G58': UnitInfo(
+      code: 'G58',
+      symbol: 'in³/s',
+      description: 'cubic inch per second',
+    ),
+    'G59': UnitInfo(
+      code: 'G59',
+      symbol: 'mA/(l·min)',
+      description: 'milliampere per litre minute',
+    ),
+    'G60': UnitInfo(code: 'G60', symbol: 'V/bar', description: 'volt per bar'),
+    'G61': UnitInfo(
+      code: 'G61',
+      symbol: 'cm³/(d·K)',
+      description: 'cubic centimetre per day kelvin',
+    ),
+    'G62': UnitInfo(
+      code: 'G62',
+      symbol: 'cm³/(h·K)',
+      description: 'cubic centimetre per hour kelvin',
+    ),
+    'G63': UnitInfo(
+      code: 'G63',
+      symbol: 'cm³/(min·K)',
+      description: 'cubic centimetre per minute kelvin',
+    ),
+    'G64': UnitInfo(
+      code: 'G64',
+      symbol: 'cm³/(s·K)',
+      description: 'cubic centimetre per second kelvin',
+    ),
+    'G65': UnitInfo(
+      code: 'G65',
+      symbol: 'l/(d·K)',
+      description: 'litre per day kelvin',
+    ),
+    'G66': UnitInfo(
+      code: 'G66',
+      symbol: 'l/(h·K)',
+      description: 'litre per hour kelvin',
+    ),
+    'G67': UnitInfo(
+      code: 'G67',
+      symbol: 'l/(min·K)',
+      description: 'litre per minute kelvin',
+    ),
+    'G68': UnitInfo(
+      code: 'G68',
+      symbol: 'l/(s·K)',
+      description: 'litre per second kelvin',
+    ),
+    'G69': UnitInfo(
+      code: 'G69',
+      symbol: 'm³/(d·K)',
+      description: 'cubic metre per day kelvin',
+    ),
+    'G7': UnitInfo(code: 'G7', symbol: '', description: 'microfiche sheet'),
+    'G70': UnitInfo(
+      code: 'G70',
+      symbol: 'm³/(h·K)',
+      description: 'cubic metre per hour kelvin',
+    ),
+    'G71': UnitInfo(
+      code: 'G71',
+      symbol: 'm³/(min·K)',
+      description: 'cubic metre per minute kelvin',
+    ),
+    'G72': UnitInfo(
+      code: 'G72',
+      symbol: 'm³/(s·K)',
+      description: 'cubic metre per second kelvin',
+    ),
+    'G73': UnitInfo(
+      code: 'G73',
+      symbol: 'ml/(d·K)',
+      description: 'millilitre per day kelvin',
+    ),
+    'G74': UnitInfo(
+      code: 'G74',
+      symbol: 'ml/(h·K)',
+      description: 'millilitre per hour kelvin',
+    ),
+    'G75': UnitInfo(
+      code: 'G75',
+      symbol: 'ml/(min·K)',
+      description: 'millilitre per minute kelvin',
+    ),
+    'G76': UnitInfo(
+      code: 'G76',
+      symbol: 'ml/(s·K)',
+      description: 'millilitre per second kelvin',
+    ),
+    'G77': UnitInfo(
+      code: 'G77',
+      symbol: 'mm⁴',
+      description: 'millimetre to the fourth power',
+    ),
+    'G78': UnitInfo(
+      code: 'G78',
+      symbol: 'cm³/(d·bar)',
+      description: 'cubic centimetre per day bar',
+    ),
+    'G79': UnitInfo(
+      code: 'G79',
+      symbol: 'cm³/(h·bar)',
+      description: 'cubic centimetre per hour bar',
+    ),
+    'G80': UnitInfo(
+      code: 'G80',
+      symbol: 'cm³/(min·bar)',
+      description: 'cubic centimetre per minute bar',
+    ),
+    'G81': UnitInfo(
+      code: 'G81',
+      symbol: 'cm³/(s·bar)',
+      description: 'cubic centimetre per second bar',
+    ),
+    'G82': UnitInfo(
+      code: 'G82',
+      symbol: 'l/(d·bar)',
+      description: 'litre per day bar',
+    ),
+    'G83': UnitInfo(
+      code: 'G83',
+      symbol: 'l/(h·bar)',
+      description: 'litre per hour bar',
+    ),
+    'G84': UnitInfo(
+      code: 'G84',
+      symbol: 'l/(min·bar)',
+      description: 'litre per minute bar',
+    ),
+    'G85': UnitInfo(
+      code: 'G85',
+      symbol: 'l/(s·bar)',
+      description: 'litre per second bar',
+    ),
+    'G86': UnitInfo(
+      code: 'G86',
+      symbol: 'm³/(d·bar)',
+      description: 'cubic metre per day bar',
+    ),
+    'G87': UnitInfo(
+      code: 'G87',
+      symbol: 'm³/(h·bar)',
+      description: 'cubic metre per hour bar',
+    ),
+    'G88': UnitInfo(
+      code: 'G88',
+      symbol: 'm³/(min·bar)',
+      description: 'cubic metre per minute bar',
+    ),
+    'G89': UnitInfo(
+      code: 'G89',
+      symbol: 'm³/(s·bar)',
+      description: 'cubic metre per second bar',
+    ),
+    'G90': UnitInfo(
+      code: 'G90',
+      symbol: 'ml/(d·bar)',
+      description: 'millilitre per day bar',
+    ),
+    'G91': UnitInfo(
+      code: 'G91',
+      symbol: 'ml/(h·bar)',
+      description: 'millilitre per hour bar',
+    ),
+    'G92': UnitInfo(
+      code: 'G92',
+      symbol: 'ml/(min·bar)',
+      description: 'millilitre per minute bar',
+    ),
+    'G93': UnitInfo(
+      code: 'G93',
+      symbol: 'ml/(s·bar)',
+      description: 'millilitre per second bar',
+    ),
+    'G94': UnitInfo(
+      code: 'G94',
+      symbol: 'cm³/bar',
+      description: 'cubic centimetre per bar',
+    ),
+    'G95': UnitInfo(code: 'G95', symbol: 'l/bar', description: 'litre per bar'),
+    'G96': UnitInfo(
+      code: 'G96',
+      symbol: 'm³/bar',
+      description: 'cubic metre per bar',
+    ),
+    'G97': UnitInfo(
+      code: 'G97',
+      symbol: 'ml/bar',
+      description: 'millilitre per bar',
+    ),
+    'G98': UnitInfo(
+      code: 'G98',
+      symbol: 'µH/kΩ',
+      description: 'microhenry per kiloohm',
+    ),
+    'G99': UnitInfo(
+      code: 'G99',
+      symbol: 'µH/Ω',
+      description: 'microhenry per ohm',
+    ),
+    'GB': UnitInfo(
+      code: 'GB',
+      symbol: 'gal (US)/d',
+      description: 'gallon (US) per day',
+    ),
+    'GBQ': UnitInfo(code: 'GBQ', symbol: 'GBq', description: 'gigabecquerel'),
+    'GC': UnitInfo(code: 'GC', symbol: '', description: 'gram per 100 gram'),
+    'GD': UnitInfo(code: 'GD', symbol: '', description: 'gross barrel'),
+    'GDW': UnitInfo(code: 'GDW', symbol: '', description: 'gram, dry weight'),
+    'GE': UnitInfo(
+      code: 'GE',
+      symbol: 'lb/gal (US)',
+      description: 'pound per gallon (US)',
+    ),
+    'GF': UnitInfo(
+      code: 'GF',
+      symbol: 'g/m',
+      description: 'gram per metre (gram per 100 centimetres)',
+    ),
+    'GFI': UnitInfo(
+      code: 'GFI',
+      symbol: 'gi F/S',
+      description: 'gram of fissile isotope',
+    ),
+    'GGR': UnitInfo(code: 'GGR', symbol: '', description: 'great gross'),
+    'GH': UnitInfo(code: 'GH', symbol: '', description: 'half gallon (US)'),
+    'GIA': UnitInfo(code: 'GIA', symbol: 'gi (US)', description: 'gill (US)'),
+    'GIC': UnitInfo(
+      code: 'GIC',
+      symbol: '',
+      description: 'gram, including container',
+    ),
+    'GII': UnitInfo(code: 'GII', symbol: 'gi (UK)', description: 'gill (UK)'),
+    'GIP': UnitInfo(
+      code: 'GIP',
+      symbol: '',
+      description: 'gram, including inner packaging',
+    ),
+    'GJ': UnitInfo(
+      code: 'GJ',
+      symbol: 'g/ml',
+      description: 'gram per millilitre',
+    ),
+    'GK': UnitInfo(code: 'GK', symbol: '', description: 'gram per kilogram'),
+    'GL': UnitInfo(code: 'GL', symbol: 'g/l', description: 'gram per litre'),
+    'GLD': UnitInfo(
+      code: 'GLD',
+      symbol: 'dry gal (US)',
+      description: 'dry gallon (US)',
+    ),
+    'GLI': UnitInfo(
+      code: 'GLI',
+      symbol: 'gal (UK)',
+      description: 'gallon (UK)',
+    ),
+    'GLL': UnitInfo(
+      code: 'GLL',
+      symbol: 'gal (US)',
+      description: 'gallon (US)',
+    ),
+    'GM': UnitInfo(
+      code: 'GM',
+      symbol: 'g/m²',
+      description: 'gram per square metre',
+    ),
+    'GN': UnitInfo(code: 'GN', symbol: '', description: 'gross gallon'),
+    'GO': UnitInfo(
+      code: 'GO',
+      symbol: 'mg/m²',
+      description: 'milligram per square metre',
+    ),
+    'GP': UnitInfo(
+      code: 'GP',
+      symbol: 'mg/m³',
+      description: 'milligram per cubic metre',
+    ),
+    'GQ': UnitInfo(
+      code: 'GQ',
+      symbol: 'µg/m³',
+      description: 'microgram per cubic metre',
+    ),
+    'GRM': UnitInfo(code: 'GRM', symbol: 'g', description: 'gram'),
+    'GRN': UnitInfo(code: 'GRN', symbol: 'gr', description: 'grain'),
+    'GRO': UnitInfo(code: 'GRO', symbol: 'gr', description: 'gross'),
+    'GRT': UnitInfo(code: 'GRT', symbol: '', description: 'gross register ton'),
+    'GT': UnitInfo(code: 'GT', symbol: '', description: 'gross ton'),
+    'GV': UnitInfo(code: 'GV', symbol: 'GJ', description: 'gigajoule'),
+    'GW': UnitInfo(
+      code: 'GW',
+      symbol: '',
+      description: 'gallon per thousand cubic foot',
+    ),
+    'GWH': UnitInfo(code: 'GWH', symbol: 'GW·h', description: 'gigawatt hour'),
+    'GY': UnitInfo(code: 'GY', symbol: '', description: 'gross yard'),
+    'GZ': UnitInfo(code: 'GZ', symbol: '', description: 'gage system'),
+    'H03': UnitInfo(
+      code: 'H03',
+      symbol: 'H/kΩ',
+      description: 'henry per kiloohm',
+    ),
+    'H04': UnitInfo(code: 'H04', symbol: 'H/Ω', description: 'henry per ohm'),
+    'H05': UnitInfo(
+      code: 'H05',
+      symbol: 'mH/kΩ',
+      description: 'millihenry per kiloohm',
+    ),
+    'H06': UnitInfo(
+      code: 'H06',
+      symbol: 'mH/Ω',
+      description: 'millihenry per ohm',
+    ),
+    'H07': UnitInfo(
+      code: 'H07',
+      symbol: 'Pa·s/bar',
+      description: 'pascal second per bar',
+    ),
+    'H08': UnitInfo(code: 'H08', symbol: 'µBq', description: 'microbecquerel'),
+    'H09': UnitInfo(code: 'H09', symbol: '1/y', description: 'reciprocal year'),
+    'H1': UnitInfo(
+      code: 'H1',
+      symbol: '',
+      description: 'half page – electronic',
+    ),
+    'H10': UnitInfo(code: 'H10', symbol: '1/h', description: 'reciprocal hour'),
+    'H11': UnitInfo(
+      code: 'H11',
+      symbol: '1/mo',
+      description: 'reciprocal month',
+    ),
+    'H12': UnitInfo(
+      code: 'H12',
+      symbol: '°C/h',
+      description: 'degree Celsius per hour',
+    ),
+    'H13': UnitInfo(
+      code: 'H13',
+      symbol: '°C/min',
+      description: 'degree Celsius per minute',
+    ),
+    'H14': UnitInfo(
+      code: 'H14',
+      symbol: '°C/s',
+      description: 'degree Celsius per second',
+    ),
+    'H15': UnitInfo(
+      code: 'H15',
+      symbol: 'cm²/g',
+      description: 'square centimetre per gram',
+    ),
+    'H16': UnitInfo(
+      code: 'H16',
+      symbol: 'dam²',
+      description: 'square decametre',
+    ),
+    'H18': UnitInfo(
+      code: 'H18',
+      symbol: 'hm²',
+      description: 'square hectometre',
+    ),
+    'H19': UnitInfo(
+      code: 'H19',
+      symbol: 'hm³',
+      description: 'cubic hectometre',
+    ),
+    'H2': UnitInfo(code: 'H2', symbol: '', description: 'half litre'),
+    'H20': UnitInfo(code: 'H20', symbol: 'km³', description: 'cubic kilometre'),
+    'H21': UnitInfo(code: 'H21', symbol: '', description: 'blank'),
+    'H22': UnitInfo(
+      code: 'H22',
+      symbol: 'V/(lbf/in²)',
+      description: 'volt square inch per pound-force',
+    ),
+    'H23': UnitInfo(code: 'H23', symbol: 'V/in', description: 'volt per inch'),
+    'H24': UnitInfo(
+      code: 'H24',
+      symbol: 'V/µs',
+      description: 'volt per microsecond',
+    ),
+    'H25': UnitInfo(
+      code: 'H25',
+      symbol: '%/K',
+      description: 'percent per kelvin',
+    ),
+    'H26': UnitInfo(code: 'H26', symbol: 'Ω/m', description: 'ohm per metre'),
+    'H27': UnitInfo(
+      code: 'H27',
+      symbol: '°/m',
+      description: 'degree per metre',
+    ),
+    'H28': UnitInfo(
+      code: 'H28',
+      symbol: 'µF/km',
+      description: 'microfarad per kilometre',
+    ),
+    'H29': UnitInfo(
+      code: 'H29',
+      symbol: 'µg/l',
+      description: 'microgram per litre',
+    ),
+    'H30': UnitInfo(
+      code: 'H30',
+      symbol: 'µm²',
+      description: 'square micrometre (square micron)',
+    ),
+    'H31': UnitInfo(
+      code: 'H31',
+      symbol: 'A/kg',
+      description: 'ampere per kilogram',
+    ),
+    'H32': UnitInfo(
+      code: 'H32',
+      symbol: 'A²·s',
+      description: 'ampere squared second',
+    ),
+    'H33': UnitInfo(
+      code: 'H33',
+      symbol: 'F/km',
+      description: 'farad per kilometre',
+    ),
+    'H34': UnitInfo(code: 'H34', symbol: 'Hz·m', description: 'hertz metre'),
+    'H35': UnitInfo(
+      code: 'H35',
+      symbol: 'K·m/W',
+      description: 'kelvin metre per watt',
+    ),
+    'H36': UnitInfo(
+      code: 'H36',
+      symbol: 'MΩ/km',
+      description: 'megaohm per kilometre',
+    ),
+    'H37': UnitInfo(
+      code: 'H37',
+      symbol: 'MΩ/m',
+      description: 'megaohm per metre',
+    ),
+    'H38': UnitInfo(code: 'H38', symbol: 'MA', description: 'megaampere'),
+    'H39': UnitInfo(
+      code: 'H39',
+      symbol: 'MHz·km',
+      description: 'megahertz kilometre',
+    ),
+    'H40': UnitInfo(
+      code: 'H40',
+      symbol: 'N/A',
+      description: 'newton per ampere',
+    ),
+    'H41': UnitInfo(
+      code: 'H41',
+      symbol: 'N·m·W⁻⁰‧⁵',
+      description: 'newton metre watt to the power minus 0,5',
+    ),
+    'H42': UnitInfo(
+      code: 'H42',
+      symbol: 'Pa/m',
+      description: 'pascal per metre',
+    ),
+    'H43': UnitInfo(
+      code: 'H43',
+      symbol: 'S/cm',
+      description: 'siemens per centimetre',
+    ),
+    'H44': UnitInfo(code: 'H44', symbol: 'TΩ', description: 'teraohm'),
+    'H45': UnitInfo(
+      code: 'H45',
+      symbol: 'V·s/m',
+      description: 'volt second per metre',
+    ),
+    'H46': UnitInfo(code: 'H46', symbol: 'V/s', description: 'volt per second'),
+    'H47': UnitInfo(
+      code: 'H47',
+      symbol: 'W/m³',
+      description: 'watt per cubic metre',
+    ),
+    'H48': UnitInfo(code: 'H48', symbol: 'aF', description: 'attofarad'),
+    'H49': UnitInfo(
+      code: 'H49',
+      symbol: 'cm/h',
+      description: 'centimetre per hour',
+    ),
+    'H50': UnitInfo(
+      code: 'H50',
+      symbol: 'cm⁻³',
+      description: 'reciprocal cubic centimetre',
+    ),
+    'H51': UnitInfo(
+      code: 'H51',
+      symbol: 'dB/km',
+      description: 'decibel per kilometre',
+    ),
+    'H52': UnitInfo(
+      code: 'H52',
+      symbol: 'dB/m',
+      description: 'decibel per metre',
+    ),
+    'H53': UnitInfo(
+      code: 'H53',
+      symbol: 'kg/bar',
+      description: 'kilogram per bar',
+    ),
+    'H54': UnitInfo(
+      code: 'H54',
+      symbol: '(kg/dm³)/K',
+      description: 'kilogram per cubic decimetre kelvin',
+    ),
+    'H55': UnitInfo(
+      code: 'H55',
+      symbol: '(kg/dm³)/bar',
+      description: 'kilogram per cubic decimetre bar',
+    ),
+    'H56': UnitInfo(
+      code: 'H56',
+      symbol: 'kg/(m²·s)',
+      description: 'kilogram per square metre second',
+    ),
+    'H57': UnitInfo(
+      code: 'H57',
+      symbol: 'in/revolution',
+      description: 'inch per two pi radiant',
+    ),
+    'H58': UnitInfo(
+      code: 'H58',
+      symbol: 'm/(V·s)',
+      description: 'metre per volt second',
+    ),
+    'H59': UnitInfo(
+      code: 'H59',
+      symbol: 'm²/N',
+      description: 'square metre per newton',
+    ),
+    'H60': UnitInfo(
+      code: 'H60',
+      symbol: 'm³/m³',
+      description: 'cubic metre per cubic metre',
+    ),
+    'H61': UnitInfo(
+      code: 'H61',
+      symbol: 'mS/cm',
+      description: 'millisiemens per centimetre',
+    ),
+    'H62': UnitInfo(
+      code: 'H62',
+      symbol: 'mV/min',
+      description: 'millivolt per minute',
+    ),
+    'H63': UnitInfo(
+      code: 'H63',
+      symbol: 'mg/cm²',
+      description: 'milligram per square centimetre',
+    ),
+    'H64': UnitInfo(
+      code: 'H64',
+      symbol: 'mg/g',
+      description: 'milligram per gram',
+    ),
+    'H65': UnitInfo(
+      code: 'H65',
+      symbol: 'ml/m³',
+      description: 'millilitre per cubic metre',
+    ),
+    'H66': UnitInfo(
+      code: 'H66',
+      symbol: 'mm/y',
+      description: 'millimetre per year',
+    ),
+    'H67': UnitInfo(
+      code: 'H67',
+      symbol: 'mm/h',
+      description: 'millimetre per hour',
+    ),
+    'H68': UnitInfo(
+      code: 'H68',
+      symbol: 'mmol/g',
+      description: 'millimole per gram',
+    ),
+    'H69': UnitInfo(
+      code: 'H69',
+      symbol: 'pPa/km',
+      description: 'picopascal per kilometre',
+    ),
+    'H70': UnitInfo(code: 'H70', symbol: 'ps', description: 'picosecond'),
+    'H71': UnitInfo(
+      code: 'H71',
+      symbol: '%/mo',
+      description: 'percent per month',
+    ),
+    'H72': UnitInfo(
+      code: 'H72',
+      symbol: '%/hbar',
+      description: 'percent per hectobar',
+    ),
+    'H73': UnitInfo(
+      code: 'H73',
+      symbol: '%/daK',
+      description: 'percent per decakelvin',
+    ),
+    'H74': UnitInfo(code: 'H74', symbol: 'W/m', description: 'watt per metre'),
+    'H75': UnitInfo(code: 'H75', symbol: 'daPa', description: 'decapascal'),
+    'H76': UnitInfo(
+      code: 'H76',
+      symbol: 'g/mm',
+      description: 'gram per millimetre',
+    ),
+    'H77': UnitInfo(code: 'H77', symbol: 'MW', description: 'module width'),
+    'H78': UnitInfo(
+      code: 'H78',
+      symbol: 'cm H₂O',
+      description: 'conventional centimetre of water',
+    ),
+    'H79': UnitInfo(code: 'H79', symbol: 'Fg', description: 'French gauge'),
+    'H80': UnitInfo(code: 'H80', symbol: 'U or RU', description: 'rack unit'),
+    'H81': UnitInfo(
+      code: 'H81',
+      symbol: 'mm/min',
+      description: 'millimetre per minute',
+    ),
+    'H82': UnitInfo(code: 'H82', symbol: 'bp', description: 'big point'),
+    'H83': UnitInfo(
+      code: 'H83',
+      symbol: 'l/kg',
+      description: 'litre per kilogram',
+    ),
+    'H84': UnitInfo(
+      code: 'H84',
+      symbol: 'g·mm',
+      description: 'gram millimetre',
+    ),
+    'H85': UnitInfo(
+      code: 'H85',
+      symbol: '1/wk',
+      description: 'reciprocal week',
+    ),
+    'H87': UnitInfo(code: 'H87', symbol: '', description: 'piece'),
+    'H88': UnitInfo(
+      code: 'H88',
+      symbol: 'MΩ·km',
+      description: 'megaohm kilometre',
+    ),
+    'H89': UnitInfo(code: 'H89', symbol: '%/Ω', description: 'percent per ohm'),
+    'H90': UnitInfo(
+      code: 'H90',
+      symbol: '%/°',
+      description: 'percent per degree',
+    ),
+    'H91': UnitInfo(
+      code: 'H91',
+      symbol: '%/10000',
+      description: 'percent per ten thousand',
+    ),
+    'H92': UnitInfo(
+      code: 'H92',
+      symbol: '%/100000',
+      description: 'percent per one hundred thousand',
+    ),
+    'H93': UnitInfo(
+      code: 'H93',
+      symbol: '%/100',
+      description: 'percent per hundred',
+    ),
+    'H94': UnitInfo(
+      code: 'H94',
+      symbol: '%/1000',
+      description: 'percent per thousand',
+    ),
+    'H95': UnitInfo(
+      code: 'H95',
+      symbol: '%/V',
+      description: 'percent per volt',
+    ),
+    'H96': UnitInfo(
+      code: 'H96',
+      symbol: '%/bar',
+      description: 'percent per bar',
+    ),
+    'H98': UnitInfo(
+      code: 'H98',
+      symbol: '%/in',
+      description: 'percent per inch',
+    ),
+    'H99': UnitInfo(
+      code: 'H99',
+      symbol: '%/m',
+      description: 'percent per metre',
+    ),
+    'HA': UnitInfo(code: 'HA', symbol: '', description: 'hank'),
+    'HAD': UnitInfo(code: 'HAD', symbol: 'piece·d', description: 'Piece Day'),
+    'HAR': UnitInfo(code: 'HAR', symbol: 'ha', description: 'hectare'),
+    'HBA': UnitInfo(code: 'HBA', symbol: 'hbar', description: 'hectobar'),
+    'HBX': UnitInfo(code: 'HBX', symbol: '', description: 'hundred boxes'),
+    'HC': UnitInfo(code: 'HC', symbol: '', description: 'hundred count'),
+    'HD': UnitInfo(code: 'HD', symbol: '', description: 'half dozen'),
+    'HDW': UnitInfo(
+      code: 'HDW',
+      symbol: '',
+      description: 'hundred kilogram, dry weight',
+    ),
+    'HE': UnitInfo(code: 'HE', symbol: '', description: 'hundredth of a carat'),
+    'HEA': UnitInfo(code: 'HEA', symbol: '', description: 'head'),
+    'HF': UnitInfo(code: 'HF', symbol: '', description: 'hundred foot'),
+    'HGM': UnitInfo(code: 'HGM', symbol: 'hg', description: 'hectogram'),
+    'HH': UnitInfo(code: 'HH', symbol: '', description: 'hundred cubic foot'),
+    'HI': UnitInfo(code: 'HI', symbol: '', description: 'hundred sheet'),
+    'HIU': UnitInfo(
+      code: 'HIU',
+      symbol: '',
+      description: 'hundred international unit',
+    ),
+    'HJ': UnitInfo(
+      code: 'HJ',
+      symbol: 'metric hp',
+      description: 'metric horse power',
+    ),
+    'HK': UnitInfo(code: 'HK', symbol: '', description: 'hundred kilogram'),
+    'HKM': UnitInfo(
+      code: 'HKM',
+      symbol: '',
+      description: 'hundred kilogram, net mass',
+    ),
+    'HL': UnitInfo(
+      code: 'HL',
+      symbol: '',
+      description: 'hundred foot (linear)',
+    ),
+    'HLT': UnitInfo(code: 'HLT', symbol: 'hl', description: 'hectolitre'),
+    'HM': UnitInfo(
+      code: 'HM',
+      symbol: 'mile/h',
+      description: 'mile per hour (statute mile)',
+    ),
+    'HMO': UnitInfo(
+      code: 'HMO',
+      symbol: 'piece·mo',
+      description: 'Piece Month',
+    ),
+    'HMQ': UnitInfo(
+      code: 'HMQ',
+      symbol: 'Mm³',
+      description: 'million cubic metre',
+    ),
+    'HMT': UnitInfo(code: 'HMT', symbol: 'hm', description: 'hectometre'),
+    'HN': UnitInfo(
+      code: 'HN',
+      symbol: 'mm Hg',
+      description: 'conventional millimetre of mercury',
+    ),
+    'HO': UnitInfo(code: 'HO', symbol: '', description: 'hundred troy ounce'),
+    'HP': UnitInfo(
+      code: 'HP',
+      symbol: 'mm H₂O',
+      description: 'conventional millimetre of water',
+    ),
+    'HPA': UnitInfo(
+      code: 'HPA',
+      symbol: '',
+      description: 'hectolitre of pure alcohol',
+    ),
+    'HS': UnitInfo(code: 'HS', symbol: '', description: 'hundred square foot'),
+    'HT': UnitInfo(code: 'HT', symbol: '', description: 'half hour'),
+    'HTZ': UnitInfo(code: 'HTZ', symbol: 'Hz', description: 'hertz'),
+    'HUR': UnitInfo(code: 'HUR', symbol: 'h', description: 'hour'),
+    'HWE': UnitInfo(code: 'HWE', symbol: 'piece·k', description: 'Piece Week'),
+    'HY': UnitInfo(code: 'HY', symbol: '', description: 'hundred yard'),
+    'IA': UnitInfo(
+      code: 'IA',
+      symbol: 'in·lb',
+      description: 'inch pound (pound inch)',
+    ),
+    'IC': UnitInfo(code: 'IC', symbol: '', description: 'count per inch'),
+    'IE': UnitInfo(code: 'IE', symbol: '', description: 'person'),
+    'IF': UnitInfo(code: 'IF', symbol: '', description: 'inches of water'),
+    'II': UnitInfo(code: 'II', symbol: '', description: 'column inch'),
+    'IL': UnitInfo(code: 'IL', symbol: '', description: 'inch per minute'),
+    'IM': UnitInfo(code: 'IM', symbol: '', description: 'impression'),
+    'INH': UnitInfo(code: 'INH', symbol: 'in', description: 'inch'),
+    'INK': UnitInfo(code: 'INK', symbol: 'in²', description: 'square inch'),
+    'INQ': UnitInfo(code: 'INQ', symbol: 'in³', description: 'cubic inch'),
+    'IP': UnitInfo(code: 'IP', symbol: '', description: 'insurance policy'),
+    'ISD': UnitInfo(
+      code: 'ISD',
+      symbol: '',
+      description: 'international sugar degree',
+    ),
+    'IT': UnitInfo(code: 'IT', symbol: '', description: 'count per centimetre'),
+    'IU': UnitInfo(code: 'IU', symbol: 'in/s', description: 'inch per second'),
+    'IUG': UnitInfo(
+      code: 'IUG',
+      symbol: '',
+      description: 'international unit per gram',
+    ),
+    'IV': UnitInfo(
+      code: 'IV',
+      symbol: 'in/s²',
+      description: 'inch per second squared',
+    ),
+    'J10': UnitInfo(
+      code: 'J10',
+      symbol: '%/mm',
+      description: 'percent per millimetre',
+    ),
+    'J12': UnitInfo(
+      code: 'J12',
+      symbol: '‰/psi',
+      description: 'per mille per psi',
+    ),
+    'J13': UnitInfo(code: 'J13', symbol: '°API', description: 'degree API'),
+    'J14': UnitInfo(
+      code: 'J14',
+      symbol: '°Bé',
+      description: 'degree Baume (origin scale)',
+    ),
+    'J15': UnitInfo(
+      code: 'J15',
+      symbol: '°Bé (US heavy)',
+      description: 'degree Baume (US heavy)',
+    ),
+    'J16': UnitInfo(
+      code: 'J16',
+      symbol: '°Bé (US light)',
+      description: 'degree Baume (US light)',
+    ),
+    'J17': UnitInfo(
+      code: 'J17',
+      symbol: '°Balling',
+      description: 'degree Balling',
+    ),
+    'J18': UnitInfo(code: 'J18', symbol: '°Bx', description: 'degree Brix'),
+    'J19': UnitInfo(
+      code: 'J19',
+      symbol: '°F·h·ft²/Btuth',
+      description:
+          'degree Fahrenheit hour square foot per British thermal unit (thermochemical)',
+    ),
+    'J2': UnitInfo(
+      code: 'J2',
+      symbol: 'J/kg',
+      description: 'joule per kilogram',
+    ),
+    'J20': UnitInfo(
+      code: 'J20',
+      symbol: '°F/K',
+      description: 'degree Fahrenheit per kelvin',
+    ),
+    'J21': UnitInfo(
+      code: 'J21',
+      symbol: '°F/bar',
+      description: 'degree Fahrenheit per bar',
+    ),
+    'J22': UnitInfo(
+      code: 'J22',
+      symbol: '°F·h·ft²/BtuIT',
+      description:
+          'degree Fahrenheit hour square foot per British thermal unit (international table)',
+    ),
+    'J23': UnitInfo(
+      code: 'J23',
+      symbol: '°F/h',
+      description: 'degree Fahrenheit per hour',
+    ),
+    'J24': UnitInfo(
+      code: 'J24',
+      symbol: '°F/min',
+      description: 'degree Fahrenheit per minute',
+    ),
+    'J25': UnitInfo(
+      code: 'J25',
+      symbol: '°F/s',
+      description: 'degree Fahrenheit per second',
+    ),
+    'J26': UnitInfo(
+      code: 'J26',
+      symbol: '1/°F',
+      description: 'reciprocal degree Fahrenheit',
+    ),
+    'J27': UnitInfo(
+      code: 'J27',
+      symbol: '°Oechsle',
+      description: 'degree Oechsle',
+    ),
+    'J28': UnitInfo(
+      code: 'J28',
+      symbol: '°R/h',
+      description: 'degree Rankine per hour',
+    ),
+    'J29': UnitInfo(
+      code: 'J29',
+      symbol: '°R/min',
+      description: 'degree Rankine per minute',
+    ),
+    'J30': UnitInfo(
+      code: 'J30',
+      symbol: '°R/s',
+      description: 'degree Rankine per second',
+    ),
+    'J31': UnitInfo(code: 'J31', symbol: '°Tw', description: 'degree Twaddell'),
+    'J32': UnitInfo(code: 'J32', symbol: 'µP', description: 'micropoise'),
+    'J33': UnitInfo(
+      code: 'J33',
+      symbol: 'µg/kg',
+      description: 'microgram per kilogram',
+    ),
+    'J34': UnitInfo(
+      code: 'J34',
+      symbol: '(µg/m³)/K',
+      description: 'microgram per cubic metre kelvin',
+    ),
+    'J35': UnitInfo(
+      code: 'J35',
+      symbol: '(µg/m³)/bar',
+      description: 'microgram per cubic metre bar',
+    ),
+    'J36': UnitInfo(
+      code: 'J36',
+      symbol: 'µl/l',
+      description: 'microlitre per litre',
+    ),
+    'J38': UnitInfo(code: 'J38', symbol: 'Bd', description: 'baud'),
+    'J39': UnitInfo(
+      code: 'J39',
+      symbol: 'Btu',
+      description: 'British thermal unit (mean)',
+    ),
+    'J40': UnitInfo(
+      code: 'J40',
+      symbol: 'BtuIT·ft/(h·ft²·°F)',
+      description:
+          'British thermal unit (international table) foot per hour square foot degree Fahrenheit',
+    ),
+    'J41': UnitInfo(
+      code: 'J41',
+      symbol: 'BtuIT·in/(h·ft²·°F)',
+      description:
+          'British thermal unit (international table) inch per hour square foot degree Fahrenheit',
+    ),
+    'J42': UnitInfo(
+      code: 'J42',
+      symbol: 'BtuIT·in/(s·ft²·°F)',
+      description:
+          'British thermal unit (international table) inch per second square foot degree Fahrenheit',
+    ),
+    'J43': UnitInfo(
+      code: 'J43',
+      symbol: 'BtuIT/(lb·°F)',
+      description:
+          'British thermal unit (international table) per pound degree Fahrenheit',
+    ),
+    'J44': UnitInfo(
+      code: 'J44',
+      symbol: 'BtuIT/min',
+      description: 'British thermal unit (international table) per minute',
+    ),
+    'J45': UnitInfo(
+      code: 'J45',
+      symbol: 'BtuIT/s',
+      description: 'British thermal unit (international table) per second',
+    ),
+    'J46': UnitInfo(
+      code: 'J46',
+      symbol: 'Btuth·ft/(h·ft²·°F)',
+      description:
+          'British thermal unit (thermochemical) foot per hour square foot degree Fahrenheit',
+    ),
+    'J47': UnitInfo(
+      code: 'J47',
+      symbol: 'Btuth/h',
+      description: 'British thermal unit (thermochemical) per hour',
+    ),
+    'J48': UnitInfo(
+      code: 'J48',
+      symbol: 'Btuth·in/(h·ft²·°F)',
+      description:
+          'British thermal unit (thermochemical) inch per hour square foot degree Fahrenheit',
+    ),
+    'J49': UnitInfo(
+      code: 'J49',
+      symbol: 'Btuth·in/(s·ft²·°F)',
+      description:
+          'British thermal unit (thermochemical) inch per second square foot degree Fahrenheit',
+    ),
+    'J50': UnitInfo(
+      code: 'J50',
+      symbol: 'Btuth/(lb·°F)',
+      description:
+          'British thermal unit (thermochemical) per pound degree Fahrenheit',
+    ),
+    'J51': UnitInfo(
+      code: 'J51',
+      symbol: 'Btuth/min',
+      description: 'British thermal unit (thermochemical) per minute',
+    ),
+    'J52': UnitInfo(
+      code: 'J52',
+      symbol: 'Btuth/s',
+      description: 'British thermal unit (thermochemical) per second',
+    ),
+    'J53': UnitInfo(
+      code: 'J53',
+      symbol: 'C·m²/kg',
+      description: 'coulomb square metre per kilogram',
+    ),
+    'J54': UnitInfo(code: 'J54', symbol: 'MBd', description: 'megabaud'),
+    'J55': UnitInfo(code: 'J55', symbol: 'W·s', description: 'watt second'),
+    'J56': UnitInfo(code: 'J56', symbol: 'bar/bar', description: 'bar per bar'),
+    'J57': UnitInfo(
+      code: 'J57',
+      symbol: 'bbl (UK liq.)',
+      description: 'barrel (UK petroleum)',
+    ),
+    'J58': UnitInfo(
+      code: 'J58',
+      symbol: 'bbl (UK liq.)/min',
+      description: 'barrel (UK petroleum) per minute',
+    ),
+    'J59': UnitInfo(
+      code: 'J59',
+      symbol: 'bbl (UK liq.)/d',
+      description: 'barrel (UK petroleum) per day',
+    ),
+    'J60': UnitInfo(
+      code: 'J60',
+      symbol: 'bbl (UK liq.)/h',
+      description: 'barrel (UK petroleum) per hour',
+    ),
+    'J61': UnitInfo(
+      code: 'J61',
+      symbol: 'bbl (UK liq.)/s',
+      description: 'barrel (UK petroleum) per second',
+    ),
+    'J62': UnitInfo(
+      code: 'J62',
+      symbol: 'bbl (US)/h',
+      description: 'barrel (US petroleum) per hour',
+    ),
+    'J63': UnitInfo(
+      code: 'J63',
+      symbol: 'bbl (US)/s',
+      description: 'barrel (US petroleum) per second',
+    ),
+    'J64': UnitInfo(
+      code: 'J64',
+      symbol: 'bu (UK)/d',
+      description: 'bushel (UK) per day',
+    ),
+    'J65': UnitInfo(
+      code: 'J65',
+      symbol: 'bu (UK)/h',
+      description: 'bushel (UK) per hour',
+    ),
+    'J66': UnitInfo(
+      code: 'J66',
+      symbol: 'bu (UK)/min',
+      description: 'bushel (UK) per minute',
+    ),
+    'J67': UnitInfo(
+      code: 'J67',
+      symbol: 'bu (UK)/s',
+      description: 'bushel (UK) per second',
+    ),
+    'J68': UnitInfo(
+      code: 'J68',
+      symbol: 'bu (US dry)/d',
+      description: 'bushel (US dry) per day',
+    ),
+    'J69': UnitInfo(
+      code: 'J69',
+      symbol: 'bu (US dry)/h',
+      description: 'bushel (US dry) per hour',
+    ),
+    'J70': UnitInfo(
+      code: 'J70',
+      symbol: 'bu (US dry)/min',
+      description: 'bushel (US dry) per minute',
+    ),
+    'J71': UnitInfo(
+      code: 'J71',
+      symbol: 'bu (US dry)/s',
+      description: 'bushel (US dry) per second',
+    ),
+    'J72': UnitInfo(
+      code: 'J72',
+      symbol: 'cN·m',
+      description: 'centinewton metre',
+    ),
+    'J73': UnitInfo(
+      code: 'J73',
+      symbol: 'cP/K',
+      description: 'centipoise per kelvin',
+    ),
+    'J74': UnitInfo(
+      code: 'J74',
+      symbol: 'cP/bar',
+      description: 'centipoise per bar',
+    ),
+    'J75': UnitInfo(code: 'J75', symbol: 'cal', description: 'calorie (mean)'),
+    'J76': UnitInfo(
+      code: 'J76',
+      symbol: 'calIT/(g·°C)',
+      description: 'calorie (international table) per gram degree Celsius',
+    ),
+    'J78': UnitInfo(
+      code: 'J78',
+      symbol: 'calth/(cm·s·°C)',
+      description:
+          'calorie (thermochemical) per centimetre second degree Celsius',
+    ),
+    'J79': UnitInfo(
+      code: 'J79',
+      symbol: 'calth/(g·°C)',
+      description: 'calorie (thermochemical) per gram degree Celsius',
+    ),
+    'J81': UnitInfo(
+      code: 'J81',
+      symbol: 'calth/min',
+      description: 'calorie (thermochemical) per minute',
+    ),
+    'J82': UnitInfo(
+      code: 'J82',
+      symbol: 'calth/s',
+      description: 'calorie (thermochemical) per second',
+    ),
+    'J83': UnitInfo(code: 'J83', symbol: 'clo', description: 'clo'),
+    'J84': UnitInfo(
+      code: 'J84',
+      symbol: '(cm/s)/K',
+      description: 'centimetre per second kelvin',
+    ),
+    'J85': UnitInfo(
+      code: 'J85',
+      symbol: '(cm/s)/bar',
+      description: 'centimetre per second bar',
+    ),
+    'J87': UnitInfo(
+      code: 'J87',
+      symbol: 'cm³/m³',
+      description: 'cubic centimetre per cubic metre',
+    ),
+    'J89': UnitInfo(
+      code: 'J89',
+      symbol: 'cm Hg',
+      description: 'centimetre of mercury',
+    ),
+    'J90': UnitInfo(
+      code: 'J90',
+      symbol: 'dm³/d',
+      description: 'cubic decimetre per day',
+    ),
+    'J91': UnitInfo(
+      code: 'J91',
+      symbol: 'dm³/m³',
+      description: 'cubic decimetre per cubic metre',
+    ),
+    'J92': UnitInfo(
+      code: 'J92',
+      symbol: 'dm³/min',
+      description: 'cubic decimetre per minute',
+    ),
+    'J93': UnitInfo(
+      code: 'J93',
+      symbol: 'dm³/s',
+      description: 'cubic decimetre per second',
+    ),
+    'J94': UnitInfo(
+      code: 'J94',
+      symbol: 'dyn·cm',
+      description: 'dyne centimetre',
+    ),
+    'J95': UnitInfo(
+      code: 'J95',
+      symbol: 'fl oz (UK)/d',
+      description: 'ounce (UK fluid) per day',
+    ),
+    'J96': UnitInfo(
+      code: 'J96',
+      symbol: 'fl oz (UK)/h',
+      description: 'ounce (UK fluid) per hour',
+    ),
+    'J97': UnitInfo(
+      code: 'J97',
+      symbol: 'fl oz (UK)/min',
+      description: 'ounce (UK fluid) per minute',
+    ),
+    'J98': UnitInfo(
+      code: 'J98',
+      symbol: 'fl oz (UK)/s',
+      description: 'ounce (UK fluid) per second',
+    ),
+    'J99': UnitInfo(
+      code: 'J99',
+      symbol: 'fl oz (US)/d',
+      description: 'ounce (US fluid) per day',
+    ),
+    'JB': UnitInfo(code: 'JB', symbol: '', description: 'jumbo'),
+    'JE': UnitInfo(code: 'JE', symbol: 'J/K', description: 'joule per kelvin'),
+    'JG': UnitInfo(code: 'JG', symbol: '', description: 'jug'),
+    'JK': UnitInfo(
+      code: 'JK',
+      symbol: 'MJ/kg',
+      description: 'megajoule per kilogram',
+    ),
+    'JM': UnitInfo(
+      code: 'JM',
+      symbol: 'MJ/m³',
+      description: 'megajoule per cubic metre',
+    ),
+    'JNT': UnitInfo(code: 'JNT', symbol: '', description: 'pipeline joint'),
+    'JO': UnitInfo(code: 'JO', symbol: '', description: 'joint'),
+    'JOU': UnitInfo(code: 'JOU', symbol: 'J', description: 'joule'),
+    'JPS': UnitInfo(code: 'JPS', symbol: '', description: 'hundred metre'),
+    'JR': UnitInfo(code: 'JR', symbol: '', description: 'jar'),
+    'JWL': UnitInfo(code: 'JWL', symbol: '', description: 'number of jewels'),
+    'K1': UnitInfo(code: 'K1', symbol: '', description: 'kilowatt demand'),
+    'K10': UnitInfo(
+      code: 'K10',
+      symbol: 'fl oz (US)/h',
+      description: 'ounce (US fluid) per hour',
+    ),
+    'K11': UnitInfo(
+      code: 'K11',
+      symbol: 'fl oz (US)/min',
+      description: 'ounce (US fluid) per minute',
+    ),
+    'K12': UnitInfo(
+      code: 'K12',
+      symbol: 'fl oz (US)/s',
+      description: 'ounce (US fluid) per second',
+    ),
+    'K13': UnitInfo(
+      code: 'K13',
+      symbol: 'ft/°F',
+      description: 'foot per degree Fahrenheit',
+    ),
+    'K14': UnitInfo(code: 'K14', symbol: 'ft/h', description: 'foot per hour'),
+    'K15': UnitInfo(
+      code: 'K15',
+      symbol: 'ft·lbf/h',
+      description: 'foot pound-force per hour',
+    ),
+    'K16': UnitInfo(
+      code: 'K16',
+      symbol: 'ft·lbf/min',
+      description: 'foot pound-force per minute',
+    ),
+    'K17': UnitInfo(code: 'K17', symbol: 'ft/psi', description: 'foot per psi'),
+    'K18': UnitInfo(
+      code: 'K18',
+      symbol: '(ft/s)/°F',
+      description: 'foot per second degree Fahrenheit',
+    ),
+    'K19': UnitInfo(
+      code: 'K19',
+      symbol: '(ft/s)/psi',
+      description: 'foot per second psi',
+    ),
+    'K2': UnitInfo(
+      code: 'K2',
+      symbol: '',
+      description: 'kilovolt ampere reactive demand',
+    ),
+    'K20': UnitInfo(
+      code: 'K20',
+      symbol: '1/ft³',
+      description: 'reciprocal cubic foot',
+    ),
+    'K21': UnitInfo(
+      code: 'K21',
+      symbol: 'ft³/°F',
+      description: 'cubic foot per degree Fahrenheit',
+    ),
+    'K22': UnitInfo(
+      code: 'K22',
+      symbol: 'ft³/d',
+      description: 'cubic foot per day',
+    ),
+    'K23': UnitInfo(
+      code: 'K23',
+      symbol: 'ft³/psi',
+      description: 'cubic foot per psi',
+    ),
+    'K24': UnitInfo(
+      code: 'K24',
+      symbol: 'ft H₂O',
+      description: 'foot of water',
+    ),
+    'K25': UnitInfo(
+      code: 'K25',
+      symbol: 'ft Hg',
+      description: 'foot of mercury',
+    ),
+    'K26': UnitInfo(
+      code: 'K26',
+      symbol: 'gal (UK)/d',
+      description: 'gallon (UK) per day',
+    ),
+    'K27': UnitInfo(
+      code: 'K27',
+      symbol: 'gal (UK)/h',
+      description: 'gallon (UK) per hour',
+    ),
+    'K28': UnitInfo(
+      code: 'K28',
+      symbol: 'gal (UK)/s',
+      description: 'gallon (UK) per second',
+    ),
+    'K3': UnitInfo(
+      code: 'K3',
+      symbol: 'kvar·h',
+      description: 'kilovolt ampere reactive hour',
+    ),
+    'K30': UnitInfo(
+      code: 'K30',
+      symbol: 'gal (US liq.)/s',
+      description: 'gallon (US liquid) per second',
+    ),
+    'K31': UnitInfo(
+      code: 'K31',
+      symbol: 'gf/cm²',
+      description: 'gram-force per square centimetre',
+    ),
+    'K32': UnitInfo(
+      code: 'K32',
+      symbol: 'gi (UK)/d',
+      description: 'gill (UK) per day',
+    ),
+    'K33': UnitInfo(
+      code: 'K33',
+      symbol: 'gi (UK)/h',
+      description: 'gill (UK) per hour',
+    ),
+    'K34': UnitInfo(
+      code: 'K34',
+      symbol: 'gi (UK)/min',
+      description: 'gill (UK) per minute',
+    ),
+    'K35': UnitInfo(
+      code: 'K35',
+      symbol: 'gi (UK)/s',
+      description: 'gill (UK) per second',
+    ),
+    'K36': UnitInfo(
+      code: 'K36',
+      symbol: 'gi (US)/d',
+      description: 'gill (US) per day',
+    ),
+    'K37': UnitInfo(
+      code: 'K37',
+      symbol: 'gi (US)/h',
+      description: 'gill (US) per hour',
+    ),
+    'K38': UnitInfo(
+      code: 'K38',
+      symbol: 'gi (US)/min',
+      description: 'gill (US) per minute',
+    ),
+    'K39': UnitInfo(
+      code: 'K39',
+      symbol: 'gi (US)/s',
+      description: 'gill (US) per second',
+    ),
+    'K40': UnitInfo(
+      code: 'K40',
+      symbol: 'gn',
+      description: 'standard acceleration of free fall',
+    ),
+    'K41': UnitInfo(
+      code: 'K41',
+      symbol: 'gr/gal (US)',
+      description: 'grain per gallon (US)',
+    ),
+    'K42': UnitInfo(
+      code: 'K42',
+      symbol: 'boiler hp',
+      description: 'horsepower (boiler)',
+    ),
+    'K43': UnitInfo(
+      code: 'K43',
+      symbol: 'electric hp',
+      description: 'horsepower (electric)',
+    ),
+    'K45': UnitInfo(
+      code: 'K45',
+      symbol: 'in/°F',
+      description: 'inch per degree Fahrenheit',
+    ),
+    'K46': UnitInfo(code: 'K46', symbol: 'in/psi', description: 'inch per psi'),
+    'K47': UnitInfo(
+      code: 'K47',
+      symbol: '(in/s)/°F',
+      description: 'inch per second degree Fahrenheit',
+    ),
+    'K48': UnitInfo(
+      code: 'K48',
+      symbol: '(in/s)/psi',
+      description: 'inch per second psi',
+    ),
+    'K49': UnitInfo(
+      code: 'K49',
+      symbol: '1/in³',
+      description: 'reciprocal cubic inch',
+    ),
+    'K5': UnitInfo(
+      code: 'K5',
+      symbol: 'kvar',
+      description: 'kilovolt ampere (reactive)',
+    ),
+    'K50': UnitInfo(code: 'K50', symbol: 'kBd', description: 'kilobaud'),
+    'K51': UnitInfo(
+      code: 'K51',
+      symbol: 'kcal',
+      description: 'kilocalorie (mean)',
+    ),
+    'K52': UnitInfo(
+      code: 'K52',
+      symbol: 'kcal/(m·h·°C)',
+      description:
+          'kilocalorie (international table) per hour metre degree Celsius',
+    ),
+    'K53': UnitInfo(
+      code: 'K53',
+      symbol: 'kcalth',
+      description: 'kilocalorie (thermochemical)',
+    ),
+    'K54': UnitInfo(
+      code: 'K54',
+      symbol: 'kcalth/min',
+      description: 'kilocalorie (thermochemical) per minute',
+    ),
+    'K55': UnitInfo(
+      code: 'K55',
+      symbol: 'kcalth/s',
+      description: 'kilocalorie (thermochemical) per second',
+    ),
+    'K58': UnitInfo(
+      code: 'K58',
+      symbol: 'kmol/h',
+      description: 'kilomole per hour',
+    ),
+    'K59': UnitInfo(
+      code: 'K59',
+      symbol: '(kmol/m³)/K',
+      description: 'kilomole per cubic metre kelvin',
+    ),
+    'K6': UnitInfo(code: 'K6', symbol: 'kl', description: 'kilolitre'),
+    'K60': UnitInfo(
+      code: 'K60',
+      symbol: '(kmol/m³)/bar',
+      description: 'kilomole per cubic metre bar',
+    ),
+    'K61': UnitInfo(
+      code: 'K61',
+      symbol: 'kmol/min',
+      description: 'kilomole per minute',
+    ),
+    'K62': UnitInfo(code: 'K62', symbol: 'l/l', description: 'litre per litre'),
+    'K63': UnitInfo(
+      code: 'K63',
+      symbol: '1/l',
+      description: 'reciprocal litre',
+    ),
+    'K64': UnitInfo(
+      code: 'K64',
+      symbol: 'lb/°F',
+      description: 'pound (avoirdupois) per degree Fahrenheit',
+    ),
+    'K65': UnitInfo(
+      code: 'K65',
+      symbol: 'lb·ft²',
+      description: 'pound (avoirdupois) square foot',
+    ),
+    'K66': UnitInfo(
+      code: 'K66',
+      symbol: 'lb/d',
+      description: 'pound (avoirdupois) per day',
+    ),
+    'K67': UnitInfo(
+      code: 'K67',
+      symbol: 'lb/(ft·h)',
+      description: 'pound per foot hour',
+    ),
+    'K68': UnitInfo(
+      code: 'K68',
+      symbol: 'lb/(ft·s)',
+      description: 'pound per foot second',
+    ),
+    'K69': UnitInfo(
+      code: 'K69',
+      symbol: '(lb/ft³)/°F',
+      description: 'pound (avoirdupois) per cubic foot degree Fahrenheit',
+    ),
+    'K70': UnitInfo(
+      code: 'K70',
+      symbol: '(lb/ft³)/psi',
+      description: 'pound (avoirdupois) per cubic foot psi',
+    ),
+    'K71': UnitInfo(
+      code: 'K71',
+      symbol: 'lb/gal (UK)',
+      description: 'pound (avoirdupois) per gallon (UK)',
+    ),
+    'K73': UnitInfo(
+      code: 'K73',
+      symbol: '(lb/h)/°F',
+      description: 'pound (avoirdupois) per hour degree Fahrenheit',
+    ),
+    'K74': UnitInfo(
+      code: 'K74',
+      symbol: '(lb/h)/psi',
+      description: 'pound (avoirdupois) per hour psi',
+    ),
+    'K75': UnitInfo(
+      code: 'K75',
+      symbol: '(lb/in³)/°F',
+      description: 'pound (avoirdupois) per cubic inch degree Fahrenheit',
+    ),
+    'K76': UnitInfo(
+      code: 'K76',
+      symbol: '(lb/in³)/psi',
+      description: 'pound (avoirdupois) per cubic inch psi',
+    ),
+    'K77': UnitInfo(
+      code: 'K77',
+      symbol: 'lb/psi',
+      description: 'pound (avoirdupois) per psi',
+    ),
+    'K78': UnitInfo(
+      code: 'K78',
+      symbol: 'lb/min',
+      description: 'pound (avoirdupois) per minute',
+    ),
+    'K79': UnitInfo(
+      code: 'K79',
+      symbol: 'lb/(min·°F)',
+      description: 'pound (avoirdupois) per minute degree Fahrenheit',
+    ),
+    'K80': UnitInfo(
+      code: 'K80',
+      symbol: '(lb/min)/psi',
+      description: 'pound (avoirdupois) per minute psi',
+    ),
+    'K81': UnitInfo(
+      code: 'K81',
+      symbol: 'lb/s',
+      description: 'pound (avoirdupois) per second',
+    ),
+    'K82': UnitInfo(
+      code: 'K82',
+      symbol: '(lb/s)/°F',
+      description: 'pound (avoirdupois) per second degree Fahrenheit',
+    ),
+    'K83': UnitInfo(
+      code: 'K83',
+      symbol: '(lb/s)/psi',
+      description: 'pound (avoirdupois) per second psi',
+    ),
+    'K84': UnitInfo(
+      code: 'K84',
+      symbol: 'lb/yd³',
+      description: 'pound per cubic yard',
+    ),
+    'K85': UnitInfo(
+      code: 'K85',
+      symbol: 'lbf/ft²',
+      description: 'pound-force per square foot',
+    ),
+    'K86': UnitInfo(
+      code: 'K86',
+      symbol: 'psi/°F',
+      description: 'pound-force per square inch degree Fahrenheit',
+    ),
+    'K87': UnitInfo(
+      code: 'K87',
+      symbol: 'psi·in³/s',
+      description: 'psi cubic inch per second',
+    ),
+    'K88': UnitInfo(
+      code: 'K88',
+      symbol: 'psi·l/s',
+      description: 'psi litre per second',
+    ),
+    'K89': UnitInfo(
+      code: 'K89',
+      symbol: 'psi·m³/s',
+      description: 'psi cubic metre per second',
+    ),
+    'K90': UnitInfo(
+      code: 'K90',
+      symbol: 'psi·yd³/s',
+      description: 'psi cubic yard per second',
+    ),
+    'K91': UnitInfo(
+      code: 'K91',
+      symbol: 'lbf·s/ft²',
+      description: 'pound-force second per square foot',
+    ),
+    'K92': UnitInfo(
+      code: 'K92',
+      symbol: 'lbf·s/in²',
+      description: 'pound-force second per square inch',
+    ),
+    'K93': UnitInfo(
+      code: 'K93',
+      symbol: '1/psi',
+      description: 'reciprocal psi',
+    ),
+    'K94': UnitInfo(
+      code: 'K94',
+      symbol: 'qt (UK liq.)/d',
+      description: 'quart (UK liquid) per day',
+    ),
+    'K95': UnitInfo(
+      code: 'K95',
+      symbol: 'qt (UK liq.)/h',
+      description: 'quart (UK liquid) per hour',
+    ),
+    'K96': UnitInfo(
+      code: 'K96',
+      symbol: 'qt (UK liq.)/min',
+      description: 'quart (UK liquid) per minute',
+    ),
+    'K97': UnitInfo(
+      code: 'K97',
+      symbol: 'qt (UK liq.)/s',
+      description: 'quart (UK liquid) per second',
+    ),
+    'K98': UnitInfo(
+      code: 'K98',
+      symbol: 'qt (US liq.)/d',
+      description: 'quart (US liquid) per day',
+    ),
+    'K99': UnitInfo(
+      code: 'K99',
+      symbol: 'qt (US liq.)/h',
+      description: 'quart (US liquid) per hour',
+    ),
+    'KA': UnitInfo(code: 'KA', symbol: '', description: 'cake'),
+    'KAT': UnitInfo(code: 'KAT', symbol: 'kat', description: 'katal'),
+    'KB': UnitInfo(code: 'KB', symbol: '', description: 'kilocharacter'),
+    'KBA': UnitInfo(code: 'KBA', symbol: 'kbar', description: 'kilobar'),
+    'KCC': UnitInfo(
+      code: 'KCC',
+      symbol: 'kg C₅ H₁₄ClNO',
+      description: 'kilogram of choline chloride',
+    ),
+    'KD': UnitInfo(code: 'KD', symbol: '', description: 'kilogram decimal'),
+    'KDW': UnitInfo(
+      code: 'KDW',
+      symbol: 'kg/net eda',
+      description: 'kilogram drained net weight',
+    ),
+    'KEL': UnitInfo(code: 'KEL', symbol: 'K', description: 'kelvin'),
+    'KF': UnitInfo(code: 'KF', symbol: '', description: 'kilopacket'),
+    'KG': UnitInfo(code: 'KG', symbol: '', description: 'keg'),
+    'KGM': UnitInfo(code: 'KGM', symbol: 'kg', description: 'kilogram'),
+    'KGS': UnitInfo(
+      code: 'KGS',
+      symbol: 'kg/s',
+      description: 'kilogram per second',
+    ),
+    'KHY': UnitInfo(
+      code: 'KHY',
+      symbol: 'kg H₂O₂',
+      description: 'kilogram of hydrogen peroxide',
+    ),
+    'KHZ': UnitInfo(code: 'KHZ', symbol: 'kHz', description: 'kilohertz'),
+    'KI': UnitInfo(
+      code: 'KI',
+      symbol: '',
+      description: 'kilogram per millimetre width',
+    ),
+    'KIC': UnitInfo(
+      code: 'KIC',
+      symbol: '',
+      description: 'kilogram, including container',
+    ),
+    'KIP': UnitInfo(
+      code: 'KIP',
+      symbol: '',
+      description: 'kilogram, including inner packaging',
+    ),
+    'KJ': UnitInfo(code: 'KJ', symbol: '', description: 'kilosegment'),
+    'KJO': UnitInfo(code: 'KJO', symbol: 'kJ', description: 'kilojoule'),
+    'KL': UnitInfo(
+      code: 'KL',
+      symbol: 'kg/m',
+      description: 'kilogram per metre',
+    ),
+    'KLK': UnitInfo(
+      code: 'KLK',
+      symbol: '',
+      description: 'lactic dry material percentage',
+    ),
+    'KLX': UnitInfo(code: 'KLX', symbol: 'klx', description: 'kilolux'),
+    'KMA': UnitInfo(
+      code: 'KMA',
+      symbol: 'kg met.am.',
+      description: 'kilogram of methylamine',
+    ),
+    'KMH': UnitInfo(
+      code: 'KMH',
+      symbol: 'km/h',
+      description: 'kilometre per hour',
+    ),
+    'KMK': UnitInfo(
+      code: 'KMK',
+      symbol: 'km²',
+      description: 'square kilometre',
+    ),
+    'KMQ': UnitInfo(
+      code: 'KMQ',
+      symbol: 'kg/m³',
+      description: 'kilogram per cubic metre',
+    ),
+    'KMT': UnitInfo(code: 'KMT', symbol: 'km', description: 'kilometre'),
+    'KNI': UnitInfo(
+      code: 'KNI',
+      symbol: 'kg N',
+      description: 'kilogram of nitrogen',
+    ),
+    'KNM': UnitInfo(
+      code: 'KNM',
+      symbol: 'KN/m2',
+      description: 'kilonewton per square metre',
+    ),
+    'KNS': UnitInfo(
+      code: 'KNS',
+      symbol: '',
+      description: 'kilogram named substance',
+    ),
+    'KNT': UnitInfo(code: 'KNT', symbol: 'kn', description: 'knot'),
+    'KO': UnitInfo(
+      code: 'KO',
+      symbol: '',
+      description: 'milliequivalence caustic potash per gram of product',
+    ),
+    'KPA': UnitInfo(code: 'KPA', symbol: 'kPa', description: 'kilopascal'),
+    'KPH': UnitInfo(
+      code: 'KPH',
+      symbol: 'kg KOH',
+      description: 'kilogram of potassium hydroxide (caustic potash)',
+    ),
+    'KPO': UnitInfo(
+      code: 'KPO',
+      symbol: 'kg K₂O',
+      description: 'kilogram of potassium oxide',
+    ),
+    'KPP': UnitInfo(
+      code: 'KPP',
+      symbol: '',
+      description: 'kilogram of phosphorus pentoxide (phosphoric anhydride)',
+    ),
+    'KR': UnitInfo(code: 'KR', symbol: 'kR', description: 'kiloroentgen'),
+    'KS': UnitInfo(
+      code: 'KS',
+      symbol: '',
+      description: 'thousand pound per square inch',
+    ),
+    'KSD': UnitInfo(
+      code: 'KSD',
+      symbol: 'kg 90 % sdt',
+      description: 'kilogram of substance 90 % dry',
+    ),
+    'KSH': UnitInfo(
+      code: 'KSH',
+      symbol: 'kg NaOH',
+      description: 'kilogram of sodium hydroxide (caustic soda)',
+    ),
+    'KT': UnitInfo(code: 'KT', symbol: '', description: 'kit'),
+    'KTM': UnitInfo(code: 'KTM', symbol: 'km', description: 'kilometre'),
+    'KTN': UnitInfo(code: 'KTN', symbol: 'kt', description: 'kilotonne'),
+    'KUR': UnitInfo(
+      code: 'KUR',
+      symbol: 'kg U',
+      description: 'kilogram of uranium',
+    ),
+    'KVA': UnitInfo(
+      code: 'KVA',
+      symbol: 'kV·A',
+      description: 'kilovolt - ampere',
+    ),
+    'KVR': UnitInfo(code: 'KVR', symbol: 'kvar', description: 'kilovar'),
+    'KVT': UnitInfo(code: 'KVT', symbol: 'kV', description: 'kilovolt'),
+    'KW': UnitInfo(
+      code: 'KW',
+      symbol: 'kg/mm',
+      description: 'kilogram per millimetre',
+    ),
+    'KWH': UnitInfo(code: 'KWH', symbol: 'kW·h', description: 'kilowatt hour'),
+    'KWN': UnitInfo(
+      code: 'KWN',
+      symbol: '',
+      description: 'Kilowatt hour per normalized cubic metre',
+    ),
+    'KWO': UnitInfo(
+      code: 'KWO',
+      symbol: 'kg WO₃',
+      description: 'kilogram of tungsten trioxide',
+    ),
+    'KWS': UnitInfo(
+      code: 'KWS',
+      symbol: '',
+      description: 'Kilowatt hour per standard cubic metre',
+    ),
+    'KWT': UnitInfo(code: 'KWT', symbol: 'kW', description: 'kilowatt'),
+    'KWY': UnitInfo(
+      code: 'KWY',
+      symbol: 'kW/year',
+      description: 'kilowatt year',
+    ),
+    'KX': UnitInfo(
+      code: 'KX',
+      symbol: 'ml/kg',
+      description: 'millilitre per kilogram',
+    ),
+    'L10': UnitInfo(
+      code: 'L10',
+      symbol: 'qt (US liq.)/min',
+      description: 'quart (US liquid) per minute',
+    ),
+    'L11': UnitInfo(
+      code: 'L11',
+      symbol: 'qt (US liq.)/s',
+      description: 'quart (US liquid) per second',
+    ),
+    'L12': UnitInfo(
+      code: 'L12',
+      symbol: '(m/s)/K',
+      description: 'metre per second kelvin',
+    ),
+    'L13': UnitInfo(
+      code: 'L13',
+      symbol: '(m/s)/bar',
+      description: 'metre per second bar',
+    ),
+    'L14': UnitInfo(
+      code: 'L14',
+      symbol: 'm²·h·°C/kcal',
+      description:
+          'square metre hour degree Celsius per kilocalorie (international table)',
+    ),
+    'L15': UnitInfo(
+      code: 'L15',
+      symbol: 'mPa·s/K',
+      description: 'millipascal second per kelvin',
+    ),
+    'L16': UnitInfo(
+      code: 'L16',
+      symbol: 'mPa·s/bar',
+      description: 'millipascal second per bar',
+    ),
+    'L17': UnitInfo(
+      code: 'L17',
+      symbol: '(mg/m³)/K',
+      description: 'milligram per cubic metre kelvin',
+    ),
+    'L18': UnitInfo(
+      code: 'L18',
+      symbol: '(mg/m³)/bar',
+      description: 'milligram per cubic metre bar',
+    ),
+    'L19': UnitInfo(
+      code: 'L19',
+      symbol: 'ml/l',
+      description: 'millilitre per litre',
+    ),
+    'L2': UnitInfo(
+      code: 'L2',
+      symbol: 'l/min',
+      description: 'litre per minute',
+    ),
+    'L20': UnitInfo(
+      code: 'L20',
+      symbol: '1/mm³',
+      description: 'reciprocal cubic millimetre',
+    ),
+    'L21': UnitInfo(
+      code: 'L21',
+      symbol: 'mm³/m³',
+      description: 'cubic millimetre per cubic metre',
+    ),
+    'L23': UnitInfo(code: 'L23', symbol: 'mol/h', description: 'mole per hour'),
+    'L24': UnitInfo(
+      code: 'L24',
+      symbol: '(mol/kg)/K',
+      description: 'mole per kilogram kelvin',
+    ),
+    'L25': UnitInfo(
+      code: 'L25',
+      symbol: '(mol/kg)/bar',
+      description: 'mole per kilogram bar',
+    ),
+    'L26': UnitInfo(
+      code: 'L26',
+      symbol: '(mol/l)/K',
+      description: 'mole per litre kelvin',
+    ),
+    'L27': UnitInfo(
+      code: 'L27',
+      symbol: '(mol/l)/bar',
+      description: 'mole per litre bar',
+    ),
+    'L28': UnitInfo(
+      code: 'L28',
+      symbol: '(mol/m³)/K',
+      description: 'mole per cubic metre kelvin',
+    ),
+    'L29': UnitInfo(
+      code: 'L29',
+      symbol: '(mol/m³)/bar',
+      description: 'mole per cubic metre bar',
+    ),
+    'L30': UnitInfo(
+      code: 'L30',
+      symbol: 'mol/min',
+      description: 'mole per minute',
+    ),
+    'L31': UnitInfo(
+      code: 'L31',
+      symbol: 'mrem',
+      description: 'milliroentgen aequivalent men',
+    ),
+    'L32': UnitInfo(
+      code: 'L32',
+      symbol: 'ng/kg',
+      description: 'nanogram per kilogram',
+    ),
+    'L33': UnitInfo(
+      code: 'L33',
+      symbol: 'oz/d',
+      description: 'ounce (avoirdupois) per day',
+    ),
+    'L34': UnitInfo(
+      code: 'L34',
+      symbol: 'oz/h',
+      description: 'ounce (avoirdupois) per hour',
+    ),
+    'L35': UnitInfo(
+      code: 'L35',
+      symbol: 'oz/min',
+      description: 'ounce (avoirdupois) per minute',
+    ),
+    'L36': UnitInfo(
+      code: 'L36',
+      symbol: 'oz/s',
+      description: 'ounce (avoirdupois) per second',
+    ),
+    'L37': UnitInfo(
+      code: 'L37',
+      symbol: 'oz/gal (UK)',
+      description: 'ounce (avoirdupois) per gallon (UK)',
+    ),
+    'L38': UnitInfo(
+      code: 'L38',
+      symbol: 'oz/gal (US)',
+      description: 'ounce (avoirdupois) per gallon (US)',
+    ),
+    'L39': UnitInfo(
+      code: 'L39',
+      symbol: 'oz/in³',
+      description: 'ounce (avoirdupois) per cubic inch',
+    ),
+    'L40': UnitInfo(
+      code: 'L40',
+      symbol: 'ozf',
+      description: 'ounce (avoirdupois)-force',
+    ),
+    'L41': UnitInfo(
+      code: 'L41',
+      symbol: 'ozf·in',
+      description: 'ounce (avoirdupois)-force inch',
+    ),
+    'L42': UnitInfo(
+      code: 'L42',
+      symbol: 'pS/m',
+      description: 'picosiemens per metre',
+    ),
+    'L43': UnitInfo(code: 'L43', symbol: 'pk (UK)', description: 'peck (UK)'),
+    'L44': UnitInfo(
+      code: 'L44',
+      symbol: 'pk (UK)/d',
+      description: 'peck (UK) per day',
+    ),
+    'L45': UnitInfo(
+      code: 'L45',
+      symbol: 'pk (UK)/h',
+      description: 'peck (UK) per hour',
+    ),
+    'L46': UnitInfo(
+      code: 'L46',
+      symbol: 'pk (UK)/min',
+      description: 'peck (UK) per minute',
+    ),
+    'L47': UnitInfo(
+      code: 'L47',
+      symbol: 'pk (UK)/s',
+      description: 'peck (UK) per second',
+    ),
+    'L48': UnitInfo(
+      code: 'L48',
+      symbol: 'pk (US dry)/d',
+      description: 'peck (US dry) per day',
+    ),
+    'L49': UnitInfo(
+      code: 'L49',
+      symbol: 'pk (US dry)/h',
+      description: 'peck (US dry) per hour',
+    ),
+    'L50': UnitInfo(
+      code: 'L50',
+      symbol: 'pk (US dry)/min',
+      description: 'peck (US dry) per minute',
+    ),
+    'L51': UnitInfo(
+      code: 'L51',
+      symbol: 'pk (US dry)/s',
+      description: 'peck (US dry) per second',
+    ),
+    'L52': UnitInfo(code: 'L52', symbol: 'psi/psi', description: 'psi per psi'),
+    'L53': UnitInfo(
+      code: 'L53',
+      symbol: 'pt (UK)/d',
+      description: 'pint (UK) per day',
+    ),
+    'L54': UnitInfo(
+      code: 'L54',
+      symbol: 'pt (UK)/h',
+      description: 'pint (UK) per hour',
+    ),
+    'L55': UnitInfo(
+      code: 'L55',
+      symbol: 'pt (UK)/min',
+      description: 'pint (UK) per minute',
+    ),
+    'L56': UnitInfo(
+      code: 'L56',
+      symbol: 'pt (UK)/s',
+      description: 'pint (UK) per second',
+    ),
+    'L57': UnitInfo(
+      code: 'L57',
+      symbol: 'pt (US liq.)/d',
+      description: 'pint (US liquid) per day',
+    ),
+    'L58': UnitInfo(
+      code: 'L58',
+      symbol: 'pt (US liq.)/h',
+      description: 'pint (US liquid) per hour',
+    ),
+    'L59': UnitInfo(
+      code: 'L59',
+      symbol: 'pt (US liq.)/min',
+      description: 'pint (US liquid) per minute',
+    ),
+    'L60': UnitInfo(
+      code: 'L60',
+      symbol: 'pt (US liq.)/s',
+      description: 'pint (US liquid) per second',
+    ),
+    'L61': UnitInfo(
+      code: 'L61',
+      symbol: 'pt (US dry)',
+      description: 'pint (US dry)',
+    ),
+    'L62': UnitInfo(
+      code: 'L62',
+      symbol: 'qt (US dry)',
+      description: 'quart (US dry)',
+    ),
+    'L63': UnitInfo(code: 'L63', symbol: 'slug/d', description: 'slug per day'),
+    'L64': UnitInfo(
+      code: 'L64',
+      symbol: 'slug/(ft·s)',
+      description: 'slug per foot second',
+    ),
+    'L65': UnitInfo(
+      code: 'L65',
+      symbol: 'slug/ft³',
+      description: 'slug per cubic foot',
+    ),
+    'L66': UnitInfo(
+      code: 'L66',
+      symbol: 'slug/h',
+      description: 'slug per hour',
+    ),
+    'L67': UnitInfo(
+      code: 'L67',
+      symbol: 'slug/min',
+      description: 'slug per minute',
+    ),
+    'L68': UnitInfo(
+      code: 'L68',
+      symbol: 'slug/s',
+      description: 'slug per second',
+    ),
+    'L69': UnitInfo(
+      code: 'L69',
+      symbol: 't/K',
+      description: 'tonne per kelvin',
+    ),
+    'L70': UnitInfo(code: 'L70', symbol: 't/bar', description: 'tonne per bar'),
+    'L71': UnitInfo(code: 'L71', symbol: 't/d', description: 'tonne per day'),
+    'L72': UnitInfo(
+      code: 'L72',
+      symbol: '(t/d)/K',
+      description: 'tonne per day kelvin',
+    ),
+    'L73': UnitInfo(
+      code: 'L73',
+      symbol: '(t/d)/bar',
+      description: 'tonne per day bar',
+    ),
+    'L74': UnitInfo(
+      code: 'L74',
+      symbol: '(t/h)/K',
+      description: 'tonne per hour kelvin',
+    ),
+    'L75': UnitInfo(
+      code: 'L75',
+      symbol: '(t/h)/bar',
+      description: 'tonne per hour bar',
+    ),
+    'L76': UnitInfo(
+      code: 'L76',
+      symbol: '(t/m³)/K',
+      description: 'tonne per cubic metre kelvin',
+    ),
+    'L77': UnitInfo(
+      code: 'L77',
+      symbol: '(t/m³)/bar',
+      description: 'tonne per cubic metre bar',
+    ),
+    'L78': UnitInfo(
+      code: 'L78',
+      symbol: 't/min',
+      description: 'tonne per minute',
+    ),
+    'L79': UnitInfo(
+      code: 'L79',
+      symbol: '(t/min)/K',
+      description: 'tonne per minute kelvin',
+    ),
+    'L80': UnitInfo(
+      code: 'L80',
+      symbol: '(t/min)/bar',
+      description: 'tonne per minute bar',
+    ),
+    'L81': UnitInfo(
+      code: 'L81',
+      symbol: 't/s',
+      description: 'tonne per second',
+    ),
+    'L82': UnitInfo(
+      code: 'L82',
+      symbol: '(t/s)/K',
+      description: 'tonne per second kelvin',
+    ),
+    'L83': UnitInfo(
+      code: 'L83',
+      symbol: '(t/s)/bar',
+      description: 'tonne per second bar',
+    ),
+    'L84': UnitInfo(
+      code: 'L84',
+      symbol: 'British shipping ton',
+      description: 'ton (UK shipping)',
+    ),
+    'L85': UnitInfo(
+      code: 'L85',
+      symbol: 'ton (UK)/d',
+      description: 'ton long per day',
+    ),
+    'L86': UnitInfo(
+      code: 'L86',
+      symbol: '(US) shipping ton',
+      description: 'ton (US shipping)',
+    ),
+    'L87': UnitInfo(
+      code: 'L87',
+      symbol: 'ton (US)/°F',
+      description: 'ton short per degree Fahrenheit',
+    ),
+    'L88': UnitInfo(
+      code: 'L88',
+      symbol: 'ton (US)/d',
+      description: 'ton short per day',
+    ),
+    'L89': UnitInfo(
+      code: 'L89',
+      symbol: 'ton (US)/(h·°F)',
+      description: 'ton short per hour degree Fahrenheit',
+    ),
+    'L90': UnitInfo(
+      code: 'L90',
+      symbol: '(ton (US)/h)/psi',
+      description: 'ton short per hour psi',
+    ),
+    'L91': UnitInfo(
+      code: 'L91',
+      symbol: 'ton (US)/psi',
+      description: 'ton short per psi',
+    ),
+    'L92': UnitInfo(
+      code: 'L92',
+      symbol: 'ton.l/yd³ (UK)',
+      description: 'ton (UK long) per cubic yard',
+    ),
+    'L93': UnitInfo(
+      code: 'L93',
+      symbol: 'ton.s/yd³ (US)',
+      description: 'ton (US short) per cubic yard',
+    ),
+    'L94': UnitInfo(
+      code: 'L94',
+      symbol: 'ton.sh-force',
+      description: 'ton-force (US short)',
+    ),
+    'L95': UnitInfo(
+      code: 'L95',
+      symbol: 'y (365 days)',
+      description: 'common year',
+    ),
+    'L96': UnitInfo(
+      code: 'L96',
+      symbol: 'y (sidereal)',
+      description: 'sidereal year',
+    ),
+    'L98': UnitInfo(
+      code: 'L98',
+      symbol: 'yd/°F',
+      description: 'yard per degree Fahrenheit',
+    ),
+    'L99': UnitInfo(code: 'L99', symbol: 'yd/psi', description: 'yard per psi'),
+    'LA': UnitInfo(
+      code: 'LA',
+      symbol: 'lb/in³',
+      description: 'pound per cubic inch',
+    ),
+    'LAC': UnitInfo(
+      code: 'LAC',
+      symbol: '',
+      description: 'lactose excess percentage',
+    ),
+    'LBR': UnitInfo(code: 'LBR', symbol: 'lb', description: 'pound'),
+    'LBT': UnitInfo(code: 'LBT', symbol: '', description: 'troy pound (US)'),
+    'LC': UnitInfo(code: 'LC', symbol: '', description: 'linear centimetre'),
+    'LD': UnitInfo(code: 'LD', symbol: 'l/d', description: 'litre per day'),
+    'LE': UnitInfo(code: 'LE', symbol: '', description: 'lite'),
+    'LEF': UnitInfo(code: 'LEF', symbol: '', description: 'leaf'),
+    'LF': UnitInfo(code: 'LF', symbol: '', description: 'linear foot'),
+    'LH': UnitInfo(code: 'LH', symbol: '', description: 'labour hour'),
+    'LI': UnitInfo(code: 'LI', symbol: '', description: 'linear inch'),
+    'LJ': UnitInfo(code: 'LJ', symbol: '', description: 'large spray'),
+    'LK': UnitInfo(code: 'LK', symbol: '', description: 'link'),
+    'LM': UnitInfo(code: 'LM', symbol: '', description: 'linear metre'),
+    'LN': UnitInfo(code: 'LN', symbol: '', description: 'length'),
+    'LO': UnitInfo(
+      code: 'LO',
+      symbol: '',
+      description: 'lot [unit of procurement]',
+    ),
+    'LP': UnitInfo(code: 'LP', symbol: '', description: 'liquid pound'),
+    'LPA': UnitInfo(
+      code: 'LPA',
+      symbol: '',
+      description: 'litre of pure alcohol',
+    ),
+    'LR': UnitInfo(code: 'LR', symbol: '', description: 'layer'),
+    'LS': UnitInfo(code: 'LS', symbol: '', description: 'lump sum'),
+    'LTN': UnitInfo(
+      code: 'LTN',
+      symbol: 'ton (UK)',
+      description: 'ton (UK) or long ton (US)',
+    ),
+    'LTR': UnitInfo(code: 'LTR', symbol: 'l', description: 'litre'),
+    'LUB': UnitInfo(
+      code: 'LUB',
+      symbol: '',
+      description: 'metric ton, lubricating oil',
+    ),
+    'LUM': UnitInfo(code: 'LUM', symbol: 'lm', description: 'lumen'),
+    'LUX': UnitInfo(code: 'LUX', symbol: 'lx', description: 'lux'),
+    'LX': UnitInfo(
+      code: 'LX',
+      symbol: '',
+      description: 'linear yard per pound',
+    ),
+    'LY': UnitInfo(code: 'LY', symbol: '', description: 'linear yard'),
+    'M0': UnitInfo(code: 'M0', symbol: '', description: 'magnetic tape'),
+    'M1': UnitInfo(
+      code: 'M1',
+      symbol: 'mg/l',
+      description: 'milligram per litre',
+    ),
+    'M10': UnitInfo(
+      code: 'M10',
+      symbol: '1/yd³',
+      description: 'reciprocal cubic yard',
+    ),
+    'M11': UnitInfo(
+      code: 'M11',
+      symbol: 'yd³/°F',
+      description: 'cubic yard per degree Fahrenheit',
+    ),
+    'M12': UnitInfo(
+      code: 'M12',
+      symbol: 'yd³/d',
+      description: 'cubic yard per day',
+    ),
+    'M13': UnitInfo(
+      code: 'M13',
+      symbol: 'yd³/h',
+      description: 'cubic yard per hour',
+    ),
+    'M14': UnitInfo(
+      code: 'M14',
+      symbol: 'yd³/psi',
+      description: 'cubic yard per psi',
+    ),
+    'M15': UnitInfo(
+      code: 'M15',
+      symbol: 'yd³/min',
+      description: 'cubic yard per minute',
+    ),
+    'M16': UnitInfo(
+      code: 'M16',
+      symbol: 'yd³/s',
+      description: 'cubic yard per second',
+    ),
+    'M17': UnitInfo(
+      code: 'M17',
+      symbol: 'kHz·m',
+      description: 'kilohertz metre',
+    ),
+    'M18': UnitInfo(
+      code: 'M18',
+      symbol: 'GHz·m',
+      description: 'gigahertz metre',
+    ),
+    'M19': UnitInfo(code: 'M19', symbol: 'Bft', description: 'Beaufort'),
+    'M20': UnitInfo(
+      code: 'M20',
+      symbol: '1/MK',
+      description: 'reciprocal megakelvin or megakelvin to the power minus one',
+    ),
+    'M21': UnitInfo(
+      code: 'M21',
+      symbol: '1/kVAh',
+      description: 'reciprocal kilovolt - ampere reciprocal hour',
+    ),
+    'M22': UnitInfo(
+      code: 'M22',
+      symbol: '(ml/min)/cm²',
+      description: 'millilitre per square centimetre minute',
+    ),
+    'M23': UnitInfo(
+      code: 'M23',
+      symbol: 'N/cm',
+      description: 'newton per centimetre',
+    ),
+    'M24': UnitInfo(code: 'M24', symbol: 'Ω·km', description: 'ohm kilometre'),
+    'M25': UnitInfo(
+      code: 'M25',
+      symbol: '%/°C',
+      description: 'percent per degree Celsius',
+    ),
+    'M26': UnitInfo(
+      code: 'M26',
+      symbol: 'GΩ/m',
+      description: 'gigaohm per metre',
+    ),
+    'M27': UnitInfo(
+      code: 'M27',
+      symbol: 'MHz·m',
+      description: 'megahertz metre',
+    ),
+    'M29': UnitInfo(
+      code: 'M29',
+      symbol: 'kg/kg',
+      description: 'kilogram per kilogram',
+    ),
+    'M30': UnitInfo(
+      code: 'M30',
+      symbol: '1/(V·A·s)',
+      description: 'reciprocal volt - ampere reciprocal second',
+    ),
+    'M31': UnitInfo(
+      code: 'M31',
+      symbol: 'kg/km',
+      description: 'kilogram per kilometre',
+    ),
+    'M32': UnitInfo(
+      code: 'M32',
+      symbol: 'Pa·s/l',
+      description: 'pascal second per litre',
+    ),
+    'M33': UnitInfo(
+      code: 'M33',
+      symbol: 'mmol/l',
+      description: 'millimole per litre',
+    ),
+    'M34': UnitInfo(
+      code: 'M34',
+      symbol: 'N·m/m²',
+      description: 'newton metre per square metre',
+    ),
+    'M35': UnitInfo(
+      code: 'M35',
+      symbol: 'mV·A',
+      description: 'millivolt - ampere',
+    ),
+    'M36': UnitInfo(
+      code: 'M36',
+      symbol: 'mo (30 days)',
+      description: '30-day month',
+    ),
+    'M37': UnitInfo(
+      code: 'M37',
+      symbol: 'y (360 days)',
+      description: 'actual/360',
+    ),
+    'M38': UnitInfo(
+      code: 'M38',
+      symbol: 'km/s²',
+      description: 'kilometre per second squared',
+    ),
+    'M39': UnitInfo(
+      code: 'M39',
+      symbol: 'cm/s²',
+      description: 'centimetre per second squared',
+    ),
+    'M4': UnitInfo(code: 'M4', symbol: '', description: 'monetary value'),
+    'M40': UnitInfo(
+      code: 'M40',
+      symbol: 'yd/s²',
+      description: 'yard per second squared',
+    ),
+    'M41': UnitInfo(
+      code: 'M41',
+      symbol: 'mm/s²',
+      description: 'millimetre per second squared',
+    ),
+    'M42': UnitInfo(
+      code: 'M42',
+      symbol: 'mi/s²',
+      description: 'mile (statute mile) per second squared',
+    ),
+    'M43': UnitInfo(code: 'M43', symbol: 'mil', description: 'mil'),
+    'M44': UnitInfo(code: 'M44', symbol: 'rev', description: 'revolution'),
+    'M45': UnitInfo(
+      code: 'M45',
+      symbol: '°/s²',
+      description: 'degree [unit of angle] per second squared',
+    ),
+    'M46': UnitInfo(
+      code: 'M46',
+      symbol: 'r/min',
+      description: 'revolution per minute',
+    ),
+    'M47': UnitInfo(code: 'M47', symbol: 'cmil', description: 'circular mil'),
+    'M48': UnitInfo(
+      code: 'M48',
+      symbol: 'mi² (US survey)',
+      description: 'square mile (based on U.S. survey foot)',
+    ),
+    'M49': UnitInfo(
+      code: 'M49',
+      symbol: 'ch (US survey) ',
+      description: 'chain (based on U.S. survey foot)',
+    ),
+    'M5': UnitInfo(code: 'M5', symbol: 'µCi', description: 'microcurie'),
+    'M50': UnitInfo(code: 'M50', symbol: 'fur', description: 'furlong'),
+    'M51': UnitInfo(
+      code: 'M51',
+      symbol: 'ft (US survey) ',
+      description: 'foot (U.S. survey)',
+    ),
+    'M52': UnitInfo(
+      code: 'M52',
+      symbol: 'mi (US survey) ',
+      description: 'mile (based on U.S. survey foot)',
+    ),
+    'M53': UnitInfo(
+      code: 'M53',
+      symbol: 'm/Pa',
+      description: 'metre per pascal',
+    ),
+    'M55': UnitInfo(
+      code: 'M55',
+      symbol: 'm/rad',
+      description: 'metre per radiant',
+    ),
+    'M56': UnitInfo(code: 'M56', symbol: 'shake', description: 'shake'),
+    'M57': UnitInfo(
+      code: 'M57',
+      symbol: 'mi/min',
+      description: 'mile per minute',
+    ),
+    'M58': UnitInfo(
+      code: 'M58',
+      symbol: 'mi/s',
+      description: 'mile per second',
+    ),
+    'M59': UnitInfo(
+      code: 'M59',
+      symbol: '(m/s)/Pa',
+      description: 'metre per second pascal',
+    ),
+    'M60': UnitInfo(code: 'M60', symbol: 'm/h', description: 'metre per hour'),
+    'M61': UnitInfo(code: 'M61', symbol: 'in/y', description: 'inch per year'),
+    'M62': UnitInfo(
+      code: 'M62',
+      symbol: 'km/s',
+      description: 'kilometre per second',
+    ),
+    'M63': UnitInfo(
+      code: 'M63',
+      symbol: 'in/min',
+      description: 'inch per minute',
+    ),
+    'M64': UnitInfo(
+      code: 'M64',
+      symbol: 'yd/s',
+      description: 'yard per second',
+    ),
+    'M65': UnitInfo(
+      code: 'M65',
+      symbol: 'yd/min',
+      description: 'yard per minute',
+    ),
+    'M66': UnitInfo(code: 'M66', symbol: 'yd/h', description: 'yard per hour'),
+    'M67': UnitInfo(
+      code: 'M67',
+      symbol: 'acre-ft (US survey)',
+      description: 'acre-foot (based on U.S. survey foot)',
+    ),
+    'M68': UnitInfo(code: 'M68', symbol: 'cord', description: 'cord (128 ft3)'),
+    'M69': UnitInfo(
+      code: 'M69',
+      symbol: 'mi³',
+      description: 'cubic mile (UK statute)',
+    ),
+    'M7': UnitInfo(code: 'M7', symbol: 'µin', description: 'micro-inch'),
+    'M70': UnitInfo(code: 'M70', symbol: 'RT', description: 'ton, register'),
+    'M71': UnitInfo(
+      code: 'M71',
+      symbol: 'm³/Pa',
+      description: 'cubic metre per pascal',
+    ),
+    'M72': UnitInfo(code: 'M72', symbol: 'B', description: 'bel'),
+    'M73': UnitInfo(
+      code: 'M73',
+      symbol: '(kg/m³)/Pa',
+      description: 'kilogram per cubic metre pascal',
+    ),
+    'M74': UnitInfo(
+      code: 'M74',
+      symbol: 'kg/Pa',
+      description: 'kilogram per pascal',
+    ),
+    'M75': UnitInfo(code: 'M75', symbol: 'kip', description: 'kilopound-force'),
+    'M76': UnitInfo(code: 'M76', symbol: 'pdl', description: 'poundal'),
+    'M77': UnitInfo(
+      code: 'M77',
+      symbol: 'kg·m/s²',
+      description: 'kilogram metre per second squared',
+    ),
+    'M78': UnitInfo(code: 'M78', symbol: 'p', description: 'pond'),
+    'M79': UnitInfo(
+      code: 'M79',
+      symbol: 'ft²/h',
+      description: 'square foot per hour',
+    ),
+    'M80': UnitInfo(
+      code: 'M80',
+      symbol: 'St/Pa',
+      description: 'stokes per pascal',
+    ),
+    'M81': UnitInfo(
+      code: 'M81',
+      symbol: 'cm²/s',
+      description: 'square centimetre per second',
+    ),
+    'M82': UnitInfo(
+      code: 'M82',
+      symbol: '(m²/s)/Pa',
+      description: 'square metre per second pascal',
+    ),
+    'M83': UnitInfo(code: 'M83', symbol: 'den', description: 'denier'),
+    'M84': UnitInfo(
+      code: 'M84',
+      symbol: 'lb/yd',
+      description: 'pound per yard',
+    ),
+    'M85': UnitInfo(code: 'M85', symbol: '', description: 'ton, assay'),
+    'M86': UnitInfo(code: 'M86', symbol: 'pfd', description: 'pfund'),
+    'M87': UnitInfo(
+      code: 'M87',
+      symbol: '(kg/s)/Pa',
+      description: 'kilogram per second pascal',
+    ),
+    'M88': UnitInfo(
+      code: 'M88',
+      symbol: 't/mo',
+      description: 'tonne per month',
+    ),
+    'M89': UnitInfo(code: 'M89', symbol: 't/y', description: 'tonne per year'),
+    'M9': UnitInfo(
+      code: 'M9',
+      symbol: 'MBTU/kft³',
+      description: 'million Btu per 1000 cubic foot',
+    ),
+    'M90': UnitInfo(
+      code: 'M90',
+      symbol: 'klb/h',
+      description: 'kilopound per hour',
+    ),
+    'M91': UnitInfo(
+      code: 'M91',
+      symbol: 'lb/lb',
+      description: 'pound per pound',
+    ),
+    'M92': UnitInfo(
+      code: 'M92',
+      symbol: 'lbf·ft',
+      description: 'pound-force foot',
+    ),
+    'M93': UnitInfo(
+      code: 'M93',
+      symbol: 'N·m/rad',
+      description: 'newton metre per radian',
+    ),
+    'M94': UnitInfo(code: 'M94', symbol: 'kg·m', description: 'kilogram metre'),
+    'M95': UnitInfo(code: 'M95', symbol: 'pdl·ft', description: 'poundal foot'),
+    'M96': UnitInfo(code: 'M96', symbol: 'pdl·in', description: 'poundal inch'),
+    'M97': UnitInfo(code: 'M97', symbol: 'dyn·m', description: 'dyne metre'),
+    'M98': UnitInfo(
+      code: 'M98',
+      symbol: 'kg·(cm/s)',
+      description: 'kilogram centimetre per second',
+    ),
+    'M99': UnitInfo(
+      code: 'M99',
+      symbol: 'g·(cm/s)',
+      description: 'gram centimetre per second',
+    ),
+    'MA': UnitInfo(code: 'MA', symbol: '', description: 'machine per unit'),
+    'MAH': UnitInfo(
+      code: 'MAH',
+      symbol: 'Mvar·h',
+      description: 'megavolt ampere reactive hour',
+    ),
+    'MAL': UnitInfo(code: 'MAL', symbol: 'Ml', description: 'megalitre'),
+    'MAM': UnitInfo(code: 'MAM', symbol: 'Mm', description: 'megametre'),
+    'MAR': UnitInfo(code: 'MAR', symbol: 'kvar', description: 'megavar'),
+    'MAW': UnitInfo(code: 'MAW', symbol: 'MW', description: 'megawatt'),
+    'MBE': UnitInfo(
+      code: 'MBE',
+      symbol: '',
+      description: 'thousand standard brick equivalent',
+    ),
+    'MBF': UnitInfo(
+      code: 'MBF',
+      symbol: '',
+      description: 'thousand board foot',
+    ),
+    'MBR': UnitInfo(code: 'MBR', symbol: 'mbar', description: 'millibar'),
+    'MC': UnitInfo(code: 'MC', symbol: 'µg', description: 'microgram'),
+    'MCU': UnitInfo(code: 'MCU', symbol: 'mCi', description: 'millicurie'),
+    'MD': UnitInfo(code: 'MD', symbol: '', description: 'air dry metric ton'),
+    'MF': UnitInfo(
+      code: 'MF',
+      symbol: '',
+      description: 'milligram per square foot per side',
+    ),
+    'MGM': UnitInfo(code: 'MGM', symbol: 'mg', description: 'milligram'),
+    'MHZ': UnitInfo(code: 'MHZ', symbol: 'MHz', description: 'megahertz'),
+    'MIK': UnitInfo(
+      code: 'MIK',
+      symbol: 'mi²',
+      description: 'square mile (statute mile)',
+    ),
+    'MIL': UnitInfo(code: 'MIL', symbol: '', description: 'thousand'),
+    'MIN': UnitInfo(
+      code: 'MIN',
+      symbol: 'min',
+      description: 'minute [unit of time]',
+    ),
+    'MIO': UnitInfo(code: 'MIO', symbol: '', description: 'million'),
+    'MIU': UnitInfo(
+      code: 'MIU',
+      symbol: '',
+      description: 'million international unit',
+    ),
+    'MK': UnitInfo(
+      code: 'MK',
+      symbol: 'mg/in²',
+      description: 'milligram per square inch',
+    ),
+    'MKD': UnitInfo(
+      code: 'MKD',
+      symbol: 'm²·d',
+      description: 'Square Metre Day',
+    ),
+    'MKM': UnitInfo(
+      code: 'MKM',
+      symbol: 'm²·mo',
+      description: 'Square Metre Month',
+    ),
+    'MKW': UnitInfo(
+      code: 'MKW',
+      symbol: 'm²· wk',
+      description: 'Square Metre Week',
+    ),
+    'MLD': UnitInfo(code: 'MLD', symbol: '', description: 'milliard'),
+    'MLT': UnitInfo(code: 'MLT', symbol: 'ml', description: 'millilitre'),
+    'MMK': UnitInfo(
+      code: 'MMK',
+      symbol: 'mm²',
+      description: 'square millimetre',
+    ),
+    'MMQ': UnitInfo(
+      code: 'MMQ',
+      symbol: 'mm³',
+      description: 'cubic millimetre',
+    ),
+    'MMT': UnitInfo(code: 'MMT', symbol: 'mm', description: 'millimetre'),
+    'MND': UnitInfo(
+      code: 'MND',
+      symbol: '',
+      description: 'kilogram, dry weight',
+    ),
+    'MNJ': UnitInfo(
+      code: 'MNJ',
+      symbol: 'MJ/m³',
+      description: 'Mega Joule per Normalised cubic Metre',
+    ),
+    'MON': UnitInfo(code: 'MON', symbol: 'mo', description: 'month'),
+    'MPA': UnitInfo(code: 'MPA', symbol: 'MPa', description: 'megapascal'),
+    'MQ': UnitInfo(code: 'MQ', symbol: '', description: 'thousand metre'),
+    'MQD': UnitInfo(
+      code: 'MQD',
+      symbol: 'm³·d',
+      description: 'Cubic Metre Day',
+    ),
+    'MQH': UnitInfo(
+      code: 'MQH',
+      symbol: 'm³/h',
+      description: 'cubic metre per hour',
+    ),
+    'MQM': UnitInfo(
+      code: 'MQM',
+      symbol: 'm³·mo',
+      description: 'Cubic Metre Month',
+    ),
+    'MQS': UnitInfo(
+      code: 'MQS',
+      symbol: 'm³/s',
+      description: 'cubic metre per second',
+    ),
+    'MQW': UnitInfo(
+      code: 'MQW',
+      symbol: 'm³·wk',
+      description: 'Cubic Metre Week',
+    ),
+    'MRD': UnitInfo(code: 'MRD', symbol: 'm·day', description: 'Metre Day'),
+    'MRM': UnitInfo(code: 'MRM', symbol: 'm·mo', description: 'Metre Month'),
+    'MRW': UnitInfo(code: 'MRW', symbol: 'm·wk', description: 'Metre Week'),
+    'MSK': UnitInfo(
+      code: 'MSK',
+      symbol: 'm/s²',
+      description: 'metre per second squared',
+    ),
+    'MT': UnitInfo(code: 'MT', symbol: '', description: 'mat'),
+    'MTK': UnitInfo(code: 'MTK', symbol: 'm²', description: 'square metre'),
+    'MTQ': UnitInfo(code: 'MTQ', symbol: 'm³', description: 'cubic metre'),
+    'MTR': UnitInfo(code: 'MTR', symbol: 'm', description: 'metre'),
+    'MTS': UnitInfo(
+      code: 'MTS',
+      symbol: 'm/s',
+      description: 'metre per second',
+    ),
+    'MTZ': UnitInfo(code: 'MTZ', symbol: 'mHz ', description: 'millihertz'),
+    'MV': UnitInfo(code: 'MV', symbol: '', description: 'number of mults'),
+    'MVA': UnitInfo(
+      code: 'MVA',
+      symbol: 'MV·A',
+      description: 'megavolt - ampere',
+    ),
+    'MWH': UnitInfo(
+      code: 'MWH',
+      symbol: 'MW·h',
+      description: 'megawatt hour (1000 kW.h)',
+    ),
+    'N1': UnitInfo(code: 'N1', symbol: '', description: 'pen calorie'),
+    'N10': UnitInfo(
+      code: 'N10',
+      symbol: 'lb·(ft/s)',
+      description: 'pound foot per second',
+    ),
+    'N11': UnitInfo(
+      code: 'N11',
+      symbol: 'lb·(in/s)',
+      description: 'pound inch per second',
+    ),
+    'N12': UnitInfo(code: 'N12', symbol: 'PS', description: 'Pferdestaerke'),
+    'N13': UnitInfo(
+      code: 'N13',
+      symbol: 'cmHg (0 ºC)',
+      description: 'centimetre of mercury (0 ºC)',
+    ),
+    'N14': UnitInfo(
+      code: 'N14',
+      symbol: 'cmH₂O (4 °C)',
+      description: 'centimetre of water (4 ºC)',
+    ),
+    'N15': UnitInfo(
+      code: 'N15',
+      symbol: 'ftH₂O (39,2 ºF)',
+      description: 'foot of water (39.2 ºF)',
+    ),
+    'N16': UnitInfo(
+      code: 'N16',
+      symbol: 'inHG (32 ºF)',
+      description: 'inch of mercury (32 ºF)',
+    ),
+    'N17': UnitInfo(
+      code: 'N17',
+      symbol: 'inHg (60 ºF)',
+      description: 'inch of mercury (60 ºF)',
+    ),
+    'N18': UnitInfo(
+      code: 'N18',
+      symbol: 'inH₂O (39,2 ºF)',
+      description: 'inch of water (39.2 ºF)',
+    ),
+    'N19': UnitInfo(
+      code: 'N19',
+      symbol: 'inH₂O (60 ºF)',
+      description: 'inch of water (60 ºF)',
+    ),
+    'N2': UnitInfo(code: 'N2', symbol: '', description: 'number of lines'),
+    'N20': UnitInfo(
+      code: 'N20',
+      symbol: 'ksi',
+      description: 'kip per square inch',
+    ),
+    'N21': UnitInfo(
+      code: 'N21',
+      symbol: 'pdl/ft²',
+      description: 'poundal per square foot',
+    ),
+    'N22': UnitInfo(
+      code: 'N22',
+      symbol: 'oz/in²',
+      description: 'ounce (avoirdupois) per square inch',
+    ),
+    'N23': UnitInfo(
+      code: 'N23',
+      symbol: 'mH₂O',
+      description: 'conventional metre of water',
+    ),
+    'N24': UnitInfo(
+      code: 'N24',
+      symbol: 'g/mm²',
+      description: 'gram per square millimetre',
+    ),
+    'N25': UnitInfo(
+      code: 'N25',
+      symbol: 'lb/yd²',
+      description: 'pound per square yard',
+    ),
+    'N26': UnitInfo(
+      code: 'N26',
+      symbol: 'pdl/in²',
+      description: 'poundal per square inch',
+    ),
+    'N27': UnitInfo(
+      code: 'N27',
+      symbol: 'ft⁴',
+      description: 'foot to the fourth power',
+    ),
+    'N28': UnitInfo(
+      code: 'N28',
+      symbol: 'dm³/kg',
+      description: 'cubic decimetre per kilogram',
+    ),
+    'N29': UnitInfo(
+      code: 'N29',
+      symbol: 'ft³/lb',
+      description: 'cubic foot per pound',
+    ),
+    'N3': UnitInfo(code: 'N3', symbol: '', description: 'print point'),
+    'N30': UnitInfo(
+      code: 'N30',
+      symbol: 'in³/lb',
+      description: 'cubic inch per pound',
+    ),
+    'N31': UnitInfo(
+      code: 'N31',
+      symbol: 'kN/m',
+      description: 'kilonewton per metre',
+    ),
+    'N32': UnitInfo(
+      code: 'N32',
+      symbol: 'pdl/in',
+      description: 'poundal per inch',
+    ),
+    'N33': UnitInfo(
+      code: 'N33',
+      symbol: 'lbf/yd',
+      description: 'pound-force per yard',
+    ),
+    'N34': UnitInfo(
+      code: 'N34',
+      symbol: '(pdl/ft²)·s',
+      description: 'poundal second per square foot',
+    ),
+    'N35': UnitInfo(
+      code: 'N35',
+      symbol: 'P/Pa',
+      description: 'poise per pascal',
+    ),
+    'N36': UnitInfo(
+      code: 'N36',
+      symbol: '(N/m²)·s',
+      description: 'newton second per square metre',
+    ),
+    'N37': UnitInfo(
+      code: 'N37',
+      symbol: 'kg/(m·s)',
+      description: 'kilogram per metre second',
+    ),
+    'N38': UnitInfo(
+      code: 'N38',
+      symbol: 'kg/(m·min)',
+      description: 'kilogram per metre minute',
+    ),
+    'N39': UnitInfo(
+      code: 'N39',
+      symbol: 'kg/(m·d)',
+      description: 'kilogram per metre day',
+    ),
+    'N40': UnitInfo(
+      code: 'N40',
+      symbol: 'kg/(m·h)',
+      description: 'kilogram per metre hour',
+    ),
+    'N41': UnitInfo(
+      code: 'N41',
+      symbol: 'g/(cm·s)',
+      description: 'gram per centimetre second',
+    ),
+    'N42': UnitInfo(
+      code: 'N42',
+      symbol: '(pdl/in²)·s',
+      description: 'poundal second per square inch',
+    ),
+    'N43': UnitInfo(
+      code: 'N43',
+      symbol: 'lb/(ft·min)',
+      description: 'pound per foot minute',
+    ),
+    'N44': UnitInfo(
+      code: 'N44',
+      symbol: 'lb/(ft·d)',
+      description: 'pound per foot day',
+    ),
+    'N45': UnitInfo(
+      code: 'N45',
+      symbol: '(m³/s)/Pa',
+      description: 'cubic metre per second pascal',
+    ),
+    'N46': UnitInfo(code: 'N46', symbol: 'ft·pdl', description: 'foot poundal'),
+    'N47': UnitInfo(code: 'N47', symbol: 'in·pdl', description: 'inch poundal'),
+    'N48': UnitInfo(
+      code: 'N48',
+      symbol: 'W/cm²',
+      description: 'watt per square centimetre',
+    ),
+    'N49': UnitInfo(
+      code: 'N49',
+      symbol: 'W/in²',
+      description: 'watt per square inch',
+    ),
+    'N50': UnitInfo(
+      code: 'N50',
+      symbol: 'BtuIT/(ft²·h)',
+      description:
+          'British thermal unit (international table) per square foot hour',
+    ),
+    'N51': UnitInfo(
+      code: 'N51',
+      symbol: 'Btuth/(ft²·h)',
+      description: 'British thermal unit (thermochemical) per square foot hour',
+    ),
+    'N52': UnitInfo(
+      code: 'N52',
+      symbol: 'Btuth/(ft²·min) ',
+      description:
+          'British thermal unit (thermochemical) per square foot minute',
+    ),
+    'N53': UnitInfo(
+      code: 'N53',
+      symbol: 'BtuIT/(ft²·s)',
+      description:
+          'British thermal unit (international table) per square foot second',
+    ),
+    'N54': UnitInfo(
+      code: 'N54',
+      symbol: 'Btuth/(ft²·s)',
+      description:
+          'British thermal unit (thermochemical) per square foot second',
+    ),
+    'N55': UnitInfo(
+      code: 'N55',
+      symbol: 'BtuIT/(in²·s)',
+      description:
+          'British thermal unit (international table) per square inch second',
+    ),
+    'N56': UnitInfo(
+      code: 'N56',
+      symbol: 'calth/(cm²·min)',
+      description: 'calorie (thermochemical) per square centimetre minute',
+    ),
+    'N57': UnitInfo(
+      code: 'N57',
+      symbol: 'calth/(cm²·s)',
+      description: 'calorie (thermochemical) per square centimetre second',
+    ),
+    'N58': UnitInfo(
+      code: 'N58',
+      symbol: 'BtuIT/ft³',
+      description: 'British thermal unit (international table) per cubic foot',
+    ),
+    'N59': UnitInfo(
+      code: 'N59',
+      symbol: 'Btuth/ft³',
+      description: 'British thermal unit (thermochemical) per cubic foot',
+    ),
+    'N60': UnitInfo(
+      code: 'N60',
+      symbol: 'BtuIT/ºF',
+      description:
+          'British thermal unit (international table) per degree Fahrenheit',
+    ),
+    'N61': UnitInfo(
+      code: 'N61',
+      symbol: 'Btuth/ºF',
+      description:
+          'British thermal unit (thermochemical) per degree Fahrenheit',
+    ),
+    'N62': UnitInfo(
+      code: 'N62',
+      symbol: 'BtuIT/ºR',
+      description:
+          'British thermal unit (international table) per degree Rankine',
+    ),
+    'N63': UnitInfo(
+      code: 'N63',
+      symbol: 'Btuth/ºR',
+      description: 'British thermal unit (thermochemical) per degree Rankine',
+    ),
+    'N64': UnitInfo(
+      code: 'N64',
+      symbol: '(Btuth/°R)/lb',
+      description:
+          'British thermal unit (thermochemical) per pound degree Rankine',
+    ),
+    'N65': UnitInfo(
+      code: 'N65',
+      symbol: '(kcalIT/K)/g',
+      description: 'kilocalorie (international table) per gram kelvin',
+    ),
+    'N66': UnitInfo(
+      code: 'N66',
+      symbol: 'Btu (39 ºF) ',
+      description: 'British thermal unit (39 ºF)',
+    ),
+    'N67': UnitInfo(
+      code: 'N67',
+      symbol: 'Btu (59 ºF)',
+      description: 'British thermal unit (59 ºF)',
+    ),
+    'N68': UnitInfo(
+      code: 'N68',
+      symbol: 'Btu (60 ºF) ',
+      description: 'British thermal unit (60 ºF)',
+    ),
+    'N69': UnitInfo(
+      code: 'N69',
+      symbol: 'cal₂₀',
+      description: 'calorie (20 ºC)',
+    ),
+    'N70': UnitInfo(
+      code: 'N70',
+      symbol: 'quad',
+      description: 'quad (1015 BtuIT)',
+    ),
+    'N71': UnitInfo(code: 'N71', symbol: 'thm (EC)', description: 'therm (EC)'),
+    'N72': UnitInfo(
+      code: 'N72',
+      symbol: 'thm (US)',
+      description: 'therm (U.S.)',
+    ),
+    'N73': UnitInfo(
+      code: 'N73',
+      symbol: 'Btuth/lb',
+      description: 'British thermal unit (thermochemical) per pound',
+    ),
+    'N74': UnitInfo(
+      code: 'N74',
+      symbol: 'BtuIT/(h·ft²·ºF)',
+      description:
+          'British thermal unit (international table) per hour square foot degree Fahrenheit',
+    ),
+    'N75': UnitInfo(
+      code: 'N75',
+      symbol: 'Btuth/(h·ft²·ºF)',
+      description:
+          'British thermal unit (thermochemical) per hour square foot degree Fahrenheit',
+    ),
+    'N76': UnitInfo(
+      code: 'N76',
+      symbol: 'BtuIT/(s·ft²·ºF)',
+      description:
+          'British thermal unit (international table) per second square foot degree Fahrenheit',
+    ),
+    'N77': UnitInfo(
+      code: 'N77',
+      symbol: 'Btuth/(s·ft²·ºF) ',
+      description:
+          'British thermal unit (thermochemical) per second square foot degree Fahrenheit',
+    ),
+    'N78': UnitInfo(
+      code: 'N78',
+      symbol: 'kW/(m²·K)',
+      description: 'kilowatt per square metre kelvin',
+    ),
+    'N79': UnitInfo(
+      code: 'N79',
+      symbol: 'K/Pa',
+      description: 'kelvin per pascal',
+    ),
+    'N80': UnitInfo(
+      code: 'N80',
+      symbol: 'W/(m·°C)',
+      description: 'watt per metre degree Celsius',
+    ),
+    'N81': UnitInfo(
+      code: 'N81',
+      symbol: 'kW/(m·K)',
+      description: 'kilowatt per metre kelvin',
+    ),
+    'N82': UnitInfo(
+      code: 'N82',
+      symbol: 'kW/(m·°C)',
+      description: 'kilowatt per metre degree Celsius',
+    ),
+    'N83': UnitInfo(
+      code: 'N83',
+      symbol: 'm/(°C·m)',
+      description: 'metre per degree Celcius metre',
+    ),
+    'N84': UnitInfo(
+      code: 'N84',
+      symbol: 'ºF/(BtuIT/h)',
+      description:
+          'degree Fahrenheit hour per British thermal unit (international table)',
+    ),
+    'N85': UnitInfo(
+      code: 'N85',
+      symbol: 'ºF/(Btuth/h)',
+      description:
+          'degree Fahrenheit hour per British thermal unit (thermochemical)',
+    ),
+    'N86': UnitInfo(
+      code: 'N86',
+      symbol: 'ºF/(BtuIT/s)',
+      description:
+          'degree Fahrenheit second per British thermal unit (international table)',
+    ),
+    'N87': UnitInfo(
+      code: 'N87',
+      symbol: 'ºF/(Btuth/s)',
+      description:
+          'degree Fahrenheit second per British thermal unit (thermochemical)',
+    ),
+    'N88': UnitInfo(
+      code: 'N88',
+      symbol: 'ºF·h·ft²/(BtuIT·in)',
+      description:
+          'degree Fahrenheit hour square foot per British thermal unit (international table) inch',
+    ),
+    'N89': UnitInfo(
+      code: 'N89',
+      symbol: 'ºF·h·ft²/(Btuth·in)',
+      description:
+          'degree Fahrenheit hour square foot per British thermal unit (thermochemical) inch',
+    ),
+    'N90': UnitInfo(code: 'N90', symbol: 'kF', description: 'kilofarad'),
+    'N91': UnitInfo(
+      code: 'N91',
+      symbol: '1/J',
+      description: 'reciprocal joule',
+    ),
+    'N92': UnitInfo(code: 'N92', symbol: 'pS', description: 'picosiemens'),
+    'N93': UnitInfo(
+      code: 'N93',
+      symbol: 'A/Pa',
+      description: 'ampere per pascal',
+    ),
+    'N94': UnitInfo(code: 'N94', symbol: 'Fr', description: 'franklin'),
+    'N95': UnitInfo(code: 'N95', symbol: 'A·min', description: 'ampere minute'),
+    'N96': UnitInfo(code: 'N96', symbol: 'Bi', description: 'biot'),
+    'N97': UnitInfo(code: 'N97', symbol: 'Gi', description: 'gilbert'),
+    'N98': UnitInfo(
+      code: 'N98',
+      symbol: 'V/Pa',
+      description: 'volt per pascal',
+    ),
+    'N99': UnitInfo(code: 'N99', symbol: 'pV', description: 'picovolt'),
+    'NA': UnitInfo(
+      code: 'NA',
+      symbol: 'mg/kg',
+      description: 'milligram per kilogram',
+    ),
+    'NAR': UnitInfo(code: 'NAR', symbol: '', description: 'number of articles'),
+    'NB': UnitInfo(code: 'NB', symbol: '', description: 'barge'),
+    'NBB': UnitInfo(code: 'NBB', symbol: '', description: 'number of bobbins'),
+    'NC': UnitInfo(code: 'NC', symbol: '', description: 'car'),
+    'NCL': UnitInfo(code: 'NCL', symbol: '', description: 'number of cells'),
+    'ND': UnitInfo(code: 'ND', symbol: '', description: 'net barrel'),
+    'NE': UnitInfo(code: 'NE', symbol: '', description: 'net litre'),
+    'NEW': UnitInfo(code: 'NEW', symbol: 'N', description: 'newton'),
+    'NF': UnitInfo(code: 'NF', symbol: '', description: 'message'),
+    'NG': UnitInfo(code: 'NG', symbol: '', description: 'net gallon (us)'),
+    'NH': UnitInfo(code: 'NH', symbol: '', description: 'message hour'),
+    'NI': UnitInfo(code: 'NI', symbol: '', description: 'net imperial gallon'),
+    'NIL': UnitInfo(code: 'NIL', symbol: '()', description: 'nil'),
+    'NIU': UnitInfo(
+      code: 'NIU',
+      symbol: '',
+      description: 'number of international units',
+    ),
+    'NJ': UnitInfo(code: 'NJ', symbol: '', description: 'number of screens'),
+    'NL': UnitInfo(code: 'NL', symbol: '', description: 'load'),
+    'NM3': UnitInfo(
+      code: 'NM3',
+      symbol: '',
+      description: 'Normalised cubic metre',
+    ),
+    'NMI': UnitInfo(
+      code: 'NMI',
+      symbol: 'n mile',
+      description: 'nautical mile',
+    ),
+    'NMP': UnitInfo(code: 'NMP', symbol: '', description: 'number of packs'),
+    'NN': UnitInfo(code: 'NN', symbol: '', description: 'train'),
+    'NPL': UnitInfo(code: 'NPL', symbol: '', description: 'number of parcels'),
+    'NPR': UnitInfo(code: 'NPR', symbol: '', description: 'number of pairs'),
+    'NPT': UnitInfo(code: 'NPT', symbol: '', description: 'number of parts'),
+    'NQ': UnitInfo(code: 'NQ', symbol: '', description: 'mho'),
+    'NR': UnitInfo(code: 'NR', symbol: '', description: 'micromho'),
+    'NRL': UnitInfo(code: 'NRL', symbol: '', description: 'number of rolls'),
+    'NT': UnitInfo(code: 'NT', symbol: '', description: 'net ton'),
+    'NTT': UnitInfo(code: 'NTT', symbol: '', description: 'net register ton'),
+    'NTU': UnitInfo(
+      code: 'NTU',
+      symbol: 'NTU',
+      description: 'Nephelometric turbidity unit',
+    ),
+    'NU': UnitInfo(code: 'NU', symbol: 'N·m', description: 'newton metre'),
+    'NV': UnitInfo(code: 'NV', symbol: '', description: 'vehicle'),
+    'NX': UnitInfo(code: 'NX', symbol: '‰', description: 'part per thousand'),
+    'NY': UnitInfo(
+      code: 'NY',
+      symbol: '',
+      description: 'pound per air dry metric ton',
+    ),
+    'OA': UnitInfo(code: 'OA', symbol: '', description: 'panel'),
+    'ODE': UnitInfo(
+      code: 'ODE',
+      symbol: '',
+      description: 'ozone depletion equivalent',
+    ),
+    'ODG': UnitInfo(code: 'ODG', symbol: '', description: 'ODS Grams'),
+    'ODK': UnitInfo(code: 'ODK', symbol: '', description: 'ODS Kilograms'),
+    'ODM': UnitInfo(code: 'ODM', symbol: '', description: 'ODS Milligrams'),
+    'OHM': UnitInfo(code: 'OHM', symbol: 'Ω', description: 'ohm'),
+    'ON': UnitInfo(
+      code: 'ON',
+      symbol: 'oz/yd²',
+      description: 'ounce per square yard',
+    ),
+    'ONZ': UnitInfo(
+      code: 'ONZ',
+      symbol: 'oz',
+      description: 'ounce (avoirdupois)',
+    ),
+    'OP': UnitInfo(code: 'OP', symbol: '', description: 'two pack'),
+    'OPM': UnitInfo(
+      code: 'OPM',
+      symbol: 'o/min',
+      description: 'oscillations per minute',
+    ),
+    'OT': UnitInfo(code: 'OT', symbol: '', description: 'overtime hour'),
+    'OZ': UnitInfo(code: 'OZ', symbol: '', description: 'ounce av'),
+    'OZA': UnitInfo(
+      code: 'OZA',
+      symbol: 'fl oz (US)',
+      description: 'fluid ounce (US)',
+    ),
+    'OZI': UnitInfo(
+      code: 'OZI',
+      symbol: 'fl oz (UK)',
+      description: 'fluid ounce (UK)',
+    ),
+    'P0': UnitInfo(code: 'P0', symbol: '', description: 'page - electronic'),
+    'P1': UnitInfo(code: 'P1', symbol: '% or pct', description: 'percent'),
+    'P10': UnitInfo(
+      code: 'P10',
+      symbol: 'C/m',
+      description: 'coulomb per metre',
+    ),
+    'P11': UnitInfo(code: 'P11', symbol: 'kWb', description: 'kiloweber'),
+    'P12': UnitInfo(code: 'P12', symbol: 'γ', description: 'gamma'),
+    'P13': UnitInfo(code: 'P13', symbol: 'kT', description: 'kilotesla'),
+    'P14': UnitInfo(
+      code: 'P14',
+      symbol: 'J/s',
+      description: 'joule per second',
+    ),
+    'P15': UnitInfo(
+      code: 'P15',
+      symbol: 'J/min',
+      description: 'joule per minute',
+    ),
+    'P16': UnitInfo(code: 'P16', symbol: 'J/h', description: 'joule per hour'),
+    'P17': UnitInfo(code: 'P17', symbol: 'J/d', description: 'joule per day'),
+    'P18': UnitInfo(
+      code: 'P18',
+      symbol: 'kJ/s',
+      description: 'kilojoule per second',
+    ),
+    'P19': UnitInfo(
+      code: 'P19',
+      symbol: 'kJ/min',
+      description: 'kilojoule per minute',
+    ),
+    'P2': UnitInfo(code: 'P2', symbol: 'lb/ft', description: 'pound per foot'),
+    'P20': UnitInfo(
+      code: 'P20',
+      symbol: 'kJ/h',
+      description: 'kilojoule per hour',
+    ),
+    'P21': UnitInfo(
+      code: 'P21',
+      symbol: 'kJ/d',
+      description: 'kilojoule per day',
+    ),
+    'P22': UnitInfo(code: 'P22', symbol: 'nΩ', description: 'nanoohm'),
+    'P23': UnitInfo(
+      code: 'P23',
+      symbol: 'Ω·cmil/ft ',
+      description: 'ohm circular-mil per foot',
+    ),
+    'P24': UnitInfo(code: 'P24', symbol: 'kH', description: 'kilohenry'),
+    'P25': UnitInfo(
+      code: 'P25',
+      symbol: 'lm/ft²',
+      description: 'lumen per square foot',
+    ),
+    'P26': UnitInfo(code: 'P26', symbol: 'ph', description: 'phot'),
+    'P27': UnitInfo(code: 'P27', symbol: 'ftc', description: 'footcandle'),
+    'P28': UnitInfo(
+      code: 'P28',
+      symbol: 'cd/in²',
+      description: 'candela per square inch',
+    ),
+    'P29': UnitInfo(code: 'P29', symbol: 'ftL', description: 'footlambert'),
+    'P3': UnitInfo(code: 'P3', symbol: '', description: 'three pack'),
+    'P30': UnitInfo(code: 'P30', symbol: 'Lb', description: 'lambert'),
+    'P31': UnitInfo(code: 'P31', symbol: 'sb', description: 'stilb'),
+    'P32': UnitInfo(
+      code: 'P32',
+      symbol: 'cd/ft²',
+      description: 'candela per square foot',
+    ),
+    'P33': UnitInfo(code: 'P33', symbol: 'kcd', description: 'kilocandela'),
+    'P34': UnitInfo(code: 'P34', symbol: 'mcd', description: 'millicandela'),
+    'P35': UnitInfo(code: 'P35', symbol: 'HK', description: 'Hefner-Kerze'),
+    'P36': UnitInfo(
+      code: 'P36',
+      symbol: 'IK',
+      description: 'international candle',
+    ),
+    'P37': UnitInfo(
+      code: 'P37',
+      symbol: 'BtuIT/ft²',
+      description: 'British thermal unit (international table) per square foot',
+    ),
+    'P38': UnitInfo(
+      code: 'P38',
+      symbol: 'Btuth/ft²',
+      description: 'British thermal unit (thermochemical) per square foot',
+    ),
+    'P39': UnitInfo(
+      code: 'P39',
+      symbol: 'calth/cm²',
+      description: 'calorie (thermochemical) per square centimetre',
+    ),
+    'P4': UnitInfo(code: 'P4', symbol: '', description: 'four pack'),
+    'P40': UnitInfo(code: 'P40', symbol: 'Ly', description: 'langley'),
+    'P41': UnitInfo(
+      code: 'P41',
+      symbol: 'dec',
+      description: 'decade (logarithmic)',
+    ),
+    'P42': UnitInfo(
+      code: 'P42',
+      symbol: 'Pa²·s',
+      description: 'pascal squared second',
+    ),
+    'P43': UnitInfo(code: 'P43', symbol: 'B/m', description: 'bel per metre'),
+    'P44': UnitInfo(code: 'P44', symbol: 'lbmol', description: 'pound mole'),
+    'P45': UnitInfo(
+      code: 'P45',
+      symbol: 'lbmol/s',
+      description: 'pound mole per second',
+    ),
+    'P46': UnitInfo(
+      code: 'P46',
+      symbol: 'lbmol/h',
+      description: 'pound mole per minute',
+    ),
+    'P47': UnitInfo(
+      code: 'P47',
+      symbol: 'kmol/kg',
+      description: 'kilomole per kilogram',
+    ),
+    'P48': UnitInfo(
+      code: 'P48',
+      symbol: 'lbmol/lb',
+      description: 'pound mole per pound',
+    ),
+    'P49': UnitInfo(
+      code: 'P49',
+      symbol: 'N·m²/A',
+      description: 'newton square metre per ampere',
+    ),
+    'P5': UnitInfo(code: 'P5', symbol: '', description: 'five pack'),
+    'P50': UnitInfo(code: 'P50', symbol: 'Wb·m', description: 'weber metre'),
+    'P51': UnitInfo(
+      code: 'P51',
+      symbol: '(mol/kg)/Pa',
+      description: 'mol per kilogram pascal',
+    ),
+    'P52': UnitInfo(
+      code: 'P52',
+      symbol: '(mol/m³)/Pa',
+      description: 'mol per cubic metre pascal',
+    ),
+    'P53': UnitInfo(
+      code: 'P53',
+      symbol: 'unit pole ',
+      description: 'unit pole',
+    ),
+    'P54': UnitInfo(
+      code: 'P54',
+      symbol: 'mGy/s',
+      description: 'milligray per second',
+    ),
+    'P55': UnitInfo(
+      code: 'P55',
+      symbol: 'µGy/s',
+      description: 'microgray per second',
+    ),
+    'P56': UnitInfo(
+      code: 'P56',
+      symbol: 'nGy/s',
+      description: 'nanogray per second',
+    ),
+    'P57': UnitInfo(
+      code: 'P57',
+      symbol: 'Gy/min',
+      description: 'gray per minute',
+    ),
+    'P58': UnitInfo(
+      code: 'P58',
+      symbol: 'mGy/min',
+      description: 'milligray per minute',
+    ),
+    'P59': UnitInfo(
+      code: 'P59',
+      symbol: 'µGy/min',
+      description: 'microgray per minute',
+    ),
+    'P6': UnitInfo(code: 'P6', symbol: '', description: 'six pack'),
+    'P60': UnitInfo(
+      code: 'P60',
+      symbol: 'nGy/min',
+      description: 'nanogray per minute',
+    ),
+    'P61': UnitInfo(code: 'P61', symbol: 'Gy/h', description: 'gray per hour'),
+    'P62': UnitInfo(
+      code: 'P62',
+      symbol: 'mGy/h',
+      description: 'milligray per hour',
+    ),
+    'P63': UnitInfo(
+      code: 'P63',
+      symbol: 'µGy/h',
+      description: 'microgray per hour',
+    ),
+    'P64': UnitInfo(
+      code: 'P64',
+      symbol: 'nGy/h',
+      description: 'nanogray per hour',
+    ),
+    'P65': UnitInfo(
+      code: 'P65',
+      symbol: 'Sv/s',
+      description: 'sievert per second',
+    ),
+    'P66': UnitInfo(
+      code: 'P66',
+      symbol: 'mSv/s',
+      description: 'millisievert per second',
+    ),
+    'P67': UnitInfo(
+      code: 'P67',
+      symbol: 'µSv/s',
+      description: 'microsievert per second',
+    ),
+    'P68': UnitInfo(
+      code: 'P68',
+      symbol: 'nSv/s',
+      description: 'nanosievert per second',
+    ),
+    'P69': UnitInfo(
+      code: 'P69',
+      symbol: 'rem/s',
+      description: 'rem per second',
+    ),
+    'P7': UnitInfo(code: 'P7', symbol: '', description: 'seven pack'),
+    'P70': UnitInfo(
+      code: 'P70',
+      symbol: 'Sv/h',
+      description: 'sievert per hour',
+    ),
+    'P71': UnitInfo(
+      code: 'P71',
+      symbol: 'mSv/h',
+      description: 'millisievert per hour',
+    ),
+    'P72': UnitInfo(
+      code: 'P72',
+      symbol: 'µSv/h',
+      description: 'microsievert per hour',
+    ),
+    'P73': UnitInfo(
+      code: 'P73',
+      symbol: 'nSv/h',
+      description: 'nanosievert per hour',
+    ),
+    'P74': UnitInfo(
+      code: 'P74',
+      symbol: 'Sv/min',
+      description: 'sievert per minute',
+    ),
+    'P75': UnitInfo(
+      code: 'P75',
+      symbol: 'mSv/min',
+      description: 'millisievert per minute',
+    ),
+    'P76': UnitInfo(
+      code: 'P76',
+      symbol: 'µSv/min',
+      description: 'microsievert per minute',
+    ),
+    'P77': UnitInfo(
+      code: 'P77',
+      symbol: 'nSv/min',
+      description: 'nanosievert per minute',
+    ),
+    'P78': UnitInfo(
+      code: 'P78',
+      symbol: '1/in²',
+      description: 'reciprocal square inch',
+    ),
+    'P79': UnitInfo(
+      code: 'P79',
+      symbol: 'Pa/(kg/m²)',
+      description: 'pascal square metre per kilogram',
+    ),
+    'P8': UnitInfo(code: 'P8', symbol: '', description: 'eight pack'),
+    'P80': UnitInfo(
+      code: 'P80',
+      symbol: 'mPa/m',
+      description: 'millipascal per metre',
+    ),
+    'P81': UnitInfo(
+      code: 'P81',
+      symbol: 'kPa/m',
+      description: 'kilopascal per metre',
+    ),
+    'P82': UnitInfo(
+      code: 'P82',
+      symbol: 'hPa/m',
+      description: 'hectopascal per metre',
+    ),
+    'P83': UnitInfo(
+      code: 'P83',
+      symbol: 'Atm/m',
+      description: 'standard atmosphere per metre',
+    ),
+    'P84': UnitInfo(
+      code: 'P84',
+      symbol: 'at/m',
+      description: 'technical atmosphere per metre',
+    ),
+    'P85': UnitInfo(
+      code: 'P85',
+      symbol: 'Torr/m',
+      description: 'torr per metre',
+    ),
+    'P86': UnitInfo(code: 'P86', symbol: 'psi/in', description: 'psi per inch'),
+    'P87': UnitInfo(
+      code: 'P87',
+      symbol: '(m³/s)/m²',
+      description: 'cubic metre per second square metre',
+    ),
+    'P88': UnitInfo(code: 'P88', symbol: 'rhe', description: 'rhe'),
+    'P89': UnitInfo(
+      code: 'P89',
+      symbol: 'lbf·ft/in',
+      description: 'pound-force foot per inch',
+    ),
+    'P9': UnitInfo(code: 'P9', symbol: '', description: 'nine pack'),
+    'P90': UnitInfo(
+      code: 'P90',
+      symbol: 'lbf·in/in',
+      description: 'pound-force inch per inch',
+    ),
+    'P91': UnitInfo(
+      code: 'P91',
+      symbol: 'perm (0 ºC) ',
+      description: 'perm (0 ºC)',
+    ),
+    'P92': UnitInfo(
+      code: 'P92',
+      symbol: 'perm (23 ºC) ',
+      description: 'perm (23 ºC)',
+    ),
+    'P93': UnitInfo(
+      code: 'P93',
+      symbol: 'byte/s',
+      description: 'byte per second',
+    ),
+    'P94': UnitInfo(
+      code: 'P94',
+      symbol: 'kbyte/s',
+      description: 'kilobyte per second',
+    ),
+    'P95': UnitInfo(
+      code: 'P95',
+      symbol: 'Mbyte/s',
+      description: 'megabyte per second',
+    ),
+    'P96': UnitInfo(code: 'P96', symbol: '1/V', description: 'reciprocal volt'),
+    'P97': UnitInfo(
+      code: 'P97',
+      symbol: '1/rad',
+      description: 'reciprocal radian',
+    ),
+    'P98': UnitInfo(
+      code: 'P98',
+      symbol: 'PaΣνB',
+      description: 'pascal to the power sum of stoichiometric numbers',
+    ),
+    'P99': UnitInfo(
+      code: 'P99',
+      symbol: '(mol/m³)∑νB',
+      description:
+          'mole per cubiv metre to the power sum of stoichiometric numbers',
+    ),
+    'PA': UnitInfo(code: 'PA', symbol: '', description: 'packet'),
+    'PAL': UnitInfo(code: 'PAL', symbol: 'Pa', description: 'pascal'),
+    'PB': UnitInfo(code: 'PB', symbol: '', description: 'pair inch'),
+    'PD': UnitInfo(code: 'PD', symbol: '', description: 'pad'),
+    'PE': UnitInfo(code: 'PE', symbol: '', description: 'pound equivalent'),
+    'PF': UnitInfo(code: 'PF', symbol: '', description: 'pallet (lift)'),
+    'PFL': UnitInfo(code: 'PFL', symbol: '', description: 'proof litre'),
+    'PG': UnitInfo(code: 'PG', symbol: '', description: 'plate'),
+    'PGL': UnitInfo(code: 'PGL', symbol: '', description: 'proof gallon'),
+    'PI': UnitInfo(code: 'PI', symbol: '', description: 'pitch'),
+    'PK': UnitInfo(code: 'PK', symbol: '', description: 'pack'),
+    'PL': UnitInfo(code: 'PL', symbol: '', description: 'pail'),
+    'PLA': UnitInfo(code: 'PLA', symbol: '°P', description: 'degree Plato'),
+    'PM': UnitInfo(code: 'PM', symbol: '', description: 'pound percentage'),
+    'PN': UnitInfo(code: 'PN', symbol: '', description: 'pound net'),
+    'PO': UnitInfo(
+      code: 'PO',
+      symbol: 'lb/in',
+      description: 'pound per inch of length',
+    ),
+    'PQ': UnitInfo(code: 'PQ', symbol: 'ppi', description: 'page per inch'),
+    'PR': UnitInfo(code: 'PR', symbol: '', description: 'pair'),
+    'PS': UnitInfo(
+      code: 'PS',
+      symbol: 'lbf/in²',
+      description: 'pound-force per square inch',
+    ),
+    'PT': UnitInfo(code: 'PT', symbol: 'pt (US)', description: 'pint (US)'),
+    'PTD': UnitInfo(
+      code: 'PTD',
+      symbol: 'dry pt (US)',
+      description: 'dry pint (US)',
+    ),
+    'PTI': UnitInfo(code: 'PTI', symbol: 'pt (UK)', description: 'pint (UK)'),
+    'PTL': UnitInfo(
+      code: 'PTL',
+      symbol: 'liq pt (US)',
+      description: 'liquid pint (US)',
+    ),
+    'PTN': UnitInfo(code: 'PTN', symbol: 'PTN', description: 'portion'),
+    'PU': UnitInfo(code: 'PU', symbol: '', description: 'tray / tray pack'),
+    'PV': UnitInfo(code: 'PV', symbol: '', description: 'half pint (US)'),
+    'PW': UnitInfo(
+      code: 'PW',
+      symbol: '',
+      description: 'pound per inch of width',
+    ),
+    'PY': UnitInfo(code: 'PY', symbol: '', description: 'peck dry (US)'),
+    'PZ': UnitInfo(code: 'PZ', symbol: '', description: 'peck dry (UK)'),
+    'Q10': UnitInfo(code: 'Q10', symbol: 'J/T', description: 'joule per tesla'),
+    'Q11': UnitInfo(code: 'Q11', symbol: 'E', description: 'erlang'),
+    'Q12': UnitInfo(code: 'Q12', symbol: 'o', description: 'octet'),
+    'Q13': UnitInfo(
+      code: 'Q13',
+      symbol: 'o/s',
+      description: 'octet per second',
+    ),
+    'Q14': UnitInfo(code: 'Q14', symbol: 'Sh', description: 'shannon'),
+    'Q15': UnitInfo(code: 'Q15', symbol: 'Hart', description: 'hartley'),
+    'Q16': UnitInfo(
+      code: 'Q16',
+      symbol: 'nat',
+      description: 'natural unit of information',
+    ),
+    'Q17': UnitInfo(
+      code: 'Q17',
+      symbol: 'Sh/s',
+      description: 'shannon per second',
+    ),
+    'Q18': UnitInfo(
+      code: 'Q18',
+      symbol: 'Hart/s',
+      description: 'hartley per second',
+    ),
+    'Q19': UnitInfo(
+      code: 'Q19',
+      symbol: 'nat/s',
+      description: 'natural unit of information per second',
+    ),
+    'Q20': UnitInfo(
+      code: 'Q20',
+      symbol: 's/kg',
+      description: 'second per kilogramm',
+    ),
+    'Q21': UnitInfo(
+      code: 'Q21',
+      symbol: 'W·m²',
+      description: 'watt square metre',
+    ),
+    'Q22': UnitInfo(
+      code: 'Q22',
+      symbol: '1/(Hz·rad·m³)',
+      description: 'second per radian cubic metre',
+    ),
+    'Q23': UnitInfo(
+      code: 'Q23',
+      symbol: '1/Wb',
+      description: 'weber to the power minus one',
+    ),
+    'Q24': UnitInfo(
+      code: 'Q24',
+      symbol: '1/in',
+      description: 'reciprocal inch',
+    ),
+    'Q25': UnitInfo(code: 'Q25', symbol: 'dpt', description: 'dioptre'),
+    'Q26': UnitInfo(code: 'Q26', symbol: '1/1', description: 'one per one'),
+    'Q27': UnitInfo(
+      code: 'Q27',
+      symbol: 'N·m/m²',
+      description: 'newton metre per metre',
+    ),
+    'Q28': UnitInfo(
+      code: 'Q28',
+      symbol: 'kg/(m²·Pa·s)',
+      description: 'kilogram per square metre pascal second',
+    ),
+    'Q29': UnitInfo(
+      code: 'Q29',
+      symbol: 'µg/hg',
+      description: 'microgram per hectogram',
+    ),
+    'Q3': UnitInfo(code: 'Q3', symbol: '', description: 'meal'),
+    'Q30': UnitInfo(
+      code: 'Q30',
+      symbol: 'pH',
+      description: 'pH (potential of Hydrogen)',
+    ),
+    'Q31': UnitInfo(
+      code: 'Q31',
+      symbol: 'kJ/g',
+      description: 'kilojoule per gram',
+    ),
+    'Q32': UnitInfo(code: 'Q32', symbol: 'fl', description: 'femtolitre'),
+    'Q33': UnitInfo(code: 'Q33', symbol: 'pl', description: 'picolitre'),
+    'Q34': UnitInfo(code: 'Q34', symbol: 'nl', description: 'nanolitre'),
+    'Q35': UnitInfo(
+      code: 'Q35',
+      symbol: 'MW/min',
+      description: 'megawatts per minute',
+    ),
+    'Q36': UnitInfo(
+      code: 'Q36',
+      symbol: 'm2/m3',
+      description: 'square metre per cubic metre',
+    ),
+    'Q37': UnitInfo(
+      code: 'Q37',
+      symbol: '',
+      description: 'Standard cubic metre per day',
+    ),
+    'Q38': UnitInfo(
+      code: 'Q38',
+      symbol: '',
+      description: 'Standard cubic metre per hour',
+    ),
+    'Q39': UnitInfo(
+      code: 'Q39',
+      symbol: '',
+      description: 'Normalized cubic metre per day',
+    ),
+    'Q40': UnitInfo(
+      code: 'Q40',
+      symbol: '',
+      description: 'Normalized cubic metre per hour',
+    ),
+    'Q41': UnitInfo(
+      code: 'Q41',
+      symbol: '',
+      description: 'Joule per normalised cubic metre',
+    ),
+    'Q42': UnitInfo(
+      code: 'Q42',
+      symbol: '',
+      description: 'Joule per standard cubic metre',
+    ),
+    'QA': UnitInfo(code: 'QA', symbol: '', description: 'page - facsimile'),
+    'QAN': UnitInfo(
+      code: 'QAN',
+      symbol: '',
+      description: 'quarter (of a year)',
+    ),
+    'QB': UnitInfo(code: 'QB', symbol: '', description: 'page - hardcopy'),
+    'QD': UnitInfo(code: 'QD', symbol: '', description: 'quarter dozen'),
+    'QH': UnitInfo(code: 'QH', symbol: '', description: 'quarter hour'),
+    'QK': UnitInfo(code: 'QK', symbol: '', description: 'quarter kilogram'),
+    'QR': UnitInfo(code: 'QR', symbol: 'qr', description: 'quire'),
+    'QT': UnitInfo(code: 'QT', symbol: 'qt (US)', description: 'quart (US)'),
+    'QTD': UnitInfo(
+      code: 'QTD',
+      symbol: 'dry qt (US)',
+      description: 'dry quart (US)',
+    ),
+    'QTI': UnitInfo(code: 'QTI', symbol: 'qt (UK)', description: 'quart (UK)'),
+    'QTL': UnitInfo(
+      code: 'QTL',
+      symbol: 'liq qt (US)',
+      description: 'liquid quart (US)',
+    ),
+    'QTR': UnitInfo(
+      code: 'QTR',
+      symbol: 'Qr (UK)',
+      description: 'quarter (UK)',
+    ),
+    'R1': UnitInfo(code: 'R1', symbol: '', description: 'pica'),
+    'R4': UnitInfo(code: 'R4', symbol: 'cal', description: 'calorie'),
+    'R9': UnitInfo(code: 'R9', symbol: '', description: 'thousand cubic metre'),
+    'RA': UnitInfo(code: 'RA', symbol: '', description: 'rack'),
+    'RD': UnitInfo(code: 'RD', symbol: '', description: 'rod'),
+    'RG': UnitInfo(code: 'RG', symbol: '', description: 'ring'),
+    'RH': UnitInfo(
+      code: 'RH',
+      symbol: '',
+      description: 'running or operating hour',
+    ),
+    'RK': UnitInfo(code: 'RK', symbol: '', description: 'roll metric measure'),
+    'RL': UnitInfo(code: 'RL', symbol: '', description: 'reel'),
+    'RM': UnitInfo(code: 'RM', symbol: '', description: 'ream'),
+    'RN': UnitInfo(code: 'RN', symbol: '', description: 'ream metric measure'),
+    'RO': UnitInfo(code: 'RO', symbol: '', description: 'roll'),
+    'ROM': UnitInfo(code: 'ROM', symbol: '', description: 'room'),
+    'RP': UnitInfo(code: 'RP', symbol: '', description: 'pound per ream'),
+    'RPM': UnitInfo(
+      code: 'RPM',
+      symbol: 'r/min',
+      description: 'revolutions per minute',
+    ),
+    'RPS': UnitInfo(
+      code: 'RPS',
+      symbol: 'r/s',
+      description: 'revolutions per second',
+    ),
+    'RS': UnitInfo(code: 'RS', symbol: '', description: 'reset'),
+    'RT': UnitInfo(code: 'RT', symbol: '', description: 'revenue ton mile'),
+    'RU': UnitInfo(code: 'RU', symbol: '', description: 'run'),
+    'S3': UnitInfo(
+      code: 'S3',
+      symbol: 'ft²/s',
+      description: 'square foot per second',
+    ),
+    'S4': UnitInfo(
+      code: 'S4',
+      symbol: 'm²/s',
+      description: 'square metre per second',
+    ),
+    'S5': UnitInfo(
+      code: 'S5',
+      symbol: '',
+      description: 'sixty fourths of an inch',
+    ),
+    'S6': UnitInfo(code: 'S6', symbol: '', description: 'session'),
+    'S7': UnitInfo(code: 'S7', symbol: '', description: 'storage unit'),
+    'S8': UnitInfo(
+      code: 'S8',
+      symbol: '',
+      description: 'standard advertising unit',
+    ),
+    'SA': UnitInfo(code: 'SA', symbol: '', description: 'sack'),
+    'SAN': UnitInfo(
+      code: 'SAN',
+      symbol: '',
+      description: 'half year (6 months)',
+    ),
+    'SCO': UnitInfo(code: 'SCO', symbol: '', description: 'score'),
+    'SCR': UnitInfo(code: 'SCR', symbol: '', description: 'scruple'),
+    'SD': UnitInfo(code: 'SD', symbol: '', description: 'solid pound'),
+    'SE': UnitInfo(code: 'SE', symbol: '', description: 'section'),
+    'SEC': UnitInfo(
+      code: 'SEC',
+      symbol: 's',
+      description: 'second [unit of time]',
+    ),
+    'SET': UnitInfo(code: 'SET', symbol: '', description: 'set'),
+    'SG': UnitInfo(code: 'SG', symbol: '', description: 'segment'),
+    'SHT': UnitInfo(code: 'SHT', symbol: '', description: 'shipping ton'),
+    'SIE': UnitInfo(code: 'SIE', symbol: 'S', description: 'siemens'),
+    'SK': UnitInfo(code: 'SK', symbol: '', description: 'split tank truck'),
+    'SL': UnitInfo(code: 'SL', symbol: '', description: 'slipsheet'),
+    'SM3': UnitInfo(
+      code: 'SM3',
+      symbol: '',
+      description: 'Standard cubic metre',
+    ),
+    'SMI': UnitInfo(
+      code: 'SMI',
+      symbol: 'mile',
+      description: 'mile (statute mile)',
+    ),
+    'SN': UnitInfo(code: 'SN', symbol: 'rd²', description: 'square rod'),
+    'SO': UnitInfo(code: 'SO', symbol: '', description: 'spool'),
+    'SP': UnitInfo(code: 'SP', symbol: '', description: 'shelf package'),
+    'SQ': UnitInfo(code: 'SQ', symbol: '', description: 'square'),
+    'SQR': UnitInfo(code: 'SQR', symbol: '', description: 'square, roofing'),
+    'SR': UnitInfo(code: 'SR', symbol: '', description: 'strip'),
+    'SS': UnitInfo(code: 'SS', symbol: '', description: 'sheet metric measure'),
+    'SST': UnitInfo(
+      code: 'SST',
+      symbol: '',
+      description: 'short standard (7200 matches)',
+    ),
+    'ST': UnitInfo(code: 'ST', symbol: '', description: 'sheet'),
+    'STC': UnitInfo(code: 'STC', symbol: '', description: 'stick'),
+    'STI': UnitInfo(code: 'STI', symbol: 'st', description: 'stone (UK)'),
+    'STK': UnitInfo(code: 'STK', symbol: '', description: 'stick, cigarette'),
+    'STL': UnitInfo(code: 'STL', symbol: '', description: 'standard litre'),
+    'STN': UnitInfo(
+      code: 'STN',
+      symbol: 'ton (US)',
+      description: 'ton (US) or short ton (UK/US)',
+    ),
+    'STW': UnitInfo(code: 'STW', symbol: '', description: 'straw'),
+    'SV': UnitInfo(code: 'SV', symbol: '', description: 'skid'),
+    'SW': UnitInfo(code: 'SW', symbol: '', description: 'skein'),
+    'SX': UnitInfo(code: 'SX', symbol: '', description: 'shipment'),
+    'SYR': UnitInfo(code: 'SYR', symbol: '', description: 'syringe'),
+    'T0': UnitInfo(
+      code: 'T0',
+      symbol: '',
+      description: 'telecommunication line in service',
+    ),
+    'T1': UnitInfo(code: 'T1', symbol: '', description: 'thousand pound gross'),
+    'T3': UnitInfo(code: 'T3', symbol: '', description: 'thousand piece'),
+    'T4': UnitInfo(code: 'T4', symbol: '', description: 'thousand bag'),
+    'T5': UnitInfo(code: 'T5', symbol: '', description: 'thousand casing'),
+    'T6': UnitInfo(code: 'T6', symbol: '', description: 'thousand gallon (US)'),
+    'T7': UnitInfo(code: 'T7', symbol: '', description: 'thousand impression'),
+    'T8': UnitInfo(code: 'T8', symbol: '', description: 'thousand linear inch'),
+    'TA': UnitInfo(code: 'TA', symbol: '', description: 'tenth cubic foot'),
+    'TAH': UnitInfo(
+      code: 'TAH',
+      symbol: 'kA·h',
+      description: 'kiloampere hour (thousand ampere hour)',
+    ),
+    'TAN': UnitInfo(
+      code: 'TAN',
+      symbol: 'TAN',
+      description: 'total acid number',
+    ),
+    'TC': UnitInfo(code: 'TC', symbol: '', description: 'truckload'),
+    'TD': UnitInfo(code: 'TD', symbol: '', description: 'therm'),
+    'TE': UnitInfo(code: 'TE', symbol: '', description: 'tote'),
+    'TF': UnitInfo(code: 'TF', symbol: '', description: 'ten square yard'),
+    'TI': UnitInfo(code: 'TI', symbol: '', description: 'thousand square inch'),
+    'TIC': UnitInfo(
+      code: 'TIC',
+      symbol: '',
+      description: 'metric ton, including container',
+    ),
+    'TIP': UnitInfo(
+      code: 'TIP',
+      symbol: '',
+      description: 'metric ton, including inner packaging',
+    ),
+    'TJ': UnitInfo(
+      code: 'TJ',
+      symbol: '',
+      description: 'thousand square centimetre',
+    ),
+    'TK': UnitInfo(code: 'TK', symbol: '', description: 'tank, rectangular'),
+    'TKM': UnitInfo(
+      code: 'TKM',
+      symbol: 't·km',
+      description: 'tonne kilometre',
+    ),
+    'TL': UnitInfo(
+      code: 'TL',
+      symbol: '',
+      description: 'thousand foot (linear)',
+    ),
+    'TMS': UnitInfo(
+      code: 'TMS',
+      symbol: '',
+      description: 'kilogram of imported meat, less offal',
+    ),
+    'TN': UnitInfo(code: 'TN', symbol: '', description: 'tin'),
+    'TNE': UnitInfo(
+      code: 'TNE',
+      symbol: 't',
+      description: 'tonne (metric ton)',
+    ),
+    'TP': UnitInfo(code: 'TP', symbol: '', description: 'ten pack'),
+    'TPI': UnitInfo(code: 'TPI', symbol: 'TPI', description: 'teeth per inch'),
+    'TPR': UnitInfo(code: 'TPR', symbol: '', description: 'ten pair'),
+    'TQ': UnitInfo(code: 'TQ', symbol: '', description: 'thousand foot'),
+    'TQD': UnitInfo(
+      code: 'TQD',
+      symbol: 'km³/d',
+      description: 'thousand cubic metre per day',
+    ),
+    'TR': UnitInfo(code: 'TR', symbol: '', description: 'ten square foot'),
+    'TRL': UnitInfo(code: 'TRL', symbol: '', description: 'trillion (EUR)'),
+    'TS': UnitInfo(code: 'TS', symbol: '', description: 'thousand square foot'),
+    'TSD': UnitInfo(
+      code: 'TSD',
+      symbol: '',
+      description: 'tonne of substance 90 % dry',
+    ),
+    'TSH': UnitInfo(
+      code: 'TSH',
+      symbol: '',
+      description: 'ton of steam per hour',
+    ),
+    'TST': UnitInfo(code: 'TST', symbol: '', description: 'ten set'),
+    'TT': UnitInfo(
+      code: 'TT',
+      symbol: '',
+      description: 'thousand linear metre',
+    ),
+    'TTS': UnitInfo(
+      code: 'TTS',
+      symbol: '',
+      description: 'ten thousand sticks',
+    ),
+    'TU': UnitInfo(code: 'TU', symbol: '', description: 'tube'),
+    'TV': UnitInfo(code: 'TV', symbol: '', description: 'thousand kilogram'),
+    'TW': UnitInfo(code: 'TW', symbol: '', description: 'thousand sheet'),
+    'TY': UnitInfo(code: 'TY', symbol: '', description: 'tank, cylindrical'),
+    'U1': UnitInfo(code: 'U1', symbol: '', description: 'treatment'),
+    'U2': UnitInfo(code: 'U2', symbol: '', description: 'tablet'),
+    'UA': UnitInfo(code: 'UA', symbol: 'Torr', description: 'torr'),
+    'UB': UnitInfo(
+      code: 'UB',
+      symbol: '',
+      description: 'telecommunication line in service average',
+    ),
+    'UC': UnitInfo(
+      code: 'UC',
+      symbol: '',
+      description: 'telecommunication port',
+    ),
+    'UD': UnitInfo(code: 'UD', symbol: '', description: 'tenth minute'),
+    'UE': UnitInfo(code: 'UE', symbol: '', description: 'tenth hour'),
+    'UF': UnitInfo(
+      code: 'UF',
+      symbol: '',
+      description: 'usage per telecommunication line average',
+    ),
+    'UH': UnitInfo(code: 'UH', symbol: '', description: 'ten thousand yard'),
+    'UM': UnitInfo(code: 'UM', symbol: '', description: 'million unit'),
+    'VA': UnitInfo(
+      code: 'VA',
+      symbol: 'V·A / kg',
+      description: 'volt - ampere per kilogram',
+    ),
+    'VI': UnitInfo(code: 'VI', symbol: '', description: 'vial'),
+    'VLT': UnitInfo(code: 'VLT', symbol: 'V', description: 'volt'),
+    'VP': UnitInfo(code: 'VP', symbol: '', description: 'percent volume'),
+    'VQ': UnitInfo(code: 'VQ', symbol: '', description: 'bulk'),
+    'VS': UnitInfo(code: 'VS', symbol: '', description: 'visit'),
+    'W2': UnitInfo(code: 'W2', symbol: '', description: 'wet kilo'),
+    'W4': UnitInfo(code: 'W4', symbol: '', description: 'two week'),
+    'WA': UnitInfo(
+      code: 'WA',
+      symbol: 'W/kg',
+      description: 'watt per kilogram',
+    ),
+    'WB': UnitInfo(code: 'WB', symbol: '', description: 'wet pound'),
+    'WCD': UnitInfo(code: 'WCD', symbol: '', description: 'cord'),
+    'WE': UnitInfo(code: 'WE', symbol: '', description: 'wet ton'),
+    'WEB': UnitInfo(code: 'WEB', symbol: 'Wb', description: 'weber'),
+    'WEE': UnitInfo(code: 'WEE', symbol: 'wk', description: 'week'),
+    'WG': UnitInfo(code: 'WG', symbol: '', description: 'wine gallon'),
+    'WH': UnitInfo(code: 'WH', symbol: '', description: 'wheel'),
+    'WHR': UnitInfo(code: 'WHR', symbol: 'W·h', description: 'watt hour'),
+    'WI': UnitInfo(
+      code: 'WI',
+      symbol: '',
+      description: 'weight per square inch',
+    ),
+    'WM': UnitInfo(code: 'WM', symbol: '', description: 'working month'),
+    'WR': UnitInfo(code: 'WR', symbol: '', description: 'wrap'),
+    'WSD': UnitInfo(code: 'WSD', symbol: 'std', description: 'standard'),
+    'WTT': UnitInfo(code: 'WTT', symbol: 'W', description: 'watt'),
+    'WW': UnitInfo(code: 'WW', symbol: '', description: 'millilitre of water'),
+    'X1': UnitInfo(
+      code: 'X1',
+      symbol: 'ch (UK)',
+      description: r"Gunter's chain",
+    ),
+    'YDK': UnitInfo(code: 'YDK', symbol: 'yd²', description: 'square yard'),
+    'YDQ': UnitInfo(code: 'YDQ', symbol: 'yd³', description: 'cubic yard'),
+    'YL': UnitInfo(code: 'YL', symbol: '', description: 'hundred linear yard'),
+    'YRD': UnitInfo(code: 'YRD', symbol: 'yd', description: 'yard'),
+    'YT': UnitInfo(code: 'YT', symbol: '', description: 'ten yard'),
+    'Z1': UnitInfo(code: 'Z1', symbol: '', description: 'lift van'),
+    'Z11': UnitInfo(code: 'Z11', symbol: '', description: 'hanging container'),
+    'Z2': UnitInfo(code: 'Z2', symbol: '', description: 'chest'),
+    'Z3': UnitInfo(code: 'Z3', symbol: '', description: 'cask'),
+    'Z4': UnitInfo(code: 'Z4', symbol: '', description: 'hogshead'),
+    'Z5': UnitInfo(code: 'Z5', symbol: '', description: 'lug'),
+    'Z6': UnitInfo(code: 'Z6', symbol: '', description: 'conference point'),
+    'Z8': UnitInfo(code: 'Z8', symbol: '', description: 'newspage agate line'),
+    'Z9': UnitInfo(code: 'Z9', symbol: 'nmol', description: 'nanomole'),
+    'ZP': UnitInfo(code: 'ZP', symbol: '', description: 'page'),
+    'ZZ': UnitInfo(code: 'ZZ', symbol: '', description: 'mutually defined'),
   };
 }
