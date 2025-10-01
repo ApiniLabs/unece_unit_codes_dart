@@ -1,3 +1,7 @@
+## 2.0.1
+
+* Fix example directory placement
+
 ## 2.0.0
 
 * Add UnitInfo class to provide additional information about the unit code
