@@ -19,7 +19,7 @@ In your dart/flutter project add the dependency:
 
 ```yaml
 dependencies:
-    unece_unit_codes: ^1.1.0
+    unece_unit_codes: ^2.0.0
 ```
 
 For help getting started with Flutter, check out
@@ -34,7 +34,7 @@ import 'package:unece_unit_codes/unece_unit_codes.dart';
 
 void main() {
   // Lookup symbol for a unit code
-  String symbol = getUnitSymbol('23'); // Returns 'g/cm³'
+  String symbol = parseUnitCode('23'); // Returns 'g/cm³'
   print('Symbol for unit code 23: ' + symbol);
 
   // Validate a unit code
@@ -42,7 +42,7 @@ void main() {
   print('Is unit code 23 valid? ' + isValid.toString());
 
   // Invalid code example
-  String? invalidSymbol = getUnitSymbol('FOO'); // Returns null
+  String? invalidSymbol = parseUnitCode('FOO'); // Returns null
 }
 ```
 

@@ -3,4 +3,6 @@
 /// according to the public specification.
 library;
 
+export 'src/exceptions.dart';
 export 'src/unece_unit_codes.dart';
+export 'src/unit_info.dart';
