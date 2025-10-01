@@ -19,13 +19,12 @@ In your dart/flutter project add the dependency:
 
 ```yaml
 dependencies:
-    unece_unit_codes: ^1.0.0
+    unece_unit_codes: ^1.1.0
 ```
 
 For help getting started with Flutter, check out
 the [online documentation](https://docs.flutter.dev/get-started/install), which offers
 tutorials.
-
 
 
 ## Example Usage
