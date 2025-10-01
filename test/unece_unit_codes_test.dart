@@ -1,5 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
-import 'package:unece_unit_codes/src/unece_unit_codes.dart';
+import 'package:test/test.dart';
+import 'package:unece_unit_codes/unece_unit_codes.dart';
 
 void main() {
   test('getUnitSymbol returns correct symbol', () {
