@@ -1,6 +1,6 @@
 name: unece_unit_codes
 description: "Dart package to support UNECE Unit Codes of Measure (UN/CEFACT Common Code for Units of Measure) according to the public specification."
-version: 2.0.0
+version: 2.0.1
 homepage: https://labfreed.org
 repository: https://github.com/ApiniLabs/unece_unit_codes_dart
 issue_tracker: https://github.com/ApiniLabs/unece_unit_codes_dart/issues
